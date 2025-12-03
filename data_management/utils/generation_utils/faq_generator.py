@@ -7,7 +7,7 @@ class FaqUpdateOrchestrator:
         self.command = command
 
     def run(self):
-        faq_file_path = settings.BASE_DIR / 'data_management' / 'data' / 'FAQ.jsonl'
+        faq_file_path = settings.BASE_DIR / 'data_management' / 'data' / 'faqs.jsonl'
         self.command.stdout.write(f"Importing FAQs from {faq_file_path}...")
 
         with open(faq_file_path, 'r', encoding='utf-8') as f:
