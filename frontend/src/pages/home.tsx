@@ -1,11 +1,13 @@
 import React from 'react';
 import heroImage from '../assets/hero.png';
+import { ProductCarousel } from '../components/ProductCarousel';
+import Pricing from '../components/Pricing';
 
 const HomePage = () => {
   return (
-    <div>
+    <main>
       {/* --- Hero Section --- */}
-      <div className="container mx-auto px-4 pt-16 pb-8">
+      <section className="container mx-auto px-4 pt-16 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <img 
@@ -23,8 +25,18 @@ const HomePage = () => {
             </p>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* --- Hierarchy Section --- */}
+      <section className="bg-gray-50">
+        <ProductCarousel />
+      </section>
+
+      {/* --- Pricing Section --- */}
+      <section>
+        <Pricing />
+      </section>
+    </main>
   );
 };
 
