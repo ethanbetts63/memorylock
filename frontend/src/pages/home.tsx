@@ -1,4 +1,3 @@
-import React from 'react';
 import heroImage from '../assets/hero.png';
 import { ProductCarousel } from '../components/ProductCarousel';
 import Pricing from '../components/Pricing';
