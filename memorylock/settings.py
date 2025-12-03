@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "events",
     "notifications",
     "payments",
+    "datamanagement",
 ]
 
 MIDDLEWARE = [
