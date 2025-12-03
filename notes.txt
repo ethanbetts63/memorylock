@@ -1,0 +1,213 @@
+cd coding/neverforget
+.\venv\Scripts\Activate.ps1
+🚀 Never Forget– MVP Breakdown
+Think of the MVP as 4 pillars:
+Frontend (homepage + flows)
+
+
+User system (accounts + contact options)
+
+
+Event system (create/edit/pay for reminders)
+
+
+Notification infrastructure (automated + manual)
+
+
+
+✅ Core MVP Features
+This is the minimal set you need to launch a basic paid version.
+1. Homepage (public)
+Clear messaging:
+“Set it once. We’ll remind you no matter what.”
+
+
+List notification hierarchy
+
+
+One-time pricing
+
+
+Trust/legal section (important for this product)
+
+
+2. Account System
+During sign-up you collect:
+Email
+
+
+Phone (optional but encouraged)
+
+
+Backup phone (optional)
+
+
+Physical address (optional — for the later “letter” stage)
+
+
+Emergency contact(s): name + phone + email
+
+
+Consent checkboxes (very important legally)
+
+
+3. Event Creation Flow
+User creates a single reminder event:
+Title (e.g., “IUD removal”, “Patent renewal”)
+
+
+Description (optional)
+
+
+Date + time
+
+
+Notification window (e.g., 30 days before, 7 days before)
+
+
+Everything is included in one price in MVP
+
+
+4. Payment
+Single one-time purchase.
+ Flow:
+Create event → Pay → Event activates
+ Use Stripe or PayPal. Stripe is easier.
+
+
+5. Manage Events (Dashboard)
+Edit date
+
+
+Change contact details
+
+
+Add/remove notifications
+
+
+Delete event
+ All changes should log internally so the system knows the latest info.
+
+
+6. Notification Infrastructure
+Tier 1: Automatic
+Push notification (web push)
+
+
+Email
+
+
+SMS
+
+
+Tier 2: Semi-automated
+Automated phone call via Twilio Voice
+
+
+“Press 1 to acknowledge” type menu (simple logic)
+
+
+Tier 3: Manual
+ Admin receives a task:
+“Contact Ethan about IUD reminder, escalated to manual outreach.”
+ Admin tools:
+
+
+Mark contact attempt done
+
+
+Upload notes
+
+
+Mark user as ‘confirmed’
+
+
+This can be handled by the same ‘event engine’—admins get notifications the same as users.
+
+This is exactly enough to sell a real product with full hierarchy support, even if some steps are semi-manual early on.
+
+IUD reminder app. 
+
+Not just reminders. But a hierarchy of reminders. 
+
+Push notification. 
+
+Email
+
+Text
+
+Calls
+
+Emergency contacts
+
+letters
+
+We will stalk you and try to find you and will continue to do so until we get a response. 
+
+
+
+Other use cases include:
+Patents and trusts
+Warranty expiration for business (say they installed solar panels and they need to get it inspected every 5 years else they lose their warranty. 
+
+Have a deadmans switch. If an admin does not log in for 300 days automatically run through all protocols for everyone and declare the business as shutting down. 
+
+The terms and conditions are key. You need to mention the deadmans switch. And you need to ensure that the nuclear response is clearly defined. If you say we will do anything to get in touch that responsability is infinite. You need it to be finite. So define what hunting them actaully means. 
+
+I think you could even call doctors directly and offer then service. Maybe even give them custom discount codes and a cut of any sign ups. 
+Neverforget.com.au
+
+Never forget a patent.
+Never forget an appointment. 
+Never miss an anniversary. 
+Never miss anything.
+
+Designed for anything that is incredibly important but a long way away. 
+
+Personal information: 
+Name 
+I dont think we really need nor want to take any more information than necessary. 
+
+Contact information (required):
+Phone number
+Email
+
+Contact information (optional but recommended):
+Back up phone
+Back up emails
+Emergency contacts
+Social handles. 
+Home address
+
+
+Notification for timeline for events more than a year away:
+For every year approaching the date you get a single email that you do not have to respond to that says X is Y years away. 
+
+The user should be able to choose how long before the event we will begin the notification hierarchy. Using that amount of time we spread out the notifications.  Lets say 6months for example. 
+
+Level 1:
+180 days out we send a push notification and email. 1 wait a week. If no response we try again. If no response we try 1 more time. So (notification + email + 1 week wait) we can continue this every week until the user responds or the deadline is hit. 
+
+Level 2: 150 days left we start sending weekly text messages in addition to the emails and notifications. 
+
+Level 3: 
+120 days left we use any backup numbers and emails provided. + all other notification methods used above. Continuing a weekly notification cycle.
+
+Level 4 (admin level): 
+90 days out or 50% of time remaining the admin now get involved. Weekly calls to primary and secondary numbers. 
+
+Level 5 (admin level): 
+60 days out. Automated email to emergency contacts.
+
+Level 6 (admin level): 53 days out. If no response from emergency contacts via email. Emergency contact phone numbers are used. Manual calls are made. 
+
+Level 7 (admin level):
+In addition to all previous levels continually being repeated. We admin will attempt an online stalk of the individual. I dont actually think i will add this level. But its good to keep in mind for later. 
+
+
+Neverforget
+Setandforget
+memorylock (not taken)
+dontforget (not taken)
+Forgetnot (not taken)
+Forgetproof (not takenO)
