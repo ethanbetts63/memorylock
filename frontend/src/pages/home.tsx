@@ -2,6 +2,7 @@ import React from 'react';
 import heroImage from '../assets/hero.png';
 import { ProductCarousel } from '../components/ProductCarousel';
 import Pricing from '../components/Pricing';
+import { Faq } from '../components/Faq';
 
 const HomePage = () => {
   return (
@@ -35,6 +36,18 @@ const HomePage = () => {
       {/* --- Pricing Section --- */}
       <section>
         <Pricing />
+      </section>
+
+      {/* --- FAQ Section --- */}
+      <section className="bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
+          <Faq 
+            title="Frequently Asked Questions"
+            page="home"
+            imageSrc={heroImage}
+            imageAlt="Abstract representation of questions"
+          />
+        </div>
       </section>
     </main>
   );

@@ -1,0 +1,37 @@
+User Flow Strategy: Anonymous-First Event Creation
+
+This document outlines the planned user flow for creating a new event. The primary goal is to minimize friction for first-time users by allowing them to create and pay for an event without the prerequisite of creating an account. This is often called a "Lazy Registration" or "Anonymous-First" approach.
+
+**Phase 1 Development Note:**
+For the initial phase of development, Step 3 (Confirmation & Payment) will be skipped entirely to simplify the process and focus on core functionality. We will proceed directly from Step 2 to Step 4.
+
+---
+
+### Step 1: Homepage & Call to Action
+
+*   **User Experience:** The user lands on the homepage. The primary focus is a clear call to action like "Create Your Reminder". Prominent "Login" or "Sign Up" buttons are avoided to reduce initial friction. The user simply clicks the main button to begin.
+*   **System Action:** Clicking the call to action navigates the user directly to the event creation form.
+
+### Step 2: Gather Event & Contact Information
+
+*   **User Experience:** The user fills out a single form with all necessary details. This includes the event specifics (e.g., name, date) and the required contact information for the notification hierarchy (e.g., email address, phone number). It's made clear that this information is essential for the service to function.
+*   **System Action:** The frontend gathers the form data to be submitted.
+
+### Step 3: Confirmation & Payment
+
+*   **User Experience:** The user reviews their event details and the final price. They are then seamlessly redirected to a secure payment processor (e.g., Stripe) to enter their payment information and complete the purchase.
+*   **System Action (Backend):** The system generates the order details and initiates the transaction with the payment provider.
+*   **NOTE:** As stated above, this step will be skipped in Phase 1.
+
+### Step 4: Success & Optional Account Creation
+
+*   **User Experience:** After a successful "payment" (or simply after form submission in Phase 1), the user is redirected to a success page. The message is clear: "Your reminder is active!"
+    On this page, they are presented with a low-pressure, optional prompt: "To manage this event or add more in the future, simply set a password for your account."
+*   **System Action (Backend):** This is the core of the "lazy registration." When the event is submitted, the backend *automatically and invisibly* performs the following:
+    1.  Creates a new, standard `User` object in the database.
+    2.  This user account is marked as "unclaimed" or "inactive" and has no password.
+    3.  The newly created `Event` is associated with this new, unclaimed user account.
+    4.  A secure session cookie is sent to the user's browser, linking them to this unclaimed account.
+*   **The User's Choice:**
+    *   **If they choose to set a password:** The form submission updates their user object, setting the password and activating the account. They are now fully "logged in" and can be redirected to a dashboard.
+    *   **If they choose not to set a password:** They can simply leave the page. The event is still scheduled and will work correctly. To manage the event later, they would use a "magic link" system (e.g., "Find my event" on the login page) which would email them a secure, one-time login link.
