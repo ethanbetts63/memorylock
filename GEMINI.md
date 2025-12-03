@@ -1,0 +1,1 @@
+The user prefers that I do not run npm or git commands or python manage.py runserver.
