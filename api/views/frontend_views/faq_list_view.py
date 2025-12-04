@@ -6,7 +6,7 @@ from ...serializers import FaqSerializer
 from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
 
-@method_decorator(cache_page(60 * 60 * 24), name='dispatch') # Apply 24-hour cache
+#@method_decorator(cache_page(60 * 60 * 24), name='dispatch') # Apply 24-hour cache
 class FaqListView(ListAPIView):
     permission_classes = [AllowAny]
     serializer_class = FaqSerializer
