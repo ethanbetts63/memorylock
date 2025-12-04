@@ -38,12 +38,12 @@ const HomePage = () => {
       <div className="container mx-auto px-4 lg:grid lg:grid-cols-3 lg:gap-8">
         
         {/* Main Content Column (2/3 width) */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 bg-primary text-primary-foreground rounded-lg p-8 flex flex-col gap-8">
           <Letter />
-          <section className="bg-gray-50 py-8">
+          <section>
             <Pricing />
           </section>
-          <section className="bg-gray-50 py-16">
+          <section>
             <div className="container mx-auto px-4">
               <Faq 
                 title="Frequently Asked Questions"

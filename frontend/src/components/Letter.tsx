@@ -2,13 +2,13 @@ import React from 'react';
 
 export const Letter: React.FC = () => {
   return (
-    <section className="py-8 bg-white">
+    <section>
       <div className="container mx-auto px-4 md:px-18">
-        <h2 className="text-center text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
+        <h2 className="text-center text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground mb-4">
           Forgetfulness is expensive.
         </h2>
-        <p className="italic text-center text-xl text-gray-900 mb-8">MemoryLock is $25.99.</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-lg text-gray-900">
+        <p className="italic text-center text-xl text-primary-foreground mb-8">MemoryLock is $25.99.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-lg text-primary-foreground">
           <div className="flex flex-col gap-4">
             <p>
               We all have these long-term, slow-burn obligations that matter far more than our calendars treat them. Passports. Visas. Domains. Warranties. Licenses. Insurance renewals. IUD’s. Trademark filings. Things that are harmless today but catastrophic when the deadline quietly slips by.
@@ -31,8 +31,8 @@ export const Letter: React.FC = () => {
               It’s not complicated or bloated—it’s a safety net for your long-memory. Feel free to poke around, set up your first reminder, and see how it feels to finally <span className="font-bold bg-yellow-300 px-1 py-0.5 rounded-md italic text-black">offload the “don’t forget”</span> part of your brain.
             </p>
             <div>
-              <p>Ethan Betts, <a href="mailto:ethanbetts63@gmail.com" className="text-blue-600 hover:underline">ethanbetts63@gmail.com</a></p>
-              <p className="italic text-sm text-gray-600">Founder and Developer</p>
+              <p>Ethan Betts, <a href="mailto:ethanbetts63@gmail.com" className="text-sky-400 hover:underline">ethanbetts63@gmail.com</a></p>
+              <p className="italic text-sm text-muted-foreground">Founder and Developer</p>
             </div>
           </div>
         </div>

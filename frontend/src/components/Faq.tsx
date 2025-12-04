@@ -88,7 +88,7 @@ export const Faq: React.FC<FaqProps> = ({ title, page, imageSrc, imageAlt, srcSe
       <Card className="overflow-hidden p-0 border-0 shadow-none">
         <CardContent className="grid p-0 lg:grid-cols-2">
           <div className="p-6 lg:p-8 order-2 lg:order-1">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">{title}</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-primary-foreground mb-4">{title}</h2>
             {isLoading && <div>Loading FAQs...</div>}
             {error && <div className="text-red-500">Error: {error}</div>}
             {!isLoading && !error && (
@@ -114,7 +114,7 @@ export const Faq: React.FC<FaqProps> = ({ title, page, imageSrc, imageAlt, srcSe
               srcSet={srcSet}
               sizes={sizes}
               alt={imageAlt} 
-              className="h-full w-full object-contain dark:brightness-[0.2] dark:grayscale" />
+              className="h-full w-full object-contain" />
           </div>
         </CardContent>
       </Card>
