@@ -3,6 +3,7 @@ import { ProductCarousel } from '../components/ProductCarousel';
 import Pricing from '../components/Pricing';
 import { Faq } from '../components/Faq';
 import { Letter } from '../components/Letter';
+import { CtaCard } from '../components/CtaCard';
 
 const HomePage = () => {
   return (
@@ -29,30 +30,39 @@ const HomePage = () => {
       </section>
       
       {/* --- Hierarchy Section --- */}
-      <section className="bg-gray-50">
+      <section className="bg-gray-50 mb-16">
         <ProductCarousel />
       </section>
 
-
-      {/* --- Letter Section --- */}
-      <Letter />
-
-      {/* --- Pricing Section --- */}
-      <section className="bg-gray-50 py-8">
-        <Pricing />
-      </section>
-
-      {/* --- FAQ Section --- */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <Faq 
-            title="Frequently Asked Questions"
-            page="home"
-            imageSrc={heroImage}
-            imageAlt="Abstract representation of questions"
-          />
+      {/* --- Main Content & Sticky Sidebar --- */}
+      <div className="container mx-auto px-4 lg:grid lg:grid-cols-3 lg:gap-8">
+        
+        {/* Main Content Column (2/3 width) */}
+        <div className="lg:col-span-2">
+          <Letter />
+          <section className="bg-gray-50 py-8">
+            <Pricing />
+          </section>
+          <section className="bg-gray-50 py-16">
+            <div className="container mx-auto px-4">
+              <Faq 
+                title="Frequently Asked Questions"
+                page="home"
+                imageSrc={heroImage}
+                imageAlt="Abstract representation of questions"
+              />
+            </div>
+          </section>
         </div>
-      </section>
+
+        {/* Sticky Sidebar Column (1/3 width) */}
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <CtaCard />
+          </div>
+        </aside>
+
+      </div>
     </main>
   );
 };
