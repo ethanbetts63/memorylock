@@ -7,6 +7,10 @@ class FaqUpdateOrchestrator:
         self.command = command
 
     def run(self):
+        self.command.stdout.write(self.command.style.WARNING("Deleting all existing FAQs..."))
+        count, _ = FAQ.objects.all().delete()
+        self.command.stdout.write(self.command.style.SUCCESS(f"Deleted {count} FAQs."))
+
         faq_file_path = settings.BASE_DIR / 'data_management' / 'data' / 'faqs.jsonl'
         self.command.stdout.write(f"Importing FAQs from {faq_file_path}...")
 
