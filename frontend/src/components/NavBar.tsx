@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import logo from '../assets/hero.webp'; // Using hero image as a placeholder logo
+import logo from '../assets/logo.png'; 
 
 const NavBar: React.FC = () => {
   const isAuthenticated = false; // Placeholder for authentication state
@@ -15,7 +15,7 @@ const NavBar: React.FC = () => {
             <img 
               src={logo} 
               alt="MemoryLock Logo" 
-              className="h-12 w-12 flex-shrink-0 rounded-md object-cover" 
+              className="h-10 w-auto object-contain" 
             />
             <span className="font-bold text-xl hidden md:block">MemoryLock</span>
           </a>

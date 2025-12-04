@@ -43,7 +43,7 @@ const HomePage = () => {
       </section>
 
       {/* --- FAQ Section --- */}
-      <section className="py-16 border-t border-b">
+      <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <Faq 
             title="Frequently Asked Questions"
