@@ -33,7 +33,7 @@ const Pricing: React.FC = () => {
           <div className="bg-white border rounded-xl shadow-lg flex flex-col">
             <div className="p-8 flex-grow">
               <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">One-Time Payment</div>
-              <p className="block mt-1 text-5xl leading-tight font-bold text-black">$35.99</p>
+              <p className="block mt-1 text-5xl leading-tight font-bold text-black">$25.99</p>
               <p className="mt-2 text-gray-500">A single, unforgettable event deserves a single, simple price.</p>
               
               <ul className="mt-8 space-y-4">

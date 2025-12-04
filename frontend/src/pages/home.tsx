@@ -29,17 +29,18 @@ const HomePage = () => {
 
       {/* --- Letter Section --- */}
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 md:px-16">
-          <h2 className="text-center text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-12">
+        <div className="container mx-auto px-4 md:px-18">
+          <h2 className="text-center text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
             Forgetfulness is expensive.
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-lg text-gray-700">
+          <p className="italic text-center text-xl text-gray-900 mb-8">MemoryLock is $25.99.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-lg text-gray-900">
             <div className="flex flex-col gap-4">
               <p>
                 We all have these long-term, slow-burn obligations that matter far more than our calendars treat them. Passports. Visas. Domains. Warranties. Licenses. Insurance renewals. IUD’s. Trademark filings. Things that are harmless today but catastrophic when the deadline quietly slips by.
               </p>
               <p>
-                <span className="font-bold bg-yellow-300 px-1 py-0.5 rounded-md italic text-black">Calendar apps are built for next Tuesday.</span> Not high concequence events in the distant future. That gap costs people real money, real stress, and real consequences. And worst of all, it usually happens silently. You don’t realize what you forgot until the fallout arrives.
+                <span className="font-bold bg-yellow-300 px-1 py-0.5 rounded-md italic text-black">Calendar apps are built for next Tuesday.</span> Not high concequence events in the distant future. That gap costs people real money, real stress, and real consequences. Worst of all, it usually happens silently. You don’t realize what you forgot until the fallout arrives.
               </p>
               <p>
                 MemoryLock exists to eliminate that silence.
