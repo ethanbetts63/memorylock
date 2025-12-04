@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import logo from '../assets/hero.png'; // Using hero image as a placeholder logo
+import logo from '../assets/hero.webp'; // Using hero image as a placeholder logo
 
 const NavBar: React.FC = () => {
   const isAuthenticated = false; // Placeholder for authentication state

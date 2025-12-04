@@ -1,4 +1,4 @@
-import heroImage from '../assets/hero.png';
+import heroImage from '../assets/hero.webp';
 import { ProductCarousel } from '../components/ProductCarousel';
 import Pricing from '../components/Pricing';
 import { Faq } from '../components/Faq';
@@ -43,7 +43,7 @@ const HomePage = () => {
       </section>
 
       {/* --- FAQ Section --- */}
-      <section className="bg-gray-50 py-16">
+      <section className="py-16 border-t border-b">
         <div className="container mx-auto px-4">
           <Faq 
             title="Frequently Asked Questions"

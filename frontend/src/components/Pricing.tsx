@@ -10,9 +10,9 @@ const features = [
 ];
 
 const included = [
-  "Guaranteed Acknowledgement",
-  "Total Peace of Mind",
-  "A Permanent Safety Net",
+  "Notifications via Email, SMS, Calls and social media",
+  "Emergency contact outreach from an admin",
+  "Customizable notification schedule",
 ];
 
 const avoided = [
