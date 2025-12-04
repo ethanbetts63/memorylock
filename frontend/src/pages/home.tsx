@@ -19,10 +19,10 @@ const HomePage = () => {
             />
           </div>
           <div className="text-left">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl">
               Set it once. Never forget it. Ever.
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-primary-foreground">
               For deadlines and events so important they can't be missed, MemoryLock provides a guarantee. We use an escalating hierarchy of notifications — from emails and texts to direct calls and outreach to your designated contacts — to ensure your reminder is acknowledged.
             </p>
           </div>
@@ -30,7 +30,7 @@ const HomePage = () => {
       </section>
       
       {/* --- Hierarchy Section --- */}
-      <section className="bg-gray-50 mb-16">
+      <section className="bg-primary mb-16">
         <ProductCarousel />
       </section>
 

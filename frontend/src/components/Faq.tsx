@@ -85,10 +85,10 @@ export const Faq: React.FC<FaqProps> = ({ title, page, imageSrc, imageAlt, srcSe
   return (
     <>
       {generateJsonLd()}
-      <Card className="overflow-hidden p-0 border-0 shadow-none">
+      <Card className="bg-white text-gray-900 rounded-lg overflow-hidden">
         <CardContent className="grid p-0 lg:grid-cols-2">
           <div className="p-6 lg:p-8 order-2 lg:order-1">
-            <h2 className="text-3xl font-bold tracking-tight text-primary-foreground mb-4">{title}</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">{title}</h2>
             {isLoading && <div>Loading FAQs...</div>}
             {error && <div className="text-red-500">Error: {error}</div>}
             {!isLoading && !error && (
@@ -98,7 +98,7 @@ export const Faq: React.FC<FaqProps> = ({ title, page, imageSrc, imageAlt, srcSe
                 className="w-full"
               >
                 {faqs.map((faq, index) => (
-                  <AccordionItem value={`item-${index + 1}`} key={index} className="faq-item">
+                  <AccordionItem value={`item-${index + 1}`} key={index} className="faq-item border-b-0">
                     <AccordionTrigger>{faq.question}</AccordionTrigger>
                     <AccordionContent className="flex flex-col gap-4 text-balance">
                       <p>{faq.answer}</p>
