@@ -26,9 +26,15 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      
+      {/* --- Hierarchy Section --- */}
+      <section className="bg-gray-50">
+        <ProductCarousel />
+      </section>
+
 
       {/* --- Letter Section --- */}
-      <section className="py-16 bg-white">
+      <section className="py-8 bg-white">
         <div className="container mx-auto px-4 md:px-18">
           <h2 className="text-center text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
             Forgetfulness is expensive.
@@ -63,11 +69,6 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* --- Hierarchy Section --- */}
-      <section className="bg-gray-50">
-        <ProductCarousel />
       </section>
 
       {/* --- Pricing Section --- */}
