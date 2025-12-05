@@ -1,9 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { CheckCircle } from 'lucide-react';
+import { AccountCreationForm } from '@/components/AccountCreationForm';
 
 const ConfirmationPage = () => {
   const location = useLocation();
@@ -27,7 +25,7 @@ const ConfirmationPage = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-2xl">
+    <div className="container mx-auto px-4 py-8 max-w-4xl">
       <div className="space-y-8">
         <Card className="text-center">
           <CardHeader>
@@ -53,21 +51,8 @@ const ConfirmationPage = () => {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Manage This Event Later</CardTitle>
-            <CardDescription>
-              To make changes or view your notification schedule, set a password for your account. It only takes a second.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" placeholder="••••••••" />
-            </div>
-            <Button className="w-full">Activate Account & Go to Dashboard</Button>
-          </CardContent>
-        </Card>
+        <AccountCreationForm mode="activate" email={values.email} />
+        
       </div>
     </div>
   );

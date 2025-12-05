@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import logo from '../assets/logo.webp'; 
 
@@ -32,8 +33,12 @@ const NavBar: React.FC = () => {
             <Button variant="outline">Logout</Button>
           ) : (
             <>
-              <Button variant="ghost">Login</Button>
-              <Button>Sign Up</Button>
+              <Link to="/login">
+                <Button variant="ghost">Login</Button>
+              </Link>
+              <Link to="/signup">
+                <Button>Sign Up</Button>
+              </Link>
             </>
           )}
         </div>
