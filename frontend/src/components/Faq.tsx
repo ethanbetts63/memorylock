@@ -15,6 +15,7 @@ interface FaqItem {
 
 interface FaqProps {
   title: string;
+  subtitle?: string;
   page: string;
   imageSrc: string;
   imageAlt: string;
@@ -23,7 +24,7 @@ interface FaqProps {
   sizes?: string;
 }
 
-export const Faq: React.FC<FaqProps> = ({ title, page, imageSrc, imageAlt, imageSrcLandscape, srcSet, sizes }) => {
+export const Faq: React.FC<FaqProps> = ({ title, subtitle, page, imageSrc, imageAlt, imageSrcLandscape, srcSet, sizes }) => {
   const [faqs, setFaqs] = useState<FaqItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

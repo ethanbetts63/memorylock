@@ -6,6 +6,7 @@ import Pricing from '../components/Pricing';
 import { Faq } from '../components/Faq';
 import { Letter } from '../components/Letter';
 import { CtaCard } from '../components/CtaCard';
+import Footer from '../components/Footer';
 
 const HomePage = () => {
   return (
@@ -48,7 +49,8 @@ const HomePage = () => {
           <section className="bg-white text-gray-900 rounded-lg">
             <div className="container mx-auto px-4">
               <Faq 
-                title="The Fine Print (Plain English)"
+                title="The Fine Print"
+                subtitle="(Plain English)"
                 page="home"
                 imageSrc={faqImage}
                 imageSrcLandscape={faqImageLandscape}
@@ -66,6 +68,7 @@ const HomePage = () => {
         </aside>
 
       </div>
+      <Footer />
     </main>
   );
 };
