@@ -45,10 +45,10 @@ export const ProductCarousel = () => {
           {hierarchyLevels.map((item) => (
             <div key={item.level} className="flex-shrink-0 w-72 bg-white border rounded-xl shadow-md p-6 transform transition-transform hover:-translate-y-1">
               <div className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full mb-4">
-                <span className="text-xl font-bold text-gray-700">{item.level}</span>
+                <span className="text-xl font-bold text-gray-900">{item.level}</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-gray-500">{item.description}</p>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">{item.title}</h3>
+              <p className="text-gray-700">{item.description}</p>
             </div>
           ))}
         </div>

@@ -3,12 +3,12 @@ import React from 'react';
 export const Letter: React.FC = () => {
   return (
     <section>
-      <div className="container mx-auto px-4 md:px-18">
+      <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-center text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground mb-4">
-          Forgetfulness is expensive.
+          Forgetfulness is <span className= "italic">expensive</span>.
         </h2>
         <p className="italic text-center text-xl text-primary-foreground mb-8">MemoryLock is $25.99.</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-lg text-primary-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 text-lg text-primary-foreground">
           <div className="flex flex-col gap-4">
             <p>
               We all have these long-term, slow-burn obligations that matter far more than our calendars treat them. Passports. Visas. Domains. Warranties. Licenses. Insurance renewals. IUD’s. Trademark filings. Things that are harmless today but catastrophic when the deadline quietly slips by.

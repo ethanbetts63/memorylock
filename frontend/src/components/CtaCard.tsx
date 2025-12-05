@@ -13,7 +13,7 @@ const includedFeatures = [
 
 export const CtaCard: React.FC = () => {
   return (
-    <Card className="w-full">
+    <Card className="w-full bg-white text-gray-900">
       <CardHeader>
         <div className="flex items-center gap-3">
             <img src={logo} alt="MemoryLock Logo" className="h-10 w-10" />
@@ -27,7 +27,7 @@ export const CtaCard: React.FC = () => {
         <div className="flex flex-col gap-4">
             <div>
                 <h4 className="font-semibold text-md mb-2">What’s included?</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
+                <ul className="space-y-2 text-sm">
                     {includedFeatures.map((feature, index) => (
                         <li key={index} className="flex items-start gap-2">
                             <Check className="h-4 w-4 mt-1 text-green-500 flex-shrink-0" />
@@ -38,7 +38,7 @@ export const CtaCard: React.FC = () => {
             </div>
             <div>
                 <h4 className="font-semibold text-md mb-2">How does it work?</h4>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm">
                     After you check out, we’ll email you a private link to set up your first unforgettable reminder.
                 </p>
             </div>
