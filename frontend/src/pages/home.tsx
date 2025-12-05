@@ -46,7 +46,7 @@ const HomePage = () => {
           <section className="bg-white text-gray-900 rounded-lg">
             <div className="container mx-auto px-4">
               <Faq 
-                title="The Fine Print (In Plain English)"
+                title="The Fine Print (Plain English)"
                 page="home"
                 imageSrc={heroImage}
                 imageAlt="Abstract representation of questions"
