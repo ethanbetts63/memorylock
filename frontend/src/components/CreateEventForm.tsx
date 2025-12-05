@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import { useNavigate } from "react-router-dom"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -19,6 +20,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 // Define the validation schema using Zod
 const formSchema = z.object({
+  // Event details
+  eventName: z.string().min(3, { message: "Event name must be at least 3 characters." }),
+  eventDate: z.string({ required_error: "An event date is required." }).min(1, { message: "An event date is required." }),
+
   // Required primary contact info
   firstName: z.string().min(2, { message: "First name is required and must be at least 2 characters." }),
   lastName: z.string().min(2, { message: "Last name is required and must be at least 2 characters." }),
@@ -45,10 +50,14 @@ const formSchema = z.object({
 })
 
 export function CreateEventForm() {
+  const navigate = useNavigate()
+
   // 1. Define the form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      eventName: "",
+      eventDate: "",
       firstName: "",
       lastName: "",
       email: "",
@@ -71,15 +80,36 @@ export function CreateEventForm() {
   // 2. Define a submit handler
   function onSubmit(values: z.infer<typeof formSchema>) {
     // This will be type-safe and validated.
-    // In the future, we will send this data to the backend API.
     console.log(values)
-    alert("Form submitted! Check the console for the form data.")
+    navigate('/confirmation', { state: { values } })
   }
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Event Details</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <FormField control={form.control} name="eventName" render={({ field }) => (
+              <FormItem>
+                <FormLabel>Event Name</FormLabel>
+                <FormControl><Input placeholder="e.g., John's 30th Birthday" {...field} /></FormControl>
+                <FormMessage />
+              </FormItem>
+            )} />
+            <FormField control={form.control} name="eventDate" render={({ field }) => (
+              <FormItem>
+                <FormLabel>Event Date</FormLabel>
+                <FormControl><Input type="date" {...field} /></FormControl>
+                <FormMessage />
+              </FormItem>
+            )} />
+          </CardContent>
+        </Card>
+
         <Card>
           <CardHeader>
             <CardTitle>Your Details (Required)</CardTitle>
