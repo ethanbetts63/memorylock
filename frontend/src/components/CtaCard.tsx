@@ -14,16 +14,14 @@ const includedFeatures = [
 export const CtaCard: React.FC = () => {
   return (
     <Card className="w-full bg-white text-gray-900">
-      <CardHeader>
-        <div className="flex items-start gap-3">
-            <div className="flex items-center justify-center h-16 w-16 bg-primary rounded-lg">
-              <img src={logo} alt="MemoryLock Logo" className="h-12 w-12" />
+      <CardHeader className="text-center">
+        <div className="flex justify-center items-center gap-3 mb-2">
+            <div className="flex items-center justify-center h-12 w-12 bg-primary rounded-lg">
+              <img src={logo} alt="MemoryLock Logo" className="h-10 w-10" />
             </div>
-            <div>
-                <CardTitle className="text-3xl"><span className="bg-primary text-primary-foreground px-2 py-1 rounded-md italic underline">MemoryLock</span></CardTitle>
-                <p className="text-2xl font-bold py-2">$25.99</p>
-            </div>
+            <CardTitle className="text-3xl"><span className="bg-primary text-primary-foreground px-2 py-1 rounded-md italic underline">MemoryLock</span></CardTitle>
         </div>
+        <p className="text-3xl font-bold">$25.99</p>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-4">

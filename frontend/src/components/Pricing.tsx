@@ -27,9 +27,9 @@ const Pricing: React.FC = () => {
     <div className="w-full">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground">A Single, Simple Price.</h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground">A Single, <span className= "italic underline">Simple Price</span>.</h2>
           <p className="mt-4 text-lg text-primary-foreground max-w-2xl mx-auto">
-            No subscriptions, no hidden fees, no tiers to worry about. Just a one-time payment for a lifetime of peace of mind for your event.
+            No subscriptions, no hidden fees, no tiers to worry about. Just a single one-time payment for a single one-time event.
           </p>
         </div>
         {/* Grid container for the two cards */}
