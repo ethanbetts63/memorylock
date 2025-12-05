@@ -29,7 +29,7 @@ const HomePage = () => {
             <p className="mt-6 text-lg leading-8 text-primary-foreground">
               Calanders don't handle critical events in the distant future. We do. When a critical deadline hits, we don't just ping you—we trigger an <span className= "italic font-bold underline">escalating hierarchy of notifications</span> — from emails and texts to emergency contacts.
             </p>
-            <div className="mt-10">
+            <div className="mt-10 flex justify-center">
               <CreateEventLink size="lg" className="text-lg" />
             </div>
           </div>
@@ -72,7 +72,6 @@ const HomePage = () => {
         </aside>
 
       </div>
-      <Footer />
     </main>
   );
 };

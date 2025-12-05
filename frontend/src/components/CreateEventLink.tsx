@@ -11,7 +11,7 @@ export const CreateEventLink: React.FC<CreateEventLinkProps> = ({ children, clas
   return (
     <Link to="/create-event">
       <Button size={size} className={className}>
-        {children || 'Secure Reminder'}
+        {children || 'Secure Your Reminder'}
       </Button>
     </Link>
   );
