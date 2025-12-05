@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { showErrorToast } from "@/lib/utils"
 
 // Define the validation schema using Zod
 const formSchema = z.object({
@@ -93,7 +94,7 @@ export function CreateEventForm() {
       if (!response.ok) {
         const errorData = await response.json();
         console.error('Backend validation error:', errorData);
-        alert(`An error occurred: ${JSON.stringify(errorData)}`);
+        showErrorToast(`Submission failed: ${JSON.stringify(errorData)}`);
         return;
       }
 
@@ -105,7 +106,7 @@ export function CreateEventForm() {
 
     } catch (error) {
       console.error('Network error:', error);
-      alert('A network error occurred. Please try again.');
+      showErrorToast('A network error occurred. Please try again.');
     }
   }
 
@@ -250,7 +251,7 @@ export function CreateEventForm() {
                   <FormLabel>Last Name</FormLabel>
                   <FormControl><Input placeholder="Smith" {...field} /></FormControl>
                   <FormMessage />
-                </FormItem>
+                </em-form>
               )} />
             </div>
             <FormField control={form.control} name="emergencyContact.email" render={({ field }) => (
