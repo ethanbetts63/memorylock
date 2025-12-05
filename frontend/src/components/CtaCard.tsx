@@ -5,9 +5,9 @@ import { Check } from 'lucide-react';
 import logo from '../assets/logo.png';
 
 const includedFeatures = [
-  "Lifetime access for one event",
+  "Access for one event",
   "Full notification hierarchy",
-  "Admin & Emergency Contact outreach",
+  "Customizable notification schedule",
   "No subscriptions or hidden fees",
 ];
 
@@ -39,7 +39,7 @@ export const CtaCard: React.FC = () => {
             <div>
                 <h4 className="font-semibold text-md mb-2">How does it work?</h4>
                 <p className="text-sm">
-                    After you check out, we’ll email you a private link to set up your first unforgettable reminder.
+                    We need to know as many contacts as possible, the name and date of the event and when you want the reminders to start.
                 </p>
             </div>
             <Button className="w-full h-12 text-lg mt-2">

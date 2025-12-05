@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle } from 'lucide-react';
 
 const features = [
-  "Lifetime access for one event",
+  "Access for one event",
   "Full notification hierarchy",
-  "Admin & Emergency Contact outreach",
+  "Customizable notification schedule",
   "No subscriptions or hidden fees",
 ];
 

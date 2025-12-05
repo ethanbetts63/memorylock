@@ -1,7 +1,7 @@
 const hierarchyLevels = [
   {
     level: 1,
-    title: 'Push + Email',
+    title: 'Push Notifications + Email',
     description: 'Initial, non-intrusive reminders sent directly to your primary devices.',
   },
   {
