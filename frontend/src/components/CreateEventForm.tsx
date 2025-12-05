@@ -78,10 +78,35 @@ export function CreateEventForm() {
   })
 
   // 2. Define a submit handler
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // This will be type-safe and validated.
-    console.log(values)
-    navigate('/confirmation', { state: { values } })
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log("Submitting to backend:", values);
+    try {
+      const response = await fetch('/api/events/create/anonymous/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Django's CSRF token would be needed in a full setup
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Backend validation error:', errorData);
+        alert(`An error occurred: ${JSON.stringify(errorData)}`);
+        return;
+      }
+
+      const responseData = await response.json();
+      console.log('Backend response:', responseData);
+
+      // Navigate to confirmation page with data from the backend
+      navigate('/confirmation', { state: { values: responseData } });
+
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('A network error occurred. Please try again.');
+    }
   }
 
   return (
