@@ -90,7 +90,8 @@ export const Faq: React.FC<FaqProps> = ({ title, subtitle, page, imageSrc, image
       <Card className="bg-white text-gray-900 rounded-lg overflow-hidden border-0 shadow-none">
         <CardContent className="grid p-0 lg:grid-cols-2">
           <div className="p-6 lg:p-8 order-2 lg:order-1">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">{title}</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900">{title}</h2>
+            {subtitle && <p className="text-lg text-gray-600 mt-1 mb-2 italic">{subtitle}</p>}
             {isLoading && <div>Loading FAQs...</div>}
             {error && <div className="text-red-500">Error: {error}</div>}
             {!isLoading && !error && (
