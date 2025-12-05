@@ -21,10 +21,10 @@ const HomePage = () => {
           </div>
           <div className="text-left">
             <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl">
-              Set it once. Never forget it. Ever.
+              Reminders that don't take silence for an answer.
             </h1>
             <p className="mt-6 text-lg leading-8 text-primary-foreground">
-              For deadlines and events so important they can't be missed, MemoryLock provides a guarantee. We use an <span className= "italic font-bold underline">escalating hierarchy of notifications</span> — from emails and texts to direct calls and outreach to your designated contacts — to ensure your reminder is acknowledged.
+              Calanders don't handle critical events in the distant future. We do. When a critical deadline hits, we don't just ping you—we trigger an <span className= "italic font-bold underline">escalating hierarchy of notifications</span> — from emails and texts to emergency contacts.
             </p>
           </div>
         </div>
