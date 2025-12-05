@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { showErrorToast } from "@/lib/utils"
+import { showErrorToast } from "@/utils/utils"
 
 // Define the validation schema using Zod
 const formSchema = z.object({
