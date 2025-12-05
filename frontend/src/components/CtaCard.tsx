@@ -15,11 +15,13 @@ export const CtaCard: React.FC = () => {
   return (
     <Card className="w-full bg-white text-gray-900">
       <CardHeader>
-        <div className="flex items-center gap-3">
-            <img src={logo} alt="MemoryLock Logo" className="h-10 w-10" />
-            <div >
-                <CardTitle>MemoryLock</CardTitle>
-                <p className="text-lg font-bold">$25.99</p>
+        <div className="flex items-start gap-3">
+            <div className="flex items-center justify-center h-16 w-16 bg-primary rounded-lg">
+              <img src={logo} alt="MemoryLock Logo" className="h-12 w-12" />
+            </div>
+            <div>
+                <CardTitle className="text-3xl"><span className="bg-primary text-primary-foreground px-2 py-1 rounded-md italic underline">MemoryLock</span></CardTitle>
+                <p className="text-2xl font-bold py-2">$25.99</p>
             </div>
         </div>
       </CardHeader>

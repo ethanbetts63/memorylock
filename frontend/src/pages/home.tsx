@@ -23,7 +23,7 @@ const HomePage = () => {
               Set it once. Never forget it. Ever.
             </h1>
             <p className="mt-6 text-lg leading-8 text-primary-foreground">
-              For deadlines and events so important they can't be missed, MemoryLock provides a guarantee. We use an escalating hierarchy of notifications — from emails and texts to direct calls and outreach to your designated contacts — to ensure your reminder is acknowledged.
+              For deadlines and events so important they can't be missed, MemoryLock provides a guarantee. We use an <span className= "italic font-bold underline">escalating hierarchy of notifications</span> — from emails and texts to direct calls and outreach to your designated contacts — to ensure your reminder is acknowledged.
             </p>
           </div>
         </div>
