@@ -35,6 +35,19 @@ class AnonymousEventCreateSerializer(serializers.Serializer):
     # Nested emergency contact
     emergencyContact = EmergencyContactSerializer(required=False)
 
+    def validate(self, attrs):
+        """
+        Custom validation to handle empty nested data.
+        """
+        # If emergencyContact data is present, check if it's just a collection of empty fields.
+        if 'emergencyContact' in attrs:
+            emergency_contact_data = attrs['emergencyContact']
+            # Check if all values in the dictionary are empty (e.g., '', None)
+            if not any(emergency_contact_data.values()):
+                # If all fields are empty, remove the key so the serializer doesn't process it.
+                attrs.pop('emergencyContact')
+        return attrs
+
     def create(self, validated_data):
         """
         Custom create method to orchestrate object creation.

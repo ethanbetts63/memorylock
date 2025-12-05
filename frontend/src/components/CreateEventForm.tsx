@@ -251,7 +251,7 @@ export function CreateEventForm() {
                   <FormLabel>Last Name</FormLabel>
                   <FormControl><Input placeholder="Smith" {...field} /></FormControl>
                   <FormMessage />
-                </em-form>
+                </FormItem>
               )} />
             </div>
             <FormField control={form.control} name="emergencyContact.email" render={({ field }) => (
