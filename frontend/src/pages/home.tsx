@@ -1,5 +1,6 @@
 import heroImage from '../assets/hero.webp';
-import faqImage from '../assets/faq_image.png';
+import faqImage from '../assets/faq_image.webp';
+import faqImageLandscape from '../assets/faq_image_landscape.webp';
 import { ProductCarousel } from '../components/ProductCarousel';
 import Pricing from '../components/Pricing';
 import { Faq } from '../components/Faq';
@@ -50,6 +51,7 @@ const HomePage = () => {
                 title="The Fine Print (Plain English)"
                 page="home"
                 imageSrc={faqImage}
+                imageSrcLandscape={faqImageLandscape}
                 imageAlt="Abstract representation of questions"
               />
             </div>

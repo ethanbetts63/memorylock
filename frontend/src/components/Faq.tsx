@@ -18,11 +18,12 @@ interface FaqProps {
   page: string;
   imageSrc: string;
   imageAlt: string;
+  imageSrcLandscape?: string;
   srcSet?: string;
   sizes?: string;
 }
 
-export const Faq: React.FC<FaqProps> = ({ title, page, imageSrc, imageAlt, srcSet, sizes }) => {
+export const Faq: React.FC<FaqProps> = ({ title, page, imageSrc, imageAlt, imageSrcLandscape, srcSet, sizes }) => {
   const [faqs, setFaqs] = useState<FaqItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -109,12 +110,25 @@ export const Faq: React.FC<FaqProps> = ({ title, page, imageSrc, imageAlt, srcSe
             )}
           </div>
           <div className="relative flex items-center justify-center h-full order-1 lg:order-2">
-            <img 
-              src={imageSrc} 
-              srcSet={srcSet}
-              sizes={sizes}
-              alt={imageAlt} 
-              className="h-full w-full object-contain" />
+            {imageSrcLandscape ? (
+              <picture>
+                <source media="(min-width: 1024px)" srcSet={imageSrc} />
+                <source media="(max-width: 1023px)" srcSet={imageSrcLandscape} />
+                <img 
+                  src={imageSrc} 
+                  alt={imageAlt} 
+                  className="h-full w-full object-contain" 
+                />
+              </picture>
+            ) : (
+              <img 
+                src={imageSrc} 
+                srcSet={srcSet}
+                sizes={sizes}
+                alt={imageAlt} 
+                className="h-full w-full object-contain" 
+              />
+            )}
           </div>
         </CardContent>
       </Card>
