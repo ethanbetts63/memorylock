@@ -17,7 +17,7 @@ export const CtaCard: React.FC = () => {
       <CardHeader>
         <div className="flex items-center gap-3">
             <img src={logo} alt="MemoryLock Logo" className="h-10 w-10" />
-            <div>
+            <div >
                 <CardTitle>MemoryLock</CardTitle>
                 <p className="text-lg font-bold">$25.99</p>
             </div>

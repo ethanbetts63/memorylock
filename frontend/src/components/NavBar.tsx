@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import logo from '../assets/logo.png'; 
+import logo from '../assets/hero1.png'; 
 
 const NavBar: React.FC = () => {
   const isAuthenticated = false; // Placeholder for authentication state
@@ -17,7 +17,7 @@ const NavBar: React.FC = () => {
               alt="MemoryLock Logo" 
               className="h-10 w-auto object-contain" 
             />
-            <span className="font-bold text-xl hidden md:block">MemoryLock</span>
+            <span className="font-bold text-xl hidden md:block font-bold bg-yellow-300 px-1 py-0.5 rounded-md italic text-black">MemoryLock</span>
           </a>
         </div>
 

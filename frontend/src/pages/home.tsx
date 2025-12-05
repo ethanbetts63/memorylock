@@ -43,10 +43,10 @@ const HomePage = () => {
           <section>
             <Pricing />
           </section>
-          <section>
+          <section className="bg-white text-gray-900 rounded-lg">
             <div className="container mx-auto px-4">
               <Faq 
-                title="Frequently Asked Questions"
+                title="The Fine Print (In Plain English)"
                 page="home"
                 imageSrc={heroImage}
                 imageAlt="Abstract representation of questions"
