@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from 'lucide-react';
 import logo from '../assets/logo.webp';
+import { Link } from 'react-router-dom';
 
 const includedFeatures = [
   "Access for one event",
@@ -42,9 +43,11 @@ export const CtaCard: React.FC = () => {
                     We need to know as many contacts as possible, the name and date of the event and when you want the reminders to start.
                 </p>
             </div>
-            <Button className="w-full h-12 text-lg mt-2">
-                Create Reminder
-            </Button>
+            <Link to="/create-event" className="w-full">
+              <Button className="w-full h-12 text-lg mt-2">
+                  Create Reminder
+              </Button>
+            </Link>
         </div>
       </CardContent>
     </Card>
