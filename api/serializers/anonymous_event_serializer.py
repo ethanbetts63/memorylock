@@ -37,15 +37,34 @@ class AnonymousEventCreateSerializer(serializers.Serializer):
 
     def validate(self, attrs):
         """
-        Custom validation to handle empty nested data.
+        Custom validation to handle the nested emergency contact.
         """
-        # If emergencyContact data is present, check if it's just a collection of empty fields.
         if 'emergencyContact' in attrs:
-            emergency_contact_data = attrs['emergencyContact']
-            # Check if all values in the dictionary are empty (e.g., '', None)
-            if not any(emergency_contact_data.values()):
-                # If all fields are empty, remove the key so the serializer doesn't process it.
+            emergency_contact_data = attrs.get('emergencyContact')
+            
+            # Check if any data was provided for the emergency contact
+            is_partially_filled = any(emergency_contact_data.values())
+
+            if is_partially_filled:
+                # If any field is filled, enforce that the core fields are required.
+                errors = {}
+                first_name = emergency_contact_data.get('first_name')
+                last_name = emergency_contact_data.get('last_name')
+                phone = emergency_contact_data.get('phone')
+
+                if not first_name:
+                    errors['firstName'] = 'This field is required when providing an emergency contact.'
+                if not last_name:
+                    errors['lastName'] = 'This field is required when providing an emergency contact.'
+                if not phone:
+                    errors['phoneNumber'] = 'This field is required when providing an emergency contact.'
+                
+                if errors:
+                    raise serializers.ValidationError({'emergencyContact': errors})
+            else:
+                # If the emergencyContact object was sent but is completely empty, remove it.
                 attrs.pop('emergencyContact')
+                
         return attrs
 
     def create(self, validated_data):
@@ -57,11 +76,12 @@ class AnonymousEventCreateSerializer(serializers.Serializer):
             emergency_contact_data = validated_data.pop('emergencyContact', None)
             
             # Pop user-related data
+            email = validated_data.pop('email') # Get email once
             user_data = {
                 'first_name': validated_data.pop('firstName'),
                 'last_name': validated_data.pop('lastName'),
-                'email': validated_data.pop('email'),
-                'username': validated_data.get('email'), # Use email as username for simplicity
+                'email': email,
+                'username': email, # Use the same email for username
                 'phone': validated_data.pop('phoneNumber'),
                 'backup_email': validated_data.pop('backupEmail', None),
                 'backup_phone': validated_data.pop('backupPhoneNumber', None),
