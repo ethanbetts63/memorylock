@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from "@/components/ui/button";
+import { CreateEventLink } from './CreateEventLink';
 import { CheckCircle, XCircle } from 'lucide-react';
 
 const features = [
@@ -52,9 +52,9 @@ const Pricing: React.FC = () => {
               </ul>
             </div>
             <div className="p-8 pt-0">
-              <Button className="w-full h-12 text-lg">
+              <CreateEventLink className="w-full h-12 text-lg">
                 Secure Your Reminder
-              </Button>
+              </CreateEventLink>
             </div>
           </div>
 
