@@ -1,4 +1,5 @@
 import heroImage from '../assets/hero.webp';
+import faqImage from '../assets/faq_image.png';
 import { ProductCarousel } from '../components/ProductCarousel';
 import Pricing from '../components/Pricing';
 import { Faq } from '../components/Faq';
@@ -48,7 +49,7 @@ const HomePage = () => {
               <Faq 
                 title="The Fine Print (Plain English)"
                 page="home"
-                imageSrc={heroImage}
+                imageSrc={faqImage}
                 imageAlt="Abstract representation of questions"
               />
             </div>
