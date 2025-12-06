@@ -2,9 +2,10 @@ import { useLocation } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { CheckCircle } from 'lucide-react';
 import { AccountCreationForm } from '@/components/AccountCreationForm';
+import type { EventCreationResponse } from '@/types';
 
 const ConfirmationPage = () => {
-  const location = useLocation();
+  const location = useLocation() as { state: { values: EventCreationResponse } };
   const { values } = location.state || {}; // a fallback
 
   if (!values) {
@@ -34,7 +35,7 @@ const ConfirmationPage = () => {
             </div>
             <CardTitle className="text-3xl">Your Reminder is Locked In!</CardTitle>
             <CardDescription>
-              We've sent a confirmation and a copy of your event details to <strong>{values.email}</strong>.
+              We've sent a confirmation and a copy of your event details to <strong>{values.userEmail}</strong>.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -51,7 +52,7 @@ const ConfirmationPage = () => {
           </CardContent>
         </Card>
 
-        <AccountCreationForm mode="activate" email={values.email} />
+        <AccountCreationForm mode="activate" email={values.userEmail} />
         
       </div>
     </div>

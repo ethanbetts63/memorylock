@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { showErrorToast } from "@/utils/utils"
 import { toast } from "sonner"
+import type { EventCreationResponse } from "@/types"
 
 // Define the validation schema using Zod
 const formSchema = z.object({
@@ -49,7 +50,7 @@ const formSchema = z.object({
     lastName: z.string().optional(),
     email: z.string().email().optional().or(z.literal('')),
     phoneNumber: z.string().optional(),
-  }).optional(),
+  }),
 })
 
 export function CreateEventForm() {
@@ -120,7 +121,7 @@ export function CreateEventForm() {
         return;
       }
 
-      const responseData = await response.json();
+      const responseData: EventCreationResponse = await response.json();
       console.log('Backend response:', responseData);
 
       // Navigate to confirmation page with data from the backend
