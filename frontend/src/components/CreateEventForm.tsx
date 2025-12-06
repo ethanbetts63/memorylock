@@ -108,6 +108,7 @@ export function CreateEventForm() {
             classNames: {
               title: 'text-red-500',
               icon: 'text-red-500',
+              description: 'text-red-500',
             },
             duration: 10000,
             closeButton: true,
@@ -137,7 +138,7 @@ export function CreateEventForm() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Event Details</CardTitle>
+            <CardTitle>Event Details (Required)</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <FormField control={form.control} name="eventName" render={({ field }) => (
