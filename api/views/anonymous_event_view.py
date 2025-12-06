@@ -1,9 +1,11 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth import login
+from django.contrib.auth import get_user_model, login
 
 from api.serializers.anonymous_event_serializer import AnonymousEventCreateSerializer
+
+User = get_user_model()
 
 class AnonymousEventCreateView(APIView):
     """
@@ -18,25 +20,39 @@ class AnonymousEventCreateView(APIView):
         """
         Handles the POST request to create an event.
         """
-        serializer = AnonymousEventCreateSerializer(data=request.data)
+        email = request.data.get('email')
+        user = User.objects.filter(email__iexact=email).first()
+
+        serializer_context = {}
+
+        if user:
+            # User with this email exists.
+            if user.has_usable_password():
+                # This is a fully registered user. They should log in.
+                return Response(
+                    {"detail": "An account with this email address already exists. Please log in to create an event."},
+                    status=status.HTTP_409_CONFLICT
+                )
+            else:
+                # This is a password-less user. Reuse this user account.
+                serializer_context['user'] = user
+
+        serializer = AnonymousEventCreateSerializer(data=request.data, context=serializer_context)
+        
         if serializer.is_valid():
-            # The .create() method of the serializer returns the event instance,
-            # which has the user linked to it.
             event = serializer.save()
             
-            # Log the new user in to create a session and set the cookie
-            user = event.user
-            login(request, user)
+            # Log the new or existing password-less user in
+            login(request, event.user)
 
-            # For now, we return a simple success response.
-            # We will enhance this later to return the serialized event data.
             response_data = {
                 "status": "success",
                 "message": "Event created successfully.",
                 "eventId": event.id,
-                "userEmail": user.email,
+                "userEmail": event.user.email,
                 "eventName": event.name,
-                "eventDate": event.event_date
+                "eventDate": event.event_date,
+                "weeksInAdvance": event.weeks_in_advance
             }
             return Response(response_data, status=status.HTTP_201_CREATED)
         

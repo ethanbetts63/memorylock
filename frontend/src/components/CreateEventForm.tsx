@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -18,12 +18,14 @@ import {
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { showErrorToast } from "@/utils/utils"
+import { toast } from "sonner"
 
 // Define the validation schema using Zod
 const formSchema = z.object({
   // Event details
   eventName: z.string().min(3, { message: "Event name must be at least 3 characters." }),
   eventDate: z.string({ required_error: "An event date is required." }).min(1, { message: "An event date is required." }),
+  weeksInAdvance: z.coerce.number().min(1, { message: "Must be at least 1 week in advance." }),
 
   // Required primary contact info
   firstName: z.string().min(2, { message: "First name is required and must be at least 2 characters." }),
@@ -59,6 +61,7 @@ export function CreateEventForm() {
     defaultValues: {
       eventName: "",
       eventDate: "",
+      weeksInAdvance: 4,
       firstName: "",
       lastName: "",
       email: "",
@@ -86,15 +89,33 @@ export function CreateEventForm() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Django's CSRF token would be needed in a full setup
         },
         body: JSON.stringify(values),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error('Backend validation error:', errorData);
-        showErrorToast(`Submission failed: ${JSON.stringify(errorData)}`);
+        console.error('Backend error:', errorData);
+
+        if (response.status === 409) {
+          // Handle case where a registered user tries to use the anonymous form
+          toast.error("Account Exists", {
+            description: (
+              <div>
+                {errorData.detail} <Link to="/login" className="underline font-bold text-blue-500">Click here to log in.</Link>
+              </div>
+            ),
+            classNames: {
+              title: 'text-red-500',
+              icon: 'text-red-500',
+            },
+            duration: 10000,
+            closeButton: true,
+          });
+        } else {
+          // Generic error handling
+          showErrorToast(`Submission failed: ${JSON.stringify(errorData)}`);
+        }
         return;
       }
 
@@ -132,6 +153,14 @@ export function CreateEventForm() {
                 <FormControl><Input type="date" {...field} /></FormControl>
                 <FormMessage />
               </FormItem>
+            )} />
+            <FormField control={form.control} name="weeksInAdvance" render={({ field }) => (
+                <FormItem>
+                    <FormLabel>Weeks in Advance</FormLabel>
+                    <FormControl><Input type="number" {...field} /></FormControl>
+                    <FormDescription>How many weeks in advance should we start sending notifications?</FormDescription>
+                    <FormMessage />
+                </FormItem>
             )} />
           </CardContent>
         </Card>

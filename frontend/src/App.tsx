@@ -7,12 +7,14 @@ import LoginPage from './pages/LoginPage';
 import NavBar from './components/NavBar';
 import { AuthProvider } from './context/AuthContext';
 import Footer from './components/Footer';
+import { Toaster } from "@/components/ui/sonner"
 
 function App() {
   return (
     <AuthProvider>
       <div className="min-h-screen flex flex-col">
         <NavBar />
+        <Toaster position="top-center" />
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />

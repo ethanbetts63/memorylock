@@ -17,6 +17,7 @@ class AnonymousEventCreateSerializer(serializers.Serializer):
     # Event details
     eventName = serializers.CharField()
     eventDate = serializers.DateField()
+    weeksInAdvance = serializers.IntegerField(min_value=1)
 
     # User details
     firstName = serializers.CharField()
@@ -70,18 +71,21 @@ class AnonymousEventCreateSerializer(serializers.Serializer):
     def create(self, validated_data):
         """
         Custom create method to orchestrate object creation.
+        It handles 2 cases:
+        1. A pre-existing password-less user is passed in the context.
+        2. No user is passed, so a new password-less user is created.
         """
         with transaction.atomic():
+            user = self.context.get('user')
+            
             # Pop nested data
             emergency_contact_data = validated_data.pop('emergencyContact', None)
             
-            # Pop user-related data
-            email = validated_data.pop('email') # Get email once
+            # Pop user-related data to a dictionary
+            email = validated_data.pop('email')
             user_data = {
                 'first_name': validated_data.pop('firstName'),
                 'last_name': validated_data.pop('lastName'),
-                'email': email,
-                'username': email, # Use the same email for username
                 'phone': validated_data.pop('phoneNumber'),
                 'backup_email': validated_data.pop('backupEmail', None),
                 'backup_phone': validated_data.pop('backupPhoneNumber', None),
@@ -90,22 +94,32 @@ class AnonymousEventCreateSerializer(serializers.Serializer):
                 'snapchat_handle': validated_data.pop('snapchat_handle', None),
                 'x_handle': validated_data.pop('x_handle', None),
             }
-            
-            # Create the user but don't set a password
-            user = User.objects.create(**user_data)
-            
+
+            if user:
+                # Case 1: Existing password-less user. Update their info.
+                User.objects.filter(pk=user.pk).update(**user_data)
+                user.refresh_from_db() # Refresh instance with new data
+            else:
+                # Case 2: New user. Create them.
+                user_data['email'] = email
+                user_data['username'] = email
+                user = User.objects.create(**user_data)
+
             # Event data is what's left in validated_data
             event_data = {
                 'name': validated_data.pop('eventName'),
                 'event_date': validated_data.pop('eventDate'),
+                'weeks_in_advance': validated_data.pop('weeksInAdvance'),
             }
             
             # Create the event
             event = Event.objects.create(user=user, **event_data)
 
-            # Create emergency contact if data was provided
+            # Create or update emergency contact if data was provided
             if emergency_contact_data:
-                EmergencyContact.objects.create(user=user, **emergency_contact_data)
+                EmergencyContact.objects.update_or_create(
+                    user=user, 
+                    defaults=emergency_contact_data
+                )
             
-            # We will return the event object, but the view will handle the full response
             return event

@@ -13,6 +13,10 @@ class Event(models.Model):
     event_date = models.DateField(
         help_text="The date the event will occur."
     )
+    weeks_in_advance = models.PositiveIntegerField(
+        default=4,
+        help_text="The number of weeks in advance to start sending notifications."
+    )
 
     # Ownership and Status
     user = models.ForeignKey(
