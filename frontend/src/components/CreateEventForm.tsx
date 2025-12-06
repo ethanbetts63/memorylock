@@ -26,7 +26,15 @@ const formSchema = z.object({
   // Event details
   eventName: z.string().min(3, { message: "Event name must be at least 3 characters." }),
   eventDate: z.string({ required_error: "An event date is required." }).min(1, { message: "An event date is required." }),
-  weeksInAdvance: z.coerce.number().min(1, { message: "Must be at least 1 week in advance." }),
+  weeksInAdvance: z.preprocess(
+    // The value from a number input can be a string, so we preprocess it.
+    (val) => (val === "" ? null : Number(val)),
+    z.number({
+        required_error: "Weeks in advance is required.",
+        invalid_type_error: "Must be a number.",
+      })
+      .min(1, { message: "Must be at least 1 week in advance." })
+  ),
 
   // Required primary contact info
   firstName: z.string().min(2, { message: "First name is required and must be at least 2 characters." }),
@@ -53,11 +61,14 @@ const formSchema = z.object({
   }),
 })
 
+// Create an explicit type from the schema
+export type EventFormValues = z.infer<typeof formSchema>
+
 export function CreateEventForm() {
   const navigate = useNavigate()
 
-  // 1. Define the form
-  const form = useForm<z.infer<typeof formSchema>>({
+  // 1. Define the form using the explicit type
+  const form = useForm<EventFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       eventName: "",
@@ -82,8 +93,8 @@ export function CreateEventForm() {
     },
   })
 
-  // 2. Define a submit handler
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  // 2. Define a submit handler using the explicit type
+  async function onSubmit(values: EventFormValues) {
     console.log("Submitting to backend:", values);
     try {
       const response = await fetch('/api/events/create/anonymous/', {

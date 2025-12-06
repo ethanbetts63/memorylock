@@ -28,7 +28,7 @@ const passwordSchema = z.object({
   path: ["confirmPassword"], // Point error to the confirmPassword field
 });
 
-const signupSchema = passwordSchema.safeExtend({
+const signupSchema = passwordSchema.extend({
   firstName: z.string().min(2, { message: "First name must be at least 2 characters." }),
   lastName: z.string().min(2, { message: "Last name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
@@ -43,13 +43,20 @@ interface AccountCreationFormProps extends React.ComponentProps<"div"> {
 export function AccountCreationForm({ className, mode, email, ...props }: AccountCreationFormProps) {
   // --- Form Definition ---
   const formSchema = mode === 'signup' ? signupSchema : passwordSchema;
-  type FormValues = z.infer<typeof formSchema>;
+  
+  // For TypeScript, always use the widest schema to avoid type conflicts with conditional fields.
+  // The resolver will still use the correct, dynamic schema at runtime for validation.
+  type FormValues = z.infer<typeof signupSchema>;
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: mode === 'signup' 
-      ? { firstName: "", lastName: "", email: "", password: "", confirmPassword: "" } 
-      : { password: "", confirmPassword: "" },
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: email || "", // Pre-fill email in activate mode
+      password: "",
+      confirmPassword: "",
+    },
   });
 
   // --- Submit Handler ---
