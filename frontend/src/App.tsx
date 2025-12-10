@@ -22,6 +22,8 @@ import LetterToFutureSelf from './pages/articles/LetterToFutureSelf';
 import VaccineBoosters from './pages/articles/VaccineBoosters';
 import IUDExpiration from './pages/articles/IUDExpiration';
 import AnniversaryReminders from './pages/articles/AnniversaryReminders';
+import VisaExpiry from './pages/articles/VisaExpiry';
+import SubscriptionRenewal from './pages/articles/SubscriptionRenewal';
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
           <Route path="/articles/vaccine-boosters" element={<VaccineBoosters />} />
           <Route path="/articles/iud-expiration" element={<IUDExpiration />} />
           <Route path="/articles/anniversary-reminders" element={<AnniversaryReminders />} />
+          <Route path="/articles/visa-expiry" element={<VisaExpiry />} />
+          <Route path="/articles/subscription-renewal" element={<SubscriptionRenewal />} />
 
           {/* Event Creation Flow */}
           <Route path="/event-gate" element={<EventGate />} />
