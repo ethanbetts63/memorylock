@@ -15,7 +15,7 @@ const VisaExpiry = () => {
       />
       <ArticleLayout
         title="How to Remember a Visa Expiry and What to do if you’ve missed it"
-        subtitle={<><span className="font-bold italic underline">Article Summary:</span> Visa expiries are easy to forget because they are important but distant. Forgetting can lead to severe consequences. This article explains the risks and provides steps to take if you have overstayed, as well as prevention strategies.</>}
+        subtitle={<><span className="font-bold italic underline">Article Summary:</span> Visa expiries are easy to forget because they are both incredibly important but also very distant. Forgetting can lead to severe consequences. This article explains the risks and provides steps to take if you have overstayed, as well as prevention strategies.</>}
         imageSrc={articleImage}
         imageAlt="Person looking at a passport with a calendar in the background"
         faqPage="visa-expiry"
@@ -63,7 +63,7 @@ const VisaExpiry = () => {
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">What is the best app for visa-expiry reminders? (and why it matters)</h2>
           <p className="mb-6">So you probably saw this part coming. We made a product (FutureReminder) to solve the problems we’ve discussed. To truly secure a date in the future, you need to move beyond simple "notifications" and move toward "escalations." Conventional reminders fail for predictable reasons: phone changes, lost emails, filtered messages, and simple life noise. We made this service to solve this exact problem. Our service is cheap and the payment is upfront. We won’t try to get you on a sneaky subscription.</p>
-          <p className="mb-2">For everyday, low-consequence dates, a calendar or your phone works fine. For visas — where a missed date can mean fines, deportation, job loss, or multi-year bans — you need persistence, escalation, and redundancy. Give the “don’t forget” part of your brain some support and try out FutureReminder. Set up a quick event now and save yourself a tonne of problems later.</p>
+          <p className="mb-2">For everyday, low-consequence dates, a calendar or your phone works fine. For visas — where a missed date can mean fines, deportation, job loss, or multi-year bans — <span className="font-bold italic underline">you need persistence, escalation, and redundancy.</span> Give the “don’t forget” part of your brain some support and try out FutureReminder. Set up a quick event now and save yourself a tonne of problems later.</p>
         </div>
       </ArticleLayout>
       <section className="mt-10">
