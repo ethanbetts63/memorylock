@@ -46,7 +46,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ eventId }) => {
     <form id="payment-form" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
       
-      <Button disabled={isProcessing || !stripe || !elements} className="w-full mt-6">
+      <Button disabled={isProcessing || !stripe || !elements} className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white">
         {isProcessing ? (
           <>
             <Spinner className="mr-2 h-4 w-4" />

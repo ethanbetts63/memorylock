@@ -39,10 +39,10 @@ export default function PaymentPage() {
   }
   
   const appearance: Appearance = {
-    theme: 'night',
+    theme: 'stripe',
     rules: {
       '.Label': {
-        color: 'var(--foreground)',
+        color: 'var(--background)',
       },
     }
   };
@@ -64,10 +64,10 @@ export default function PaymentPage() {
       <div className="flex flex-col md:flex-row md:gap-12">
         {/* Left Column (Payment Form) */}
         <div className="order-2 md:order-1 w-full">
-          <Card>
+          <Card className="bg-foreground text-background">
             <CardHeader>
-              <CardTitle>Payment Details</CardTitle>
-              <CardDescription>Enter your card information below.</CardDescription>
+              <CardTitle className="text-3xl">Payment Details</CardTitle>
+              <CardDescription className="text-black">Enter your card information below.</CardDescription>
             </CardHeader>
             <CardContent>
               {clientSecret ? (

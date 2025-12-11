@@ -41,14 +41,14 @@ const EventCreationPage: React.FC = () => {
     };
 
     return (
-        <div className="container mx-auto max-w-4xl py-12">
-            <Card>
+        <div className="container mx-auto max-w-4xl py-8">
+            <Card className="bg-foreground text-background">
                 <CardHeader>
-                    <CardTitle>
+                    <CardTitle className="text-3xl">
                         {/* The title can still be conditional for clarity */}
                         {isAuthenticated ? "Create Your Event" : "Step 3: Create Your Event"}
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="text-black">
                         Finally, tell us about the event you want to be reminded of.
                     </CardDescription>
                 </CardHeader>
@@ -60,7 +60,7 @@ const EventCreationPage: React.FC = () => {
                 </CardContent>
                 <CardFooter className="flex justify-between">
                     <Button 
-                        variant="outline" 
+                        variant="destructive" 
                         onClick={handleBack} 
                         size="lg"
                         disabled={isSubmitting}
@@ -77,6 +77,7 @@ const EventCreationPage: React.FC = () => {
                         size="lg"
                         disabled={isSubmitting}
                         onClick={() => document.getElementById('event-creation-submit')?.click()}
+                        className="bg-blue-600 hover:bg-blue-700 text-white"
                     >
                         {isSubmitting && <Spinner className="mr-2 h-4 w-4" />}
                         Finish & Create Event

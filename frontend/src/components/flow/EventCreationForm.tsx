@@ -80,31 +80,31 @@ export const EventCreationForm: React.FC<EventCreationFormProps> = ({ initialDat
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField control={form.control} name="name" render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Event Name</FormLabel>
+                    <FormLabel className="text-black">Event Name</FormLabel>
                     <FormControl><Input placeholder="e.g., Warranty renewal for solar panels..." {...field} /></FormControl>
                     <FormMessage />
                   </FormItem>
                 )} />
                 <FormField control={form.control} name="event_date" render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Event Date</FormLabel>
+                    <FormLabel className="text-black">Event Date</FormLabel>
                     <FormControl><Input type="date" {...field} /></FormControl>
                     <FormMessage />
                   </FormItem>
                 )} />
                 <FormField control={form.control} name="notes" render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Notes (Optional)</FormLabel>
+                        <FormLabel className="text-black">Notes (Optional)</FormLabel>
                         <FormControl><Textarea placeholder="Add any details to jog your memory, like a policy number or a link to the website..." {...field} /></FormControl>
-                        <FormDescription>A paragraph or two to help you remember the specifics of this event.</FormDescription>
+                        <FormDescription className="text-black">A paragraph or two to help you remember the specifics of this event.</FormDescription>
                         <FormMessage />
                     </FormItem>
                 )} />
                 <FormField control={form.control} name="weeks_in_advance" render={({ field }) => (
                     <FormItem>
-                        <FormLabel>Weeks in Advance</FormLabel>
+                        <FormLabel className="text-black">Weeks in Advance</FormLabel>
                         <FormControl><Input type="number" {...field} /></FormControl>
-                        <FormDescription>How many weeks in advance should we start sending notifications?</FormDescription>
+                        <FormDescription className="text-black">How many weeks in advance should we start sending notifications?</FormDescription>
                         <FormMessage />
                     </FormItem>
                 )} />
