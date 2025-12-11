@@ -47,7 +47,6 @@ const PaymentStatusPage: React.FC = () => {
 
       setIsProcessing(false);
       const paymentIntent = result.paymentIntent as PaymentIntentWithMetadata;
-      console.log("Retrieved Payment Intent:", paymentIntent);
 
       switch (paymentIntent?.status) {
         case 'succeeded':
@@ -56,7 +55,7 @@ const PaymentStatusPage: React.FC = () => {
             description: "Your event has been activated."
           });
           
-          const eventId = paymentIntent.metadata.event_id;
+          const eventId = new URLSearchParams(window.location.search).get('event_id');
           if (eventId) {
             setMessage('Success! Your payment was received. Redirecting to your confirmation...');
             setTimeout(() => {

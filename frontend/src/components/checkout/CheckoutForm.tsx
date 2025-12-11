@@ -3,7 +3,11 @@ import { useStripe, useElements, PaymentElement } from '@stripe/react-stripe-js'
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
 
-const CheckoutForm = () => {
+interface CheckoutFormProps {
+  eventId: string;
+}
+
+const CheckoutForm: React.FC<CheckoutFormProps> = ({ eventId }) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -25,7 +29,7 @@ const CheckoutForm = () => {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `${window.location.origin}/static/payment-status`,
+        return_url: `${window.location.origin}/payment-status?event_id=${eventId}`,
       },
     });
 

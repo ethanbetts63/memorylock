@@ -59,7 +59,7 @@ export default function PaymentPage() {
       <div className="max-w-md mx-auto">
         {clientSecret ? (
           <Elements options={options} stripe={stripePromise}>
-            <CheckoutForm />
+            <CheckoutForm eventId={event.id} />
           </Elements>
         ) : (
           <div className="flex justify-center items-center h-48">
