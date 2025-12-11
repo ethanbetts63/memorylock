@@ -8,7 +8,7 @@ import { AuthProvider } from './context/AuthContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/static">
+    <BrowserRouter>
       <AuthProvider>
         <ScrollToTop />
         <App />
