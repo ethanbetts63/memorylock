@@ -29,16 +29,17 @@ const AddContactForm: React.FC<{ onAddContact: (data: ContactFormData) => Promis
 
     const handleFormSubmit = async (data: ContactFormData) => {
         await onAddContact(data);
-        reset({ first_name: '', last_name: '', phone: '', email: '' }); // Reset form after successful submission
+        reset({ first_name: '', last_name: '', relationship: '', phone: '', email: '' }); // Reset form after successful submission
     };
 
     return (
         <div className="w-full">
             <h4 className="text-base font-semibold mb-4 border-t pt-6">Add a New Contact</h4>
             <form onSubmit={handleSubmit(handleFormSubmit)}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-start">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 items-start">
                     <Input {...register("first_name", { required: true })} placeholder="First Name" />
                     <Input {...register("last_name", { required: true })} placeholder="Last Name" />
+                    <Input {...register("relationship")} placeholder="Relationship (Optional)" />
                     <Input {...register("phone", { required: true })} placeholder="Phone" />
                     <Input {...register("email")} placeholder="Email (Optional)" />
                     <Button type="submit" disabled={isSubmitting} className="w-full">
@@ -142,6 +143,7 @@ export const EmergencyContactsManager: React.FC<ManagerProps> = ({ initialContac
         <TableRow>
             <TableCell><Input {...registerEdit("first_name", { required: true })} placeholder="First Name" /></TableCell>
             <TableCell><Input {...registerEdit("last_name", { required: true })} placeholder="Last Name" /></TableCell>
+            <TableCell><Input {...registerEdit("relationship")} placeholder="Relationship" /></TableCell>
             <TableCell><Input {...registerEdit("phone", { required: true })} placeholder="Phone" /></TableCell>
             <TableCell><Input {...registerEdit("email")} placeholder="Email (Optional)" /></TableCell>
             <TableCell className="flex gap-2">
@@ -161,13 +163,14 @@ export const EmergencyContactsManager: React.FC<ManagerProps> = ({ initialContac
             </CardHeader>
             <CardContent>
                 <Table>
-                    <TableHeader><TableRow><TableHead>First Name</TableHead><TableHead>Last Name</TableHead><TableHead>Phone</TableHead><TableHead>Email</TableHead><TableHead>Actions</TableHead></TableRow></TableHeader>
+                    <TableHeader><TableRow><TableHead>First Name</TableHead><TableHead>Last Name</TableHead><TableHead>Relationship</TableHead><TableHead>Phone</TableHead><TableHead>Email</TableHead><TableHead>Actions</TableHead></TableRow></TableHeader>
                     <TableBody>
                         {contacts.map(contact => (
                             editingId === contact.id ? renderEditFormRow() : (
                                 <TableRow key={contact.id}>
                                     <TableCell>{contact.first_name}</TableCell>
                                     <TableCell>{contact.last_name}</TableCell>
+                                    <TableCell>{contact.relationship}</TableCell>
                                     <TableCell>{contact.phone}</TableCell>
                                     <TableCell>{contact.email}</TableCell>
                                     <TableCell className="flex gap-2">
@@ -179,7 +182,7 @@ export const EmergencyContactsManager: React.FC<ManagerProps> = ({ initialContac
                         ))}
                          {contacts.length === 0 && (
                             <TableRow>
-                                <TableCell colSpan={5} className="text-center h-24">
+                                <TableCell colSpan={6} className="text-center h-24">
                                     No emergency contacts added yet.
                                 </TableCell>
                             </TableRow>
