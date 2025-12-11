@@ -5,8 +5,8 @@ import type { StripeElementsOptions, Appearance } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import { toast } from 'sonner';
 
-import CheckoutForm from '../components/checkout/CheckoutForm';
-import PaymentSummary from '../components/checkout/PaymentSummary'; // Import the new component
+import CheckoutForm from '../../components/checkout/CheckoutForm';
+import PaymentSummary from '../../components/checkout/PaymentSummary'; // Import the new component
 import { createPaymentIntent } from '@/api';
 import type { Event } from '@/types';
 import { Spinner } from '@/components/ui/spinner';
