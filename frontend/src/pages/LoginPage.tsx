@@ -1,4 +1,4 @@
-import { LoginForm } from "@/components/LoginForm";
+import { LoginForm } from "@/forms/LoginForm";
 import Seo from '../components/Seo';
 
 const LoginPage = () => {
