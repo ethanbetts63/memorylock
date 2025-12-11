@@ -39,7 +39,7 @@ export default function PaymentPage() {
   }
   
   const appearance: Appearance = {
-    theme: 'stripe',
+    theme: 'night',
     rules: {
       '.Label': {
         color: 'var(--foreground)',
