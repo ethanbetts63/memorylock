@@ -1,7 +1,7 @@
 // src/api.ts
 import { authedFetch } from '@/apiClient';
 import type { ProfileCreationData } from "@/forms/ProfileCreationForm";
-import type { AuthResponse, Event, UserProfile, EmergencyContact, FaqItem } from "@/types";
+import type { AppConfig, AuthResponse, Event, UserProfile, EmergencyContact, FaqItem } from "@/types";
 
 /**
  * A centralized module for all API interactions.
@@ -26,6 +26,14 @@ async function handleResponse<T>(response: Response): Promise<T> {
     throw error;
   }
   return data as T;
+}
+
+
+// --- Configuration Endpoints ---
+
+export async function getAppConfig(): Promise<AppConfig> {
+  const response = await fetch('/api/products/single-event-price/');
+  return handleResponse(response);
 }
 
 

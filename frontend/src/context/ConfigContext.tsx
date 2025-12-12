@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
-import { getAppConfig, type AppConfig } from '@/api/config';
+import { getAppConfig } from '@/api';
+import type { AppConfig } from '@/types';
 
 // --- Type Definitions ---
 interface ConfigContextType {
