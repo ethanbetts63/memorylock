@@ -40,9 +40,9 @@ const ReminderAppsRanked = () => {
             <div>
               <h3 className="text-2xl font-bold tracking-tight mb-4">5. Microsoft To Do — Solid, Safe, but Undistinguished</h3>
               <div className="pl-4 border-l-4 border-muted/30">
-                <p>Cross-platform sync: 4/5</p>
-                <p>Hard-to-ignore: 3/5</p>
-                <p>Ease & aesthetics: 4/5</p>
+                <p><span className="font-bold">Cross-platform sync:</span> 4/5</p>
+                <p><span className="font-bold">Hard-to-ignore:</span> 3/5</p>
+                <p><span className="font-bold">Ease & aesthetics:</span> 4/5</p>
                 <p>Cost: 5/5</p>
                 <p>Featurefulness: 3/5</p>
                 <h4 className="font-semibold mt-4 mb-2">Community Opinion</h4>
@@ -74,7 +74,7 @@ const ReminderAppsRanked = () => {
               <div className="pl-4 border-l-4 border-muted/30">
                 <p>Cross-platform sync: 5/5</p>
                 <p>Hard-to-ignore: 2/5</p>
-                <p>Ease & aesthetics: 4/5</p>
+                <p><span className="font-bold">Ease & aesthetics:</span> 4/5</p>
                 <p>Cost: 5/5</p>
                 <p>Featurefulness: 3/5</p>
                 <h4 className="font-semibold mt-4 mb-2">Community Opinion</h4>
@@ -90,7 +90,7 @@ const ReminderAppsRanked = () => {
               <div className="pl-4 border-l-4 border-muted/30">
                 <p>Cross-platform sync: 5/5</p>
                 <p>Hard-to-ignore: 3/5</p>
-                <p>Ease & aesthetics: 4/5</p>
+                <p><span className="font-bold">Ease & aesthetics:</span> 4/5</p>
                 <p>Cost: 3/5</p>
                 <p>Featurefulness: 5/5</p>
                 <h4 className="font-semibold mt-4 mb-2">Community Opinion</h4>
@@ -106,7 +106,7 @@ const ReminderAppsRanked = () => {
               <div className="pl-4 border-l-4 border-muted/30">
                 <p>Cross-platform sync: 5/5</p>
                 <p>Hard-to-ignore: 4/5</p>
-                <p>Ease & aesthetics: 4/5</p>
+                <p><span className="font-bold">Ease & aesthetics:</span> 4/5</p>
                 <p>Cost: 3/5</p>
                 <p>Featurefulness: 5/5</p>
                 <h4 className="font-semibold mt-4 mb-2">Community Opinion</h4>
