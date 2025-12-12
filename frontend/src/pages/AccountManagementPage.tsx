@@ -4,6 +4,7 @@ import { getUserProfile, getEmergencyContacts } from '@/api';
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Terminal } from "lucide-react";
 import { ProfileForm } from '@/forms/ProfileForm'; 
 import { EmergencyContactsManager } from '@/components/EmergencyContactsManager';
