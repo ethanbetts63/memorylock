@@ -16,52 +16,6 @@ const Summary: React.FC<SummaryProps> = ({ event, user, emergencyContacts, class
 
   return (
     <div className={`space-y-6 ${className}`}>
-      {user && (
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Profile Details</CardTitle>
-            <Button asChild variant="outline" size="sm">
-              <Link to="/account">Edit</Link>
-            </Button>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Name:</span>
-              <span className="font-semibold">{user.first_name} {user.last_name}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Email:</span>
-              <span className="font-semibold">{user.email}</span>
-            </div>
-          </CardContent>
-        </Card>
-      )}
-
-      {emergencyContacts && emergencyContacts.length > 0 && (
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Emergency Contacts</CardTitle>
-            <Button asChild variant="outline" size="sm">
-              <Link to="/account">Edit</Link>
-            </Button>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {emergencyContacts.map((contact, index) => (
-              <div key={contact.id} className={index > 0 ? "border-t pt-4" : ""}>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Name:</span>
-                  <span className="font-semibold">{contact.first_name} {contact.last_name}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Phone:</span>
-                  <span className="font-semibold">{contact.phone}</span>
-                </div>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-      )}
-
       {event && (
         <Card>
           <CardHeader>
@@ -88,6 +42,51 @@ const Summary: React.FC<SummaryProps> = ({ event, user, emergencyContacts, class
                 <span>${price.toFixed(2)}</span>
               </div>
             </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {user && (
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle>Your Information</CardTitle>
+            <Button asChild variant="outline" size="sm">
+              <Link to="/account">Edit</Link>
+            </Button>
+          </CardHeader>
+          <CardContent>
+            {/* Profile Details */}
+            <div className="space-y-2">
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Name:</span>
+                <span className="font-semibold">{user.first_name} {user.last_name}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Email:</span>
+                <span className="font-semibold">{user.email}</span>
+              </div>
+            </div>
+
+            {/* Emergency Contacts Section (Conditional) */}
+            {emergencyContacts && emergencyContacts.length > 0 && (
+              <div className="border-t pt-4 mt-4">
+                <h4 className="text-sm font-medium text-muted-foreground mb-2">Emergency Contacts</h4>
+                <div className="space-y-4">
+                  {emergencyContacts.map((contact) => (
+                    <div key={contact.id}>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Name:</span>
+                        <span className="font-semibold">{contact.first_name} {contact.last_name}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Phone:</span>
+                        <span className="font-semibold">{contact.phone}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </CardContent>
         </Card>
       )}
