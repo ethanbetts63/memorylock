@@ -36,14 +36,14 @@ export const ProductCarousel = () => {
     <div className="w-full py-12">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold tracking-tight text-center text-primary-foreground mb-2">The <span className= "font-bold italic underline">FutureReminder</span> System</h2>
-        <p className="text-lg text-primary-foreground/80 text-center mb-8">
+        <p className="text-lg text-primary-foreground text-center mb-8">
           Our automated, escalating hierarchy ensures you never miss what matters most.
         </p>
         <div className="flex overflow-x-auto space-x-6 pb-4">
           {hierarchyLevels.map((item) => (
             <div key={item.level} className="flex-shrink-0 w-72 bg-white border rounded-xl shadow-md p-6 transform transition-transform hover:-translate-y-1">
               <div className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full mb-4">
-                <span className="text-xl font-bold text-gray-900">{item.level}</span>
+                <span className="text-xl font-bold text-black">{item.level}</span>
               </div>
               <h3 className="text-xl font-semibold mb-2 text-gray-900">{item.title}</h3>
               <p className="text-gray-700">{item.description}</p>
