@@ -13,6 +13,8 @@ const includedFeatures = [
 ];
 
 export const CtaCard: React.FC = () => {
+  const { config, isLoading } = useConfig();
+
   return (
     <Card className="w-full bg-white text-gray-900">
       <CardHeader className="text-center">
@@ -22,7 +24,9 @@ export const CtaCard: React.FC = () => {
             </div>
             <CardTitle className="text-3xl"><span className="bg-primary text-primary-foreground px-2 py-1 rounded-md italic underline">FutureReminder</span></CardTitle>
         </div>
-        <p className="text-3xl font-bold">$25.99</p>
+        <p className="text-3xl font-bold">
+          {isLoading ? '...' : config ? `$${config.amount.toFixed(2)}` : '$--.--'}
+        </p>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-4">
