@@ -18,9 +18,7 @@ const Footer: React.FC = () => {
 
           {/* Right Side: Navigation Links */}
           <nav className="flex gap-6">
-            <Link to="/privacy" className="text-sm hover:underline">Privacy Policy</Link>
             <Link to="/terms-and-conditions" className="text-sm hover:underline">Terms & Conditions</Link>
-            <Link to="/contact" className="text-sm hover:underline">Contact</Link>
           </nav>
 
         </div>
