@@ -69,3 +69,4 @@ git commit -m "reset_django.ps1"
 git push
 
 python manage.py generate --faqs
+python manage.py generate --products
