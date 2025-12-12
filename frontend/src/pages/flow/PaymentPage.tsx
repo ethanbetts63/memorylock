@@ -66,11 +66,11 @@ export default function PaymentPage() {
         <div className="order-2 md:order-1 w-full">
           <Card className="bg-foreground text-background">
             <CardHeader>
-              <CardTitle className="text-3xl">Payment Details</CardTitle>
-              <CardDescription className="text-black">Enter your card information below.</CardDescription>
-              <div className="text-center text-sm text-muted-foreground pt-2">
+              <div className="text-center text-sm text-muted-foreground pb-2">
                 <p>Powered by <span className="font-bold">Stripe</span></p>
               </div>
+              <CardTitle className="text-3xl">Payment Details</CardTitle>
+              <CardDescription className="text-black">Enter your card information below.</CardDescription>
             </CardHeader>
             <CardContent>
               {clientSecret ? (

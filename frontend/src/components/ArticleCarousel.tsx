@@ -42,6 +42,12 @@ const articles = [
     imageSrc: subscriptionImage,
     link: '/articles/subscription-renewal',
     alt: 'A person looking shocked at a credit card statement'
+  },
+  {
+    title: 'The Best Reminder Apps of 2025, Ranked',
+    imageSrc: subscriptionImage, // Using placeholder
+    link: '/articles/reminder-apps-ranked',
+    alt: 'Conceptual image of different reminder apps on a phone screen'
   }
 ];
 

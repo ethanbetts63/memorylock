@@ -12,7 +12,7 @@ import { EventManagementPage } from './pages/EventManagementPage';
 import AccountManagementPage from './pages/AccountManagementPage';
 
 // Import the new event creation flow pages
-import EventGate from './components/EventGate';
+import EventGate from '@/components/EventGate';
 import ProfileCreationPage from './pages/flow/ProfileCreationPage';
 import EmergencyContactPage from './pages/flow/EmergencyContactPage';
 import EventCreationPage from './pages/flow/EventCreationPage';
@@ -24,6 +24,7 @@ import IUDExpiration from './pages/articles/IUDExpiration';
 import AnniversaryReminders from './pages/articles/AnniversaryReminders';
 import VisaExpiry from './pages/articles/VisaExpiry';
 import SubscriptionRenewal from './pages/articles/SubscriptionRenewal';
+import ReminderAppsRanked from './pages/articles/ReminderAppsRanked';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/articles/anniversary-reminders" element={<AnniversaryReminders />} />
           <Route path="/articles/visa-expiry" element={<VisaExpiry />} />
           <Route path="/articles/subscription-renewal" element={<SubscriptionRenewal />} />
+          <Route path="/articles/reminder-apps-ranked" element={<ReminderAppsRanked />} />
 
           {/* Event Creation Flow */}
           <Route path="/event-gate" element={<EventGate />} />
