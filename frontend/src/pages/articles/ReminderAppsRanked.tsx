@@ -43,8 +43,8 @@ const ReminderAppsRanked = () => {
                 <p><span className="font-bold">Cross-platform sync:</span> 4/5</p>
                 <p><span className="font-bold">Hard-to-ignore:</span> 3/5</p>
                 <p><span className="font-bold">Ease & aesthetics:</span> 4/5</p>
-                <p>Cost: 5/5</p>
-                <p>Featurefulness: 3/5</p>
+                <p><span className="font-bold">Cost:</span> 5/5</p>
+                <p><span className="font-bold">Featurefulness:</span> 3/5</p>
                 <h4 className="font-semibold mt-4 mb-2">Community Opinion</h4>
                 <p className="mb-4">Microsoft To Do tends to get described as “good enough.” The most common praise is that it’s free, clean, and integrates nicely with Outlook if you live in the Microsoft 365 ecosystem. The biggest complaints are that it’s too basic, misses some advanced features, and feels like it’s always a few steps behind the competition. <span className="font-bold italic underline">People like it — but they rarely love it.</span></p>
                 <h4 className="font-semibold mt-4 mb-2">Our Opinion</h4>
@@ -56,11 +56,11 @@ const ReminderAppsRanked = () => {
             <div>
               <h3 className="text-2xl font-bold tracking-tight mb-4">4. Apple Reminders — Beautiful, Capable… and Locked In</h3>
               <div className="pl-4 border-l-4 border-muted/30">
-                <p>Cross-platform sync: 1/5</p>
-                <p>Hard-to-ignore: 2/5</p>
-                <p>Ease & aesthetics: 5/5</p>
-                <p>Cost: 5/5</p>
-                <p>Featurefulness: 3/5</p>
+                <p><span className="font-bold">Cross-platform sync:</span> 1/5</p>
+                <p><span className="font-bold">Hard-to-ignore:</span> 2/5</p>
+                <p><span className="font-bold">Ease & aesthetics:</span> 5/5</p>
+                <p><span className="font-bold">Cost:</span> 5/5</p>
+                <p><span className="font-bold">Featurefulness:</span> 3/5</p>
                 <h4 className="font-semibold mt-4 mb-2">Community Opinion</h4>
                 <p className="mb-4">Apple users will defend this app to the death — and honestly, they’re not wrong. It’s incredibly clean, extremely easy to use, and deeply integrated with Siri and the iOS lockscreen. But outside the Apple ecosystem? <span className="font-bold italic underline">It might as well not exist.</span> People who switch between iPhone and Windows/Android complain about constant sync headaches and missing features on non-Apple platforms.</p>
                 <h4 className="font-semibold mt-4 mb-2">Our Opinion</h4>
@@ -72,11 +72,11 @@ const ReminderAppsRanked = () => {
             <div>
               <h3 className="text-2xl font-bold tracking-tight mb-4">3. Google Keep / Google Tasks — The Most Frictionless Reminder Duo</h3>
               <div className="pl-4 border-l-4 border-muted/30">
-                <p>Cross-platform sync: 5/5</p>
-                <p>Hard-to-ignore: 2/5</p>
+                <p><span className="font-bold">Cross-platform sync:</span> 5/5</p>
+                <p><span className="font-bold">Hard-to-ignore:</span> 2/5</p>
                 <p><span className="font-bold">Ease & aesthetics:</span> 4/5</p>
-                <p>Cost: 5/5</p>
-                <p>Featurefulness: 3/5</p>
+                <p><span className="font-bold">Cost:</span> 5/5</p>
+                <p><span className="font-bold">Featurefulness:</span> 3/5</p>
                 <h4 className="font-semibold mt-4 mb-2">Community Opinion</h4>
                 <p className="mb-4">Google Keep and Google Tasks get described as “shockingly convenient.” People love that they cost nothing, sync instantly, and live everywhere you already are — Gmail, Android, the web. Their biggest criticism is equally consistent: they’re too simple. Great for quick reminders, not so great for complex task setups or structured workflows.</p>
                 <h4 className="font-semibold mt-4 mb-2">Our Opinion</h4>
@@ -88,11 +88,11 @@ const ReminderAppsRanked = () => {
             <div>
               <h3 className="text-2xl font-bold tracking-tight mb-4">2. Todoist — The Power User’s Choice</h3>
               <div className="pl-4 border-l-4 border-muted/30">
-                <p>Cross-platform sync: 5/5</p>
-                <p>Hard-to-ignore: 3/5</p>
+                <p><span className="font-bold">Cross-platform sync:</span> 5/5</p>
+                <p><span className="font-bold">Hard-to-ignore:</span> 3/5</p>
                 <p><span className="font-bold">Ease & aesthetics:</span> 4/5</p>
-                <p>Cost: 3/5</p>
-                <p>Featurefulness: 5/5</p>
+                <p><span className="font-bold">Cost:</span> 3/5</p>
+                <p><span className="font-bold">Featurefulness:</span> 5/5</p>
                 <h4 className="font-semibold mt-4 mb-2">Community Opinion</h4>
                 <p className="mb-4">Todoist has a <span className="font-bold italic underline">cult-like following</span> in productivity communities. People love its power, its integrations (Slack, Google Calendar, Outlook, Zapier), its depth, and its cross-platform consistency. Complaints tend to focus on price and on the fact that it’s more of a task manager than a pure reminder tool.</p>
                 <h4 className="font-semibold mt-4 mb-2">Our Opinion</h4>
@@ -104,11 +104,11 @@ const ReminderAppsRanked = () => {
             <div>
               <h3 className="text-2xl font-bold tracking-tight mb-4">1. TickTick — The Best All-Round Reminder App in 2025</h3>
               <div className="pl-4 border-l-4 border-muted/30">
-                <p>Cross-platform sync: 5/5</p>
-                <p>Hard-to-ignore: 4/5</p>
+                <p><span className="font-bold">Cross-platform sync:</span> 5/5</p>
+                <p><span className="font-bold">Hard-to-ignore:</span> 4/5</p>
                 <p><span className="font-bold">Ease & aesthetics:</span> 4/5</p>
-                <p>Cost: 3/5</p>
-                <p>Featurefulness: 5/5</p>
+                <p><span className="font-bold">Cost:</span> 3/5</p>
+                <p><span className="font-bold">Featurefulness:</span> 5/5</p>
                 <h4 className="font-semibold mt-4 mb-2">Community Opinion</h4>
                 <p className="mb-4">TickTick is the community favorite when people want the “Goldilocks zone” — not too simple, not too complicated, packed with features but still easy to use. Reddit praises it for its flexible recurring reminders, habit tracker, fast interface, multi-platform support, and generous free tier. Complaints are mostly minor UI gripes or comparisons to Todoist’s deeper ecosystem.</p>
                 <h4 className="font-semibold mt-4 mb-2">My Opinion</h4>
@@ -121,16 +121,16 @@ const ReminderAppsRanked = () => {
               <h3 className="text-2xl font-bold tracking-tight mb-4">Honourable Mention — FutureReminder (That’s Us)</h3>
               <div className="pl-4 border-l-4 border-muted/30">
                 <p className="mb-4">So you probably saw this part coming but stick with us because there is literally no other app that does what we do and you might not have ever realized how bad you want what we have.</p>
-                <p>Cross-platform sync: N/A</p>
-                <p>Hard-to-ignore: 999/5 (We’ll explain in a moment)</p>
-                <p>Ease & aesthetics: 3/5</p>
-                <p>Cost: 1/5</p>
-                <p>Featurefulness: 1/5</p>
+                <p><span className="font-bold">Cross-platform sync:</span> N/A</p>
+                <p><span className="font-bold">Hard-to-ignore:</span> 999/5 (We’ll explain in a moment)</p>
+                <p><span className="font-bold">Ease & aesthetics:</span> 3/5</p>
+                <p><span className="font-bold">Cost:</span> 1/5</p>
+                <p><span className="font-bold">Featurefulness:</span> 1/5</p>
                 <h4 className="font-semibold mt-4 mb-2">Community Opinion</h4>
                 <p className="mb-4">We’re too new to have a large community consensus yet. But we’d love to know what you think. You can find the boss's email on our home page.</p>
                 <h4 className="font-semibold mt-4 mb-2">Our Opinion</h4>
                 <p className="mb-4">Every single other reminder app is built for next Tuesday. We’re built for that super import thing you can’t forget in 10 months time (or 10 years). Visa expires, contraceptive implant removals, trademark or domain renewals. Warranty maintenance. Your anniversary. Anything that is distant but critical. Anything where every now and again you remember and think to yourself, “I really can’t forget to…”.</p>
-                <p className="mb-4"><span className="font-bold italic underline">We won’t just ping you a notification.</span> We’ll email you. Then we’ll text you. Then we’ll try your backup contacts. Then we’ll call you. Then we can try your social media handles. Finally, you can even give us emergency contacts for us to call. Sounds like overkill? It isn’t. Not when the event is unmissable.</p>
+                <p className="mb-4"><span className="font-bold italic underline">We won’t just ping you a notification.</span> We’ll email you. Then we’ll text you. Then we’ll try your backup contacts. Then we’ll call you. Then we can try your social media handles. Finally, you can even give us emergency contacts for us to call. Sounds like overkill? It isn’t. Regular notifications get missed. Emails can end up in junk. Phone numbers or emails change over time. There are a lot of ways your average reminder system can go wrong.</p>
                 <p className="mb-4">Overstay a visa and you could end a career or a relationship. Leave an IUD in past expiry and you could get pregnant. Forget to renew a trademark, domain or business license. That could be bankruptcy. All because you “just forgot”.</p>
                 <p className="mb-4">Why N/A for cross-platform sync? <span className="font-bold italic underline">We aren’t an app and we don’t want to be on your phone.</span> Set up an event with us once and then forget about us. We won’t contact you at all until the date you’ve told us to.</p>
                 <p className="mb-4">Why Cost 1/5 ? You pay per event you want to be reminded about. We don’t expect you to use us for every little thing in your life. No subscriptions. You pay upfront and once. And then you forget about us.</p>
