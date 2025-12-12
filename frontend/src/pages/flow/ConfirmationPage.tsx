@@ -135,10 +135,17 @@ const ConfirmationPage = () => {
                     <Link to="/dashboard/account">Edit Profile</Link>
                   </Button>
                 </CardHeader>
-                <CardContent className="space-y-2">
-                  <p><strong>Name:</strong> {profile?.first_name} {profile?.last_name}</p>
-                  <p><strong>Email:</strong> {profile?.email}</p>
-                  <p><strong>Phone:</strong> {profile?.phone}</p>
+                <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+                  <p><strong>First Name:</strong> {profile?.first_name || 'Not provided'}</p>
+                  <p><strong>Last Name:</strong> {profile?.last_name || 'Not provided'}</p>
+                  <p><strong>Email:</strong> {profile?.email || 'Not provided'}</p>
+                  <p><strong>Phone:</strong> {profile?.phone || 'Not provided'}</p>
+                  <p><strong>Backup Email:</strong> {profile?.backup_email || 'Not provided'}</p>
+                  <p><strong>Backup Phone:</strong> {profile?.backup_phone || 'Not provided'}</p>
+                  <p><strong>Facebook:</strong> {profile?.facebook_handle || 'Not provided'}</p>
+                  <p><strong>Instagram:</strong> {profile?.instagram_handle || 'Not provided'}</p>
+                  <p><strong>Snapchat:</strong> {profile?.snapchat_handle || 'Not provided'}</p>
+                  <p><strong>X (Twitter):</strong> {profile?.x_handle || 'Not provided'}</p>
                 </CardContent>
               </Card>
 
@@ -155,11 +162,13 @@ const ConfirmationPage = () => {
                 </CardHeader>
                 <CardContent>
                   {contacts.length > 0 ? (
-                    <ul className="space-y-2">
+                    <ul className="space-y-4">
                       {contacts.map(contact => (
-                        <li key={contact.id} className="p-2 border-b last:border-b-0">
+                        <li key={contact.id} className="p-3 border rounded-md bg-muted/20">
                           <p><strong>Name:</strong> {contact.first_name} {contact.last_name}</p>
-                          <p className="text-sm text-muted-foreground"><strong>Relationship:</strong> {contact.relationship}</p>
+                          <p className="text-sm"><strong>Relationship:</strong> {contact.relationship || 'N/A'}</p>
+                          <p className="text-sm"><strong>Phone:</strong> {contact.phone}</p>
+                          {contact.email && <p className="text-sm"><strong>Email:</strong> {contact.email}</p>}
                         </li>
                       ))}
                     </ul>
@@ -183,6 +192,7 @@ const ConfirmationPage = () => {
                   <CardContent className="space-y-2">
                       <p><strong>Event Name:</strong> {event.name}</p>
                       <p><strong>Event Date:</strong> {eventDate}</p>
+                      <p><strong>Lead Time:</strong> {event.weeks_in_advance} {event.weeks_in_advance === 1 ? 'week' : 'weeks'}</p>
                       {event.notes && <p><strong>Notes:</strong> {event.notes}</p>}
                   </CardContent>
               </Card>

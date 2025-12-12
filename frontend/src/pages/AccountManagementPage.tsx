@@ -3,6 +3,7 @@ import type { UserProfile, EmergencyContact } from '@/types';
 import { getUserProfile, getEmergencyContacts } from '@/api';
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Terminal } from "lucide-react";
 import { ProfileForm } from '@/forms/ProfileForm'; 
 import { EmergencyContactsManager } from '@/components/EmergencyContactsManager';
@@ -12,6 +13,8 @@ const AccountManagementPage: React.FC = () => {
     const [contacts, setContacts] = useState<EmergencyContact[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    const [isEditing, setIsEditing] = useState(false);
 
     const fetchData = async () => {
         setLoading(true);
@@ -34,6 +37,11 @@ const AccountManagementPage: React.FC = () => {
         fetchData();
     }, []);
 
+    const handleProfileUpdate = (updatedProfile: UserProfile) => {
+        setProfile(updatedProfile);
+        setIsEditing(false); // Turn off editing mode on successful save
+    };
+    
     if (loading) {
         return (
             <div className="space-y-8">
@@ -71,12 +79,52 @@ const AccountManagementPage: React.FC = () => {
     }
 
     return (
-        <div className="space-y-12">
-            {profile && <ProfileForm profile={profile} onProfileUpdate={setProfile} />}
-            <EmergencyContactsManager 
-                initialContacts={contacts} 
-                onContactsChange={setContacts} 
-            />
+        <div className="space-y-8">
+            {profile && (
+                <Card className="bg-foreground text-background">
+                    <CardHeader className="flex flex-row items-start justify-between">
+                        <div>
+                            <CardTitle className="text-2xl">Your Profile</CardTitle>
+                            <CardDescription className="text-black">
+                                Update your personal information and social media handles.
+                            </CardDescription>
+                        </div>
+                        <div className="flex gap-2">
+                             {!isEditing ? (
+                                <Button variant="outline" onClick={() => setIsEditing(true)}>Edit</Button>
+                            ) : (
+                                <>
+                                    <Button variant="ghost" onClick={() => setIsEditing(false)}>Cancel</Button>
+                                    <Button onClick={() => document.getElementById('profile-form-submit')?.click()}>
+                                        Save
+                                    </Button>
+                                </>
+                            )}
+                        </div>
+                    </CardHeader>
+                    <CardContent>
+                        <ProfileForm 
+                            profile={profile} 
+                            onProfileUpdate={handleProfileUpdate} 
+                            isEditing={isEditing}
+                        />
+                    </CardContent>
+                </Card>
+            )}
+            <Card className="bg-foreground text-background">
+                <CardHeader>
+                    <CardTitle className="text-2xl">Emergency Contacts</CardTitle>
+                     <CardDescription className="text-black">
+                        This is the list of people we will contact if we cannot reach you.
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <EmergencyContactsManager 
+                        initialContacts={contacts} 
+                        onContactsChange={setContacts} 
+                    />
+                </CardContent>
+            </Card>
         </div>
     );
 };

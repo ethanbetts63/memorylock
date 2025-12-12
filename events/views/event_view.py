@@ -22,9 +22,10 @@ class EventViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         """
-        This view should only return events owned by the currently authenticated user.
+        This view should only return events owned by the currently authenticated user
+        that have a successful payment.
         """
-        return self.request.user.events.all()
+        return self.request.user.events.filter(payments__status='succeeded').distinct()
 
     def perform_create(self, serializer):
         """
