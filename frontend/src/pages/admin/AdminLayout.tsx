@@ -33,21 +33,21 @@ const AdminLayout: React.FC = () => {
         <aside className="w-64 flex-shrink-0 border-r p-4 bg-background">
           <nav className="flex flex-col space-y-2">
             <h2 className="text-lg font-semibold tracking-tight mb-2 px-2">Admin Menu</h2>
-            <Button asChild variant="ghost" className={getNavLinkClass}>
-              <NavLink to="/admin" end>
+            <Button asChild variant="ghost">
+              <NavLink to="/admin-dashboard" end className={getNavLinkClass}>
                 <Home className="h-4 w-4" />
                 Dashboard
               </NavLink>
             </Button>
             <h3 className="text-sm font-semibold tracking-tight mt-4 mb-2 px-2 text-muted-foreground">Analytics</h3>
-            <Button asChild variant="ghost" className={getNavLinkClass}>
-              <NavLink to="/admin/notifications/automated">
+            <Button asChild variant="ghost">
+              <NavLink to="/admin-dashboard/notifications/automated" className={getNavLinkClass}>
                 <BarChart2 className="h-4 w-4" />
                 Automated
               </NavLink>
             </Button>
-            <Button asChild variant="ghost" className={getNavLinkClass}>
-              <NavLink to="/admin/notifications/manual">
+            <Button asChild variant="ghost">
+              <NavLink to="/admin-dashboard/notifications/manual" className={getNavLinkClass}>
                 <BellRing className="h-4 w-4" />
                 Manual
               </NavLink>

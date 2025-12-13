@@ -74,7 +74,7 @@ function App() {
               <Route path="/payment-status" element={<PaymentStatusPage />} />
 
               {/* Admin Section */}
-              <Route path="/admin" element={<AdminLayout />}>
+              <Route path="/admin-dashboard" element={<AdminLayout />}>
                 <Route index element={<AdminHomePage />} />
                 <Route path="notifications/automated" element={<AutomatedNotificationsPage />} />
                 <Route path="notifications/manual" element={<ManualNotificationsPage />} />
