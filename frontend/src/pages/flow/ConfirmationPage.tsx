@@ -6,6 +6,7 @@ import { CheckCircle, User, Heart, Calendar, CreditCard, AlertCircle, Loader2 } 
 import { getUserProfile, getEmergencyContacts, getEvent } from '@/api';
 import type { UserProfile, EmergencyContact, Event } from '@/types';
 import { ArticleCarousel } from '@/components/ArticleCarousel';
+import { Seo } from '@/components/Seo';
 
 const ConfirmationPage = () => {
   const { eventId } = useParams<{ eventId: string }>();
@@ -76,6 +77,7 @@ const ConfirmationPage = () => {
 
   return (
     <>
+      <Seo title="Event Confirmed | FutureReminder" />
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="space-y-8">
           <Card className="text-center w-full bg-gradient-to-br from-background to-muted/50">

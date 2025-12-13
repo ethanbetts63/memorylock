@@ -14,6 +14,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
 import { toast } from 'sonner';
+import { Seo } from '@/components/Seo';
 
 const PaymentStatusPage: React.FC = () => {
   const stripe = useStripe();
@@ -82,6 +83,7 @@ const PaymentStatusPage: React.FC = () => {
 
   return (
     <div className="container mx-auto max-w-2xl py-12">
+      <Seo title="Payment Status | FutureReminder" />
       <Card>
         <CardHeader>
           <CardTitle>Payment Status</CardTitle>

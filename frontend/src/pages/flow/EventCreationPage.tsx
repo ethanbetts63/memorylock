@@ -9,6 +9,7 @@ import { createAuthenticatedEvent, getUserProfile, getEmergencyContacts } from '
 import { EventCreationForm, type EventCreationData } from '@/forms/EventCreationForm';
 import Summary from '@/components/Summary';
 import type { UserProfile, EmergencyContact } from '@/types';
+import { Seo } from '@/components/Seo';
 
 const EventCreationPage: React.FC = () => {
     const navigate = useNavigate();
@@ -59,6 +60,7 @@ const EventCreationPage: React.FC = () => {
 
     return (
         <div className="container mx-auto max-w-6xl py-8">
+            <Seo title="Create Your Event | FutureReminder" />
             <div className="flex flex-col md:flex-row gap-8">
                 {/* Main Content Column */}
                 <div className="w-full md:w-2/3">

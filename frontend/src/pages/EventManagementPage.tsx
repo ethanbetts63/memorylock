@@ -26,6 +26,7 @@ import { toast } from "sonner";
 import * as api from "@/api";
 import type { Event } from "@/types";
 import { formatDate } from "@/utils/utils";
+import { Seo } from "@/components/Seo";
 
 
 function EventManagementPage() {
@@ -100,6 +101,7 @@ function EventManagementPage() {
 
   return (
     <div className="space-y-4">
+      <Seo title="Manage Your Events | FutureReminder" />
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-bold">Event Management</h1>

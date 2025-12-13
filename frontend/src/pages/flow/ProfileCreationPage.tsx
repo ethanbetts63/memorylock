@@ -8,6 +8,7 @@ import { Spinner } from '@/components/ui/spinner';
 import { ProfileCreationForm, type ProfileCreationData } from '@/forms/ProfileCreationForm';
 import { registerUser } from '@/api'; // Use the main registration function
 import { toast } from 'sonner';
+import { Seo } from '@/components/Seo';
 
 const ProfileCreationPage: React.FC = () => {
     const navigate = useNavigate();
@@ -44,6 +45,7 @@ const ProfileCreationPage: React.FC = () => {
 
     return (
         <div className="container mx-auto max-w-2xl py-12">
+            <Seo title="Create Your Profile | FutureReminder" />
             <Card className="bg-foreground text-background">
                 <CardHeader>
                     <CardTitle className="text-3xl">Step 1: Create Your Account</CardTitle>

@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Terminal } from "lucide-react";
 import { ProfileForm } from '@/forms/ProfileForm'; 
 import { EmergencyContactsManager } from '@/components/EmergencyContactsManager';
+import { Seo } from '@/components/Seo';
 
 const AccountManagementPage: React.FC = () => {
     const [profile, setProfile] = useState<UserProfile | null>(null);
@@ -81,6 +82,7 @@ const AccountManagementPage: React.FC = () => {
 
     return (
         <div className="space-y-8">
+            <Seo title="Manage Your Account | FutureReminder" />
             {profile && (
                 <Card className="bg-foreground text-background">
                     <CardHeader className="flex flex-row items-start justify-between">

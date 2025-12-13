@@ -1,6 +1,9 @@
+import { Seo } from "@/components/Seo";
+
 const TermsAndConditionsPage = () => {
     return (
         <>
+            <Seo title="Terms & Conditions | FutureReminder" />
             <div className="container mx-auto px-4 py-8 max-w-4xl">
                 <h1>Terms & Conditions</h1>
                 <p>Last updated: 12/12/2025</p>

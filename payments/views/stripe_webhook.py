@@ -35,7 +35,7 @@ class StripeWebhookView(APIView):
             
             # Find the corresponding Payment in our database
             try:
-                payment = Payment.objects.get(stripe_charge_id=payment_intent.id)
+                payment = Payment.objects.get(stripe_payment_intent_id=payment_intent.id)
                 # Update the status to 'succeeded'
                 payment.status = 'succeeded'
                 payment.save()
@@ -60,7 +60,7 @@ class StripeWebhookView(APIView):
         elif event['type'] == 'payment_intent.payment_failed':
             payment_intent = event['data']['object']
             try:
-                payment = Payment.objects.get(stripe_charge_id=payment_intent.id)
+                payment = Payment.objects.get(stripe_payment_intent_id=payment_intent.id)
                 payment.status = 'failed'
                 payment.save()
             except Payment.DoesNotExist:
