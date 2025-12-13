@@ -45,7 +45,7 @@ const ProfileCreationPage: React.FC = () => {
 
     return (
         <div className="container mx-auto max-w-2xl py-12">
-            <Seo title="Create Your Profile | FutureReminder" />
+            <Seo title="Create Profile | FutureReminder" />
             <Card className="bg-foreground text-background">
                 <CardHeader>
                     <CardTitle className="text-3xl">Step 1: Create Your Account</CardTitle>

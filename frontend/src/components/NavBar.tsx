@@ -46,6 +46,11 @@ const NavBar: React.FC = () => {
         <div className="flex items-center justify-end gap-2">
           {user ? (
             <>
+              {user.is_staff && (
+                <Button variant="ghost" onClick={() => navigate('/admin-dashboard')}>
+                  Admin
+                </Button>
+              )}
               <Button variant="ghost" onClick={() => navigate('/dashboard/events')}>
                 My Events
               </Button>

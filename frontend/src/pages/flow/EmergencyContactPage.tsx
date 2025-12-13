@@ -61,7 +61,7 @@ const EmergencyContactPage: React.FC = () => {
 
     return (
         <div className="container mx-auto max-w-6xl py-12">
-            <Seo title="Add Emergency Contacts | FutureReminder" />
+            <Seo title="Emergency Contacts | FutureReminder" />
             <div className="flex flex-col md:flex-row gap-8">
                 {/* Main Content Column */}
                 <div className="w-full md:w-2/3">

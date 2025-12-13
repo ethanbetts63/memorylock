@@ -1,18 +1,14 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
-import { jwtDecode } from 'jwt-decode';
+import { createContext, useContext, useState, useEffect, type ReactNode, useCallback } from 'react';
 import * as api from '@/api';
 import type { AuthResponse, UserProfile } from '@/types';
 
 // --- Type Definitions ---
-// Using a subset of the UserProfile for the authenticated user object
-type AuthUser = Pick<UserProfile, 'id' | 'email' | 'first_name' | 'last_name'>;
-
 interface AuthContextType {
-  user: AuthUser | null;
+  user: UserProfile | null;
   isAuthenticated: boolean;
   isLoading: boolean;
   loginWithPassword: (email: string, password: string) => Promise<void>;
-  handleLoginSuccess: (authResponse: AuthResponse) => void;
+  handleLoginSuccess: (authResponse: AuthResponse) => Promise<void>;
   logout: () => void;
 }
 
@@ -21,27 +17,33 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // --- Provider Component ---
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<AuthUser | null>(null);
+  const [user, setUser] = useState<UserProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // On initial load, try to restore session from localStorage
-    setIsLoading(true);
+  const loadUserProfile = useCallback(async () => {
+    const token = localStorage.getItem('accessToken');
+    if (!token) {
+      setUser(null);
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      const token = localStorage.getItem('accessToken');
-      if (token) {
-        const decodedUser: AuthUser = jwtDecode(token);
-        // Here you might want to add token expiration check
-        setUser(decodedUser);
-      }
+      const fullProfile = await api.getUserProfile();
+      setUser(fullProfile);
     } catch (error) {
-      console.error("Failed to decode token from localStorage", error);
-      // If token is corrupt, clear the session
-      localStorage.clear();
+      console.error("Failed to fetch user profile, logging out.", error);
+      logout(); // Clears tokens and user state
     } finally {
       setIsLoading(false);
     }
   }, []);
+
+  useEffect(() => {
+    // On initial load, try to restore session by fetching the user profile
+    setIsLoading(true);
+    loadUserProfile();
+  }, [loadUserProfile]);
 
   useEffect(() => {
     const handleAuthFailure = () => {
@@ -58,15 +60,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   /**
    * Central handler for successful authentication.
-   * Decodes token, sets user state, and persists to localStorage.
+   * Sets tokens and then loads the full user profile.
    */
-  const handleLoginSuccess = (authResponse: AuthResponse) => {
+  const handleLoginSuccess = async (authResponse: AuthResponse) => {
     const { access, refresh } = authResponse;
-    const decodedUser: AuthUser = jwtDecode(access);
-
     localStorage.setItem('accessToken', access);
     localStorage.setItem('refreshToken', refresh);
-    setUser(decodedUser);
+    
+    // After setting tokens, load the full user profile to populate the context
+    setIsLoading(true);
+    await loadUserProfile();
   };
 
   /**
@@ -76,7 +79,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const loginWithPassword = async (email: string, password: string) => {
     try {
       const authResponse = await api.loginUser(email, password);
-      handleLoginSuccess(authResponse);
+      await handleLoginSuccess(authResponse);
     } catch (error) {
       // Clear any partial login data on failure and re-throw for the form to handle
       logout();

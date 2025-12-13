@@ -80,7 +80,7 @@ export default function PaymentPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Seo title="Secure Your Payment | FutureReminder" />
+      <Seo title="Secure Payment | FutureReminder" />
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold">Complete Your Payment</h1>
         <p className="text-muted-foreground">

@@ -47,6 +47,8 @@ export interface UserProfile {
     instagram_handle: string | null;
     snapchat_handle: string | null;
     x_handle: string | null;
+    is_staff: boolean;
+    is_superuser: boolean;
 }
 
 export interface EmergencyContact {

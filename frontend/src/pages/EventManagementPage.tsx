@@ -101,7 +101,7 @@ function EventManagementPage() {
 
   return (
     <div className="space-y-4">
-      <Seo title="Manage Your Events | FutureReminder" />
+      <Seo title="Manage Events | FutureReminder" />
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-bold">Event Management</h1>

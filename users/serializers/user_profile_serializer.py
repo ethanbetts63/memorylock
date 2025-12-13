@@ -23,6 +23,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'instagram_handle',
             'snapchat_handle',
             'x_handle',
+            'is_staff',
+            'is_superuser',
         ]
         # The username should not be changed after creation.
         read_only_fields = ['username', 'id']

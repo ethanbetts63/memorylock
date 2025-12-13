@@ -82,7 +82,7 @@ const AccountManagementPage: React.FC = () => {
 
     return (
         <div className="space-y-8">
-            <Seo title="Manage Your Account | FutureReminder" />
+            <Seo title="Manage Account | FutureReminder" />
             {profile && (
                 <Card className="bg-foreground text-background">
                     <CardHeader className="flex flex-row items-start justify-between">
