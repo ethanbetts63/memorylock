@@ -1,8 +1,6 @@
 import React from 'react';
 import { CreateEventLink } from './CreateEventLink';
 import { CheckCircle, XCircle } from 'lucide-react';
-import { useConfig } from '@/context/ConfigContext';
-
 const features = [
   "Access for one event",
   "Full notification hierarchy",
@@ -24,7 +22,6 @@ const avoided = [
 ];
 
 const Pricing: React.FC = () => {
-  const { config, isLoading } = useConfig();
 
   return (
     <div className="w-full">
@@ -43,7 +40,7 @@ const Pricing: React.FC = () => {
             <div className="p-8 flex-grow">
               <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">One-Time Payment</div>
               <p className="block mt-1 text-5xl leading-tight font-bold text-black">
-                {isLoading ? '...' : config ? `$${config.amount.toFixed(2)}` : '$--.--'}
+                $8.99
               </p>
               <p className="mt-2 text-gray-500">A single, unforgettable event deserves a single, simple price.</p>
               

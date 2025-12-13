@@ -10,6 +10,30 @@ import { Card, CardContent } from "./ui/card";
 import { getFaqs } from '@/api';
 import type { FaqItem } from '@/types';
 
+// Hardcoded FAQ data for the homepage
+const homeFaqs: FaqItem[] = [
+  {
+    "question": "Are there any recurring fees?",
+    "answer": "No. Our policy is 'set it and forget it'. You shouldn't even have to think about us until its time to remind you of your important event. So reaccuring fees just wouldn't fit."
+  },
+  {
+    "question": "What if you can’t reach me?",
+    "answer": "We designed a robust system, but we are not magicians. Our system is designed to escalate. We try your email. Then we try your phone. Then we try your backup email. Finally, we try your emergency contact. But if your numbers are dead, your emails bounce, and your emergency contact doesn't pick up, the line of communication ends there. We can only be as robust as the information you give us."
+  },
+  {
+    "question": "Are you liable if I miss a deadline?",
+    "answer": "No. FutureReminder is designed to be a safety net, not the main event. Think of us like the reserve parachute. You should still pack your main parachute (your calendar, your lawyer, your own memory) with care. We are here to catch you if those primary systems fail. While we have built incredible redundancy into our code and servers, technology — like life — is unpredictable. By using FutureReminder, you agree that we provide a layer of security, but the ultimate responsibility for your obligations remains with you."
+  },
+  {
+    "question": "What happens if FutureReminder shuts down? (The Deadman’s Switch)",
+    "answer": "We have a protocol for that. Most software companies die quietly. We want to go out with a bang. We have built an automated \"Deadman's Switch\" into our backend.\n\nThe Trigger: If no admin logs into the master system for a set period of time, the FutureReminder system assumes something has gone wrong (e.g., the founder is incapacitated).\n\nThe Action: The system automatically starts the notification hierachy for all users. \n\nThe Safety Margin: We keep our expense accounts cashed up enough to pay for the servers to continue well into the future. Even if the business entity were to vanish today, the servers have the fuel to keep running long enough to warn you. \nWe don't expect to fail but we are built on reliability and that means preparing for the worst."
+  },
+  {
+    "question": "How do you use my data?",
+    "answer": "Sparingly. We are in the business of reminders, not data brokerage. We do not sell your data. We do not analyze your deadlines to serve you ads. We only ask for information that is functionally necessary to contact you (emails, phone numbers). That’s it. You are the customer, not the product."
+  }
+];
+
 
 interface FaqProps {
   title: string;
@@ -33,10 +57,18 @@ export const Faq: React.FC<FaqProps> = ({ title, subtitle, page, imageSrc, image
   const [faqs, setFaqs] = useState<FaqItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { user } = useAuth(); // We get the user to re-trigger fetch on login/logout
+  const { user } = useAuth();
 
   useEffect(() => {
-    const fetchFaqs = async () => {
+    const loadFaqs = async () => {
+      // If the page is 'home', use the hardcoded data
+      if (page === 'home') {
+        setFaqs(homeFaqs);
+        setIsLoading(false);
+        return;
+      }
+
+      // Otherwise, fetch from the API for other pages
       setIsLoading(true);
       setError(null);
       try {
@@ -49,8 +81,8 @@ export const Faq: React.FC<FaqProps> = ({ title, subtitle, page, imageSrc, image
       }
     };
 
-    fetchFaqs();
-  }, [page, user]); // Dependency array updated to use 'user'
+    loadFaqs();
+  }, [page, user]);
 
   const generateJsonLd = () => {
     if (!faqs.length) {
