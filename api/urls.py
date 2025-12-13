@@ -6,6 +6,7 @@ from .views.frontend_views.product_views import SingleEventPriceView
 from users.views.register_view import RegisterView
 from users.views.user_profile_view import UserProfileView
 from events.views.event_view import EventViewSet
+from .views.backend_views.dashboard_analytics_view import DashboardAnalyticsView
 
 # A router automatically generates the URLs for a ViewSet.
 router = DefaultRouter()
@@ -25,4 +26,5 @@ urlpatterns = [
 
     # Other specific-action endpoints
     path('faqs/', FaqListView.as_view(), name='faq-list'),
+    path('analytics/dashboard/', DashboardAnalyticsView.as_view(), name='dashboard-analytics'),
 ]
