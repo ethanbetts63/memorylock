@@ -20,6 +20,7 @@ const EventCreationPage = lazy(() => import('./pages/flow/EventCreationPage'));
 const PaymentPage = lazy(() => import('./pages/flow/PaymentPage'));
 const PaymentStatusPage = lazy(() => import('./pages/flow/PaymentStatusPage'));
 const TermsAndConditionsPage = lazy(() => import('./pages/TermsAndConditionsPage'));
+const AdminDashboardPage = lazy(() => import('./pages/AdminDashboardPage'));
 
 // --- Lazy-loaded Articles ---
 const LetterToFutureSelf = lazy(() => import('./pages/articles/LetterToFutureSelf'));
@@ -66,6 +67,9 @@ function App() {
               <Route path="/create-flow/event" element={<EventCreationPage />} />
               <Route path="/create-flow/payment" element={<PaymentPage />} />
               <Route path="/payment-status" element={<PaymentStatusPage />} />
+
+              {/* Admin route */}
+              <Route path="/admin-dashboard" element={<AdminDashboardPage />} />
 
               {/* Logged-in user dashboard routes */}
               <Route path="/dashboard" element={<UserDashboardLayout />}>
