@@ -8,6 +8,7 @@ import { toast } from 'sonner';
 import CheckoutForm from '../../forms/CheckoutForm';
 import Summary from '../../components/Summary';
 import { createPaymentIntent, getUserProfile, getEmergencyContacts } from '@/api';
+import { useConfig } from '@/context/ConfigContext';
 import type { Event, UserProfile, EmergencyContact } from '@/types';
 import { Spinner } from '@/components/ui/spinner';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -21,7 +22,12 @@ export default function PaymentPage() {
   const [contacts, setContacts] = useState<EmergencyContact[]>([]);
   const [, setIsLoading] = useState(true);
   
+  const { config, isLoading: isConfigLoading, loadConfig } = useConfig();
   const event: Event | undefined = location.state?.event;
+
+  useEffect(() => {
+    loadConfig();
+  }, [loadConfig]);
 
   useEffect(() => {
     // Fetch user profile and contacts
@@ -108,7 +114,13 @@ export default function PaymentPage() {
 
         {/* Right Column (Summary) */}
         <div className="order-1 md:order-2 w-full mb-8 md:mb-0">
-          <Summary event={event} user={profile || undefined} emergencyContacts={contacts} />
+          <Summary 
+            event={event} 
+            user={profile || undefined} 
+            emergencyContacts={contacts} 
+            config={config}
+            isConfigLoading={isConfigLoading}
+          />
         </div>
       </div>
     </div>

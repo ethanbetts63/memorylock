@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom';
-import type { Event, UserProfile, EmergencyContact } from '@/types';
+import type { Event, UserProfile, EmergencyContact, AppConfig } from '@/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { formatDate } from '@/utils/utils';
-import { useConfig } from '@/context/ConfigContext';
 
 interface SummaryProps {
   event?: Event;
   user?: UserProfile;
   emergencyContacts?: EmergencyContact[];
   className?: string;
+  config?: AppConfig | null;
+  isConfigLoading?: boolean;
 }
 
-const Summary: React.FC<SummaryProps> = ({ event, user, emergencyContacts, className }) => {
-  const { config, isLoading: isConfigLoading } = useConfig();
+const Summary: React.FC<SummaryProps> = ({ event, user, emergencyContacts, className, config, isConfigLoading }) => {
 
   return (
     <div className={`space-y-4 ${className}`}>
