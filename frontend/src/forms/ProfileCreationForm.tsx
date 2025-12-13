@@ -112,22 +112,22 @@ export const ProfileCreationForm: React.FC<ProfileCreationFormProps> = ({ initia
                 <h3 className="text-lg font-medium border-t pt-4">Contact & Social (Optional)</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                      <FormField control={form.control} name="backup_email" render={({ field }) => (
-                        <FormItem><FormLabel>Backup Email</FormLabel><FormControl><Input {...field} value={field.value || ''} type="email" /></FormControl><FormMessage /></FormItem>
+                        <FormItem><FormLabel>Backup Email (optional)</FormLabel><FormControl><Input {...field} value={field.value || ''} type="email" /></FormControl><FormMessage /></FormItem>
                     )} />
                      <FormField control={form.control} name="backup_phone" render={({ field }) => (
-                        <FormItem><FormLabel>Backup Phone</FormLabel><FormControl><Input {...field} value={field.value || ''} /></FormControl><FormMessage /></FormItem>
+                        <FormItem><FormLabel>Backup Phone (optional)</FormLabel><FormControl><Input {...field} value={field.value || ''} /></FormControl><FormMessage /></FormItem>
                     )} />
                     <FormField control={form.control} name="facebook_handle" render={({ field }) => (
-                        <FormItem><FormLabel>Facebook</FormLabel><FormControl><Input placeholder="your.profile" {...field} value={field.value || ''} /></FormControl><FormMessage /></FormItem>
+                        <FormItem><FormLabel>Facebook (optional)</FormLabel><FormControl><Input placeholder="your.profile" {...field} value={field.value || ''} /></FormControl><FormMessage /></FormItem>
                     )} />
                     <FormField control={form.control} name="instagram_handle" render={({ field }) => (
-                        <FormItem><FormLabel>Instagram</FormLabel><FormControl><Input placeholder="@yourhandle" {...field} value={field.value || ''} /></FormControl><FormMessage /></FormItem>
+                        <FormItem><FormLabel>Instagram (optional)</FormLabel><FormControl><Input placeholder="@yourhandle" {...field} value={field.value || ''} /></FormControl><FormMessage /></FormItem>
                     )} />
                      <FormField control={form.control} name="snapchat_handle" render={({ field }) => (
-                        <FormItem><FormLabel>Snapchat</FormLabel><FormControl><Input placeholder="yourhandle" {...field} value={field.value || ''} /></FormControl><FormMessage /></FormItem>
+                        <FormItem><FormLabel>Snapchat (optional)</FormLabel><FormControl><Input placeholder="yourhandle" {...field} value={field.value || ''} /></FormControl><FormMessage /></FormItem>
                     )} />
                      <FormField control={form.control} name="x_handle" render={({ field }) => (
-                        <FormItem><FormLabel>X (Twitter)</FormLabel><FormControl><Input placeholder="@yourhandle" {...field} value={field.value || ''} /></FormControl><FormMessage /></FormItem>
+                        <FormItem><FormLabel>X (optional)</FormLabel><FormControl><Input placeholder="@yourhandle" {...field} value={field.value || ''} /></FormControl><FormMessage /></FormItem>
                     )} />
                 </div>
                 <Button type="submit" id="profile-creation-submit" className="hidden" />

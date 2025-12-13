@@ -33,7 +33,7 @@ const AddContactForm: React.FC<{ onAddContact: (data: ContactFormData) => Promis
 
     return (
         <div className="w-full">
-            <h4 className="text-base font-semibold mb-4 border-t pt-6">Add a New Contact</h4>
+            <h4 className="text-base font-semibold mb-4 border-t pt-6">Add a New Contact (optional)</h4>
             <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 items-start">
                     <Input {...register("first_name", { required: true })} placeholder="First Name" />

@@ -70,3 +70,4 @@ git push
 
 python manage.py generate --faqs
 python manage.py generate --products
+python manage.py fix_site_domains
