@@ -1,7 +1,4 @@
-"use client"
-
-import { useState, useEffect } from 'react';
-import { Line, LineChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { authedFetch } from '@/apiClient';
 import {
   Card,
@@ -84,7 +81,7 @@ export function NotificationHistoryChart({ dataUrl, title, description }: Notifi
                 {error && <p className="text-destructive text-center">{error}</p>}
                 {!loading && !error && (
                     <ChartContainer config={chartConfig} className="h-72">
-                        <LineChart accessibilityLayer data={chartData} margin={{ left: 12, right: 12 }}>
+                        <AreaChart accessibilityLayer data={chartData} margin={{ left: 12, right: 12 }}>
                             <CartesianGrid vertical={false} />
                             <XAxis
                                 dataKey="date"
@@ -96,16 +93,11 @@ export function NotificationHistoryChart({ dataUrl, title, description }: Notifi
                                     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
                                 }}
                             />
-                            <YAxis
-                              tickLine={false}
-                              axisLine={false}
-                              tickMargin={8}
-                            />
-                            <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
+                            <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="dot" />} />
                             <ChartLegend content={<ChartLegendContent />} />
-                            <Line dataKey="scheduled" type="monotone" stroke="var(--color-scheduled)" strokeWidth={2} dot={false} />
-                            <Line dataKey="completed" type="monotone" stroke="var(--color-completed)" strokeWidth={2} dot={false} />
-                        </LineChart>
+                            <Area dataKey="scheduled" type="monotone" fill="var(--color-scheduled)" fillOpacity={0.4} stroke="var(--color-scheduled)" />
+                            <Area dataKey="completed" type="monotone" fill="var(--color-completed)" fillOpacity={0.4} stroke="var(--color-completed)" />
+                        </AreaChart>
                     </ChartContainer>
                 )}
             </CardContent>
