@@ -33,7 +33,7 @@ export const Hero: React.FC<HeroProps> = ({ title, subtitle, imageSrc, srcSet, i
             {subtitle}
           </p>
           {ctaElement && (
-            <div className="mt-2 flex justify-center">
+            <div className="mt-6 flex justify-center">
               {ctaElement}
             </div>
           )}
