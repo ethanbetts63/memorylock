@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect } from 'react';
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import { authedFetch } from '@/apiClient';
@@ -19,29 +21,28 @@ import {
 import { Loader2 } from 'lucide-react';
 
 interface ChartDataPoint {
-    date: string;
-    scheduled: number;
-    completed: number;
-}
-
-interface NotificationHistoryChartProps {
-    dataUrl: string;
-    title: string;
-    description: string;
+    month: string;
+    users: number;
+    events: number;
+    payments: number;
 }
 
 const chartConfig = {
-  scheduled: {
-    label: "Scheduled",
+  users: {
+    label: "New Users",
     color: "var(--chart-1)",
   },
-  completed: {
-    label: "Completed",
+  events: {
+    label: "Events Created",
     color: "var(--chart-2)",
   },
+  payments: {
+    label: "Payments",
+    color: "var(--chart-3)",
+  }
 } satisfies ChartConfig
 
-export function NotificationHistoryChart({ dataUrl, title, description }: NotificationHistoryChartProps) {
+export function HistoricalSummaryChart() {
     const [chartData, setChartData] = useState<ChartDataPoint[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -50,9 +51,9 @@ export function NotificationHistoryChart({ dataUrl, title, description }: Notifi
         const fetchData = async () => {
             try {
                 setLoading(true);
-                const response = await authedFetch(dataUrl);
+                const response = await authedFetch('/api/analytics/historical-summary/');
                 if (!response.ok) {
-                    throw new Error(`Failed to fetch chart data from ${dataUrl}`);
+                    throw new Error(`Failed to fetch chart data`);
                 }
                 const data = await response.json();
                 setChartData(data);
@@ -65,13 +66,13 @@ export function NotificationHistoryChart({ dataUrl, title, description }: Notifi
             }
         };
         fetchData();
-    }, [dataUrl]);
+    }, []);
 
     return (
-        <Card>
+        <Card className="col-span-1 md:col-span-2">
             <CardHeader>
-                <CardTitle>{title}</CardTitle>
-                <CardDescription>{description}</CardDescription>
+                <CardTitle>12-Month Platform Growth</CardTitle>
+                <CardDescription>New users, events, and payments over the last year.</CardDescription>
             </CardHeader>
             <CardContent>
                 {loading && (
@@ -85,25 +86,26 @@ export function NotificationHistoryChart({ dataUrl, title, description }: Notifi
                         <AreaChart accessibilityLayer data={chartData} margin={{ left: 12, right: 12 }}>
                             <CartesianGrid vertical={false} />
                             <XAxis
-                                dataKey="date"
+                                dataKey="month"
                                 tickLine={false}
                                 axisLine={false}
                                 tickMargin={8}
                                 tickFormatter={(value) => {
-                                    const date = new Date(value);
-                                    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+                                    const date = new Date(`${value}-02`); // Add day to avoid timezone issues
+                                    return date.toLocaleDateString('en-US', { month: 'short' });
                                 }}
                             />
                             <YAxis
                                 tickLine={false}
                                 axisLine={false}
                                 tickMargin={8}
-                                tickCount={5}
+                                tickCount={6}
                             />
                             <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="dot" />} />
                             <ChartLegend content={<ChartLegendContent />} />
-                            <Area dataKey="scheduled" type="monotone" fill="var(--color-scheduled)" fillOpacity={0.4} stroke="var(--color-scheduled)" />
-                            <Area dataKey="completed" type="monotone" fill="var(--color-completed)" fillOpacity={0.4} stroke="var(--color-completed)" />
+                            <Area dataKey="users" type="monotone" fill="var(--color-users)" fillOpacity={0.4} stroke="var(--color-users)" />
+                            <Area dataKey="events" type="monotone" fill="var(--color-events)" fillOpacity={0.4} stroke="var(--color-events)" />
+                            <Area dataKey="payments" type="monotone" fill="var(--color-payments)" fillOpacity={0.4} stroke="var(--color-payments)" />
                         </AreaChart>
                     </ChartContainer>
                 )}
