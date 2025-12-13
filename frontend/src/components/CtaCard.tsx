@@ -28,9 +28,9 @@ export const CtaCard: React.FC = () => {
                         height="367"
                         src={logo}
                         srcSet={`${logo320} 320w, ${logo640} 640w, ${logo768} 768w, ${logo1024} 1024w, ${logo1280} 1280w`}
-                        sizes="64px"
+                        sizes="48px"
                         alt="Future Reminder Logo"
-                        className="h-16 w-16"
+                        className="h-full w-full object-contain"
                     />
             </div>
             <CardTitle className="text-3xl"><span className="bg-primary text-primary-foreground px-2 py-1 rounded-md italic underline">FutureReminder</span></CardTitle>
