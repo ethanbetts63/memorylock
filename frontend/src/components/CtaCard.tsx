@@ -8,7 +8,6 @@ import logo768 from '../assets/logo-768w.webp';
 import logo1024 from '../assets/logo-1024w.webp';
 import logo1280 from '../assets/logo-1280w.webp';
 import { CreateEventLink } from './CreateEventLink';
-import { useConfig } from '@/context/ConfigContext';
 
 const includedFeatures = [
   "Access for one event",
@@ -18,7 +17,6 @@ const includedFeatures = [
 ];
 
 export const CtaCard: React.FC = () => {
-  const { config, isLoading } = useConfig();
 
   return (
     <Card className="w-full bg-white text-gray-900">
@@ -38,7 +36,7 @@ export const CtaCard: React.FC = () => {
             <CardTitle className="text-3xl"><span className="bg-primary text-primary-foreground px-2 py-1 rounded-md italic underline">FutureReminder</span></CardTitle>
         </div>
         <p className="text-3xl font-bold">
-          {isLoading ? '...' : config ? `$${config.amount.toFixed(2)}` : '$--.--'}
+          $8.99
         </p>
       </CardHeader>
       <CardContent>
