@@ -26,6 +26,8 @@ const NavBar: React.FC = () => {
         <div className="flex items-center gap-2">
           <Link to="/" className="flex items-center space-x-2">
             <img 
+              width="367"
+              height="367"
               src={logo} 
               srcSet={`${logo320} 320w, ${logo640} 640w, ${logo768} 768w, ${logo1024} 1024w, ${logo1280} 1280w`}
               sizes="40px"

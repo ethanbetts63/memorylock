@@ -18,6 +18,8 @@ const Footer: React.FC = () => {
           {/* Left Side: Logo and Copyright */}
           <div className="flex items-center gap-4 mb-4 md:mb-0">
                             <img
+                                width="367"
+                                height="367"
                                 className="h-10 w-auto"
                                 src={logo}
                                 srcSet={`${logo320} 320w, ${logo640} 640w, ${logo768} 768w, ${logo1024} 1024w, ${logo1280} 1280w`}

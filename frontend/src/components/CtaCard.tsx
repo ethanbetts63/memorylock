@@ -26,6 +26,8 @@ export const CtaCard: React.FC = () => {
         <div className="flex justify-center items-center gap-3 mb-2">
             <div className="flex items-center justify-center h-12 w-12 bg-primary rounded-lg">
                     <img
+                        width="367"
+                        height="367"
                         src={logo}
                         srcSet={`${logo320} 320w, ${logo640} 640w, ${logo768} 768w, ${logo1024} 1024w, ${logo1280} 1280w`}
                         sizes="64px"
