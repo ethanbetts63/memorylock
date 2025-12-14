@@ -75,6 +75,11 @@ export const CtaCard: React.FC = () => {
         <div className="flex flex-col gap-4">
             <p className="text-center text-3xl font-bold mt-2">
               {currentTier.price}
+              {selectedTier === 'fullEscalation' && (
+                <span className="text-base font-normal text-grey-600 ml-2">
+                  (one-time payment)
+                </span>
+              )}
             </p>
             <div>
                 <h4 className="font-semibold text-md mb-2">What’s included?</h4>

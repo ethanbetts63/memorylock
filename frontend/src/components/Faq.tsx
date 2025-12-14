@@ -14,7 +14,7 @@ import type { FaqItem } from '@/types';
 const homeFaqs: FaqItem[] = [
   {
     "question": "Are there any recurring fees?",
-    "answer": "No. Our policy is 'set it and forget it'. You shouldn't even have to think about us until its time to remind you of your important event. So reaccuring fees just wouldn't fit."
+    "answer": "No. The price is upfront. You shouldn't even have to think about us until its time to remind you of your important event. So reaccuring fees just wouldn't fit. If you would like to make a recurring event we will provide that option but by default everything is a one time fee payed upfront."
   },
   {
     "question": "What if you can’t reach me?",
