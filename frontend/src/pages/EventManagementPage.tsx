@@ -1,5 +1,4 @@
-// src/pages/EventManagementPage.tsx
-import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { CreateEventLink } from "@/components/CreateEventLink";
 import {
   Table,
@@ -30,6 +29,7 @@ import Seo from "@/components/Seo";
 
 
 function EventManagementPage() {
+  const navigate = useNavigate();
   const [events, setEvents] = useState<Event[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [editingEvent, setEditingEvent] = useState<Partial<Event> | null>(null);
@@ -58,6 +58,22 @@ function EventManagementPage() {
 
   const handleCancel = () => {
     setEditingEvent(null);
+  };
+
+  const handleUpgrade = async (event: Event) => {
+    try {
+        const tiers = await api.getTiers();
+        const paidTier = tiers.find(t => t.name === 'Full Escalation');
+        if (!paidTier) {
+            toast.error("Could not find upgrade tier.", { description: "The 'Full Escalation' tier is not available." });
+            return;
+        }
+        navigate('/create-flow/payment', { 
+            state: { event, targetTier: paidTier } 
+        });
+    } catch (error) {
+        toast.error("Failed to start upgrade process.", { description: (error as Error).message });
+    }
   };
 
   const handleSave = async () => {
@@ -119,6 +135,7 @@ function EventManagementPage() {
             <TableHead>Notes</TableHead>
             <TableHead>Event Date</TableHead>
             <TableHead>Weeks in Advance</TableHead>
+            <TableHead>Tier</TableHead>
             <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -156,6 +173,19 @@ function EventManagementPage() {
                       event.weeks_in_advance
                     )}
                   </TableCell>
+                  <TableCell>
+                    {event.tier ? (
+                        <span className={`px-2 py-1 text-xs font-semibold rounded-full ${
+                            event.tier.name === 'Full Escalation' 
+                            ? 'bg-green-100 text-green-800' 
+                            : 'bg-blue-100 text-blue-800'
+                        }`}>
+                            {event.tier.name}
+                        </span>
+                    ) : (
+                        <span className="text-muted-foreground">N/A</span>
+                    )}
+                  </TableCell>
                   <TableCell className="text-right space-x-2">
                     {isEditing ? (
                       <>
@@ -164,6 +194,9 @@ function EventManagementPage() {
                       </>
                     ) : (
                       <>
+                        {event.tier?.name === 'Automated' && (
+                            <Button variant="secondary" size="sm" onClick={() => handleUpgrade(event)}>Upgrade</Button>
+                        )}
                         <Button variant="outline" size="sm" onClick={() => handleEdit(event)}>Edit</Button>
                         <Button variant="destructive" size="sm" onClick={() => setDeleteCandidateId(event.id)}>Delete</Button>
                       </>
@@ -174,7 +207,7 @@ function EventManagementPage() {
             })
           ) : (
             <TableRow>
-              <TableCell colSpan={5} className="text-center h-24">
+              <TableCell colSpan={6} className="text-center h-24">
                 No events found.
               </TableCell>
             </TableRow>

@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from events.models import Event
+from payments.serializers.tier_serializer import TierSerializer
 
 class EventSerializer(serializers.ModelSerializer):
     """
@@ -8,6 +9,7 @@ class EventSerializer(serializers.ModelSerializer):
     """
     user = serializers.PrimaryKeyRelatedField(read_only=True)
     payment_details = serializers.SerializerMethodField()
+    tier = TierSerializer(read_only=True)
 
     class Meta:
         model = Event
@@ -22,10 +24,11 @@ class EventSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
             'payment_details',
+            'tier',
         ]
         # The user should not be able to update these fields directly
         # 'user' is set automatically, and 'is_active' is controlled by payment status.
-        read_only_fields = ['user', 'is_active', 'created_at', 'updated_at']
+        read_only_fields = ['user', 'is_active', 'created_at', 'updated_at', 'tier']
 
     def get_payment_details(self, obj):
         """

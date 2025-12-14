@@ -30,6 +30,7 @@ export interface Event {
     weeks_in_advance: number;
     user: number;
     is_active: boolean;
+    tier: Tier; // Add tier information
     created_at: string;
     updated_at: string;
     payment_details: {
