@@ -3,17 +3,18 @@ import { CreateEventLink } from './CreateEventLink';
 import { CheckCircle } from 'lucide-react';
 
 const automatedFeatures = [
-  "Automated emails to primary email",
-  "Automated texts to primary number",
-  "Backup email & SMS notifications",
+  "Repeated emails to primary email",
+  "Repeated texts to primary number",
+  "Escalation to secondary email & number",
   "Customizable notification schedule",
 ];
 
 const fullEscalationFeatures = [
-  "Includes everything in Automated",
-  "Direct phone calls from an admin",
+  "Includes everything in free tier",
+  "Direct phone calls",
   "Social media outreach",
   "Emergency contact outreach",
+  "Additional backup emails"
 ];
 
 
@@ -35,17 +36,17 @@ const Pricing: React.FC = () => {
 
             {/* Tier 1 Card: Automated */}
             <div className="bg-white border rounded-xl shadow-lg flex flex-col p-8">
-              <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Automated</div>
+              <div className="uppercase tracking-wide text-m text-indigo-500 font-semibold">Simple & Automated</div>
               <p className="block mt-1 text-5xl leading-tight font-bold text-black">
                 $0.00
               </p>
-              <p className="mt-2 text-gray-500">Reliable, automated reminders to ensure you don't forget.</p>
+              <p className="mt-2 text-black">Persistant, automated reminders to help you remember.</p>
               
               <ul className="mt-8 space-y-4 flex-grow">
                 {automatedFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-black">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -53,17 +54,17 @@ const Pricing: React.FC = () => {
 
             {/* Tier 2 Card: Full Escalation */}
             <div className="bg-white border rounded-xl shadow-lg flex flex-col p-8">
-              <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Full Escalation</div>
+              <div className="uppercase tracking-wide text-m text-indigo-500 font-semibold">Full Escalation</div>
               <p className="block mt-1 text-5xl leading-tight font-bold text-black">
                 $5.99
               </p>
-              <p className="mt-2 text-gray-500">Our complete outreach hierarchy for absolute peace of mind.</p>
+              <p className="mt-2 text-black">Our complete outreach hierarchy for a single one time payment.</p>
               
               <ul className="mt-8 space-y-4 flex-grow">
                 {fullEscalationFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-black">{feature}</span>
                   </li>
                 ))}
               </ul>

@@ -8,7 +8,7 @@ export const Letter: React.FC = () => {
           Forgetfulness is <span className= "italic underline font-bold">expensive</span>.
         </h2>
         <p className="italic text-center text-xl text-primary-foreground mb-8"> 
-          FutureReminder is $8.99.
+          FutureReminder isn't.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 text-lg text-primary-foreground">
           <div className="flex flex-col gap-4">
