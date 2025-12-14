@@ -5,18 +5,15 @@ import sys
 def load_db_from_latest_archive(command):
     base_archive_dir = os.path.join('data_management', 'data', 'archive', 'db_backups')
     load_order = [
-        'companies.company.json',
-        'companies.division.json',
-        'companies.store.json',
-        'companies.postcode.json',
-        'companies.primarycategory.json',
-        'companies.category.json',
-        'companies.storegroup.json',
-        'companies.storegroupmembership.json',
-        'products.productbrand.json',
-        'products.product.json',
-        'products.price.json',
-        'products.productsubstitution.json',
+        'payments.tier.json',
+        'payments.price.json',
+        'data_management.faq.json',
+        'data_management.termsandconditions.json',
+        'users.user.json',
+        'users.emergencycontact.json',
+        'events.event.json',
+        'notifications.notification.json',
+        'payments.payment.json',
     ]
 
     if not os.path.exists(base_archive_dir):
