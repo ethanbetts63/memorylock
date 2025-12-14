@@ -76,7 +76,8 @@ export default function PaymentPage() {
     appearance,
   };
 
-  const price = targetTier.prices.find(p => p.type === 'one_time')?.amount;
+  const priceAmount = targetTier.prices.find(p => p.type === 'one_time')?.amount;
+  const price = priceAmount ? Number(priceAmount) : undefined;
 
   return (
     <div className="container mx-auto px-4 py-8">
