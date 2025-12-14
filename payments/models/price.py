@@ -13,10 +13,11 @@ class Price(models.Model):
         MONTH = 'month', 'Month'
         YEAR = 'year', 'Year'
 
-    product = models.ForeignKey(
-        'payments.Product', 
+    tier = models.ForeignKey(
+        'payments.Tier', 
         on_delete=models.CASCADE, 
-        related_name='prices'
+        related_name='prices',
+        null=True # Temporarily allow null to handle migration
     )
     stripe_price_id = models.CharField(
         max_length=255, 
@@ -55,5 +56,5 @@ class Price(models.Model):
 
     def __str__(self):
         if self.type == 'recurring':
-            return f"{self.product.name} - ${self.amount}/{self.recurring_interval}"
-        return f"{self.product.name} - ${self.amount} (One-Time)"
+            return f"{self.tier.name} - ${self.amount}/{self.recurring_interval}"
+        return f"{self.tier.name} - ${self.amount} (One-Time)"

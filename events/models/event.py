@@ -37,6 +37,14 @@ class Event(models.Model):
         related_name="events",
         help_text="The user who owns this event."
     )
+    tier = models.ForeignKey(
+        'payments.Tier',
+        on_delete=models.PROTECT, # Don't allow deleting a tier that has events
+        related_name="events",
+        help_text="The pricing tier for this event.",
+        null=True, # Will be set during creation
+        blank=True,
+    )
     is_active = models.BooleanField(
         default=False,
         help_text="Whether the event is active and notifications should be sent. Activated upon successful payment."
@@ -50,28 +58,11 @@ class Event(models.Model):
         return f"'{self.name}' on {self.event_date} for {self.user.username}"
 
     def save(self, *args, **kwargs):
-        # Import services here to avoid circular dependency at startup
-        from notifications.services import schedule_notifications_for_event, clear_pending_notifications
-
         # Auto-calculate the notification start date before saving
         if self.event_date and self.weeks_in_advance:
             self.notification_start_date = self.event_date - timedelta(weeks=self.weeks_in_advance)
         
         super().save(*args, **kwargs)
-
-        # After saving, trigger notification scheduling or clearing.
-        # We wrap this in a try/except block to ensure that a failure in the
-        # notification scheduling logic does not prevent the event itself from
-        # being saved, which is the more critical operation.
-        try:
-            if self.is_active:
-                schedule_notifications_for_event(self)
-            else:
-                clear_pending_notifications(self)
-        except Exception:
-            # If any error occurs during notification scheduling, we'll ignore it
-            # and allow the event saving to succeed.
-            pass
 
     class Meta:
         ordering = ['-event_date']

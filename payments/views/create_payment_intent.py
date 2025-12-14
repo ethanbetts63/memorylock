@@ -5,7 +5,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
 from events.models import Event
-from payments.models import Payment, Product, Price
+from payments.models import Payment, Tier, Price
 
 # It's good practice to initialize the API key once.
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -26,22 +26,37 @@ class CreatePaymentIntentView(APIView):
 
         try:
             event = Event.objects.get(id=event_id, user=request.user)
+            if not event.tier:
+                return Response(
+                    {"error": "Event does not have a tier associated with it."},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
         except Event.DoesNotExist:
             return Response(
                 {"error": "Event not found or you don't have permission."},
                 status=status.HTTP_404_NOT_FOUND
             )
 
-        # Fetch the price from the database instead of hardcoding it.
-        # For the MVP, we assume there is one default, active, one-time price.
+        # Fetch the price for the specific tier associated with the event.
         try:
-            price = Price.objects.filter(is_active=True, type='one_time').first()
+            price = Price.objects.filter(tier=event.tier, is_active=True, type='one_time').first()
             if not price:
                 raise Price.DoesNotExist
         except Price.DoesNotExist:
              return Response(
-                {"error": "No active price configured for purchase."},
+                {"error": f"No active one-time price configured for the '{event.tier.name}' tier."},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+        
+        # If the price is zero, no payment is needed.
+        if price.amount == 0:
+            # Activate the event and schedule notifications
+            event.is_active = True
+            event.save()
+            # Here you would call the notification scheduling service
+            return Response(
+                {"message": "Free event activated successfully. No payment required."},
+                status=status.HTTP_200_OK
             )
 
         amount_in_cents = int(price.amount * 100)

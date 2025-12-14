@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from data_management.utils.generation_utils.faq_generator import FaqUpdateOrchestrator
 from data_management.utils.generation_utils.product_generator import ProductUpdateOrchestrator
+from data_management.utils.generation_utils.tier_generator import TierUpdateOrchestrator
 
 class Command(BaseCommand):
     help = 'Generates data for the application. Use flags to specify what to generate.'
@@ -14,7 +15,12 @@ class Command(BaseCommand):
         parser.add_argument(
             '--products',
             action='store_true',
-            help='Generate Products and Prices from the JSONL data file.',
+            help='(Legacy) Generate Products and Prices from the JSONL data file.',
+        )
+        parser.add_argument(
+            '--tiers',
+            action='store_true',
+            help='Generate Tiers and Prices from the tiers.jsonl data file.',
         )
 
     def handle(self, *args, **options):
@@ -27,11 +33,17 @@ class Command(BaseCommand):
         
         if options['products']:
             something_generated = True
-            self.stdout.write(self.style.SUCCESS('Starting Product and Price generation...'))
+            self.stdout.write(self.style.SUCCESS('Starting legacy Product and Price generation...'))
             orchestrator = ProductUpdateOrchestrator(command=self)
+            orchestrator.run()
+
+        if options['tiers']:
+            something_generated = True
+            self.stdout.write(self.style.SUCCESS('Starting Tier and Price generation...'))
+            orchestrator = TierUpdateOrchestrator(command=self)
             orchestrator.run()
 
         if not something_generated:
             self.stdout.write(self.style.WARNING(
-                'No generation flag specified. Please use --faqs, --products, or other available options.'
+                'No generation flag specified. Please use --faqs, --products, --tiers, or other available options.'
             ))

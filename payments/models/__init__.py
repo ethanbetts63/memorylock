@@ -1,9 +1,9 @@
 from .payment import Payment
-from .product import Product
+from .tier import Tier
 from .price import Price
 
 __all__ = [
     'Payment',
-    'Product',
+    'Tier',
     'Price',
 ]
