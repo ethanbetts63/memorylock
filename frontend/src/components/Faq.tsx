@@ -44,7 +44,6 @@ interface FaqProps {
   imageSrcLandscape?: string;
   srcSet?: string;
   srcSetLandscape?: string;
-  sizes?: string;
 }
 
 const Spinner: React.FC = () => (
@@ -53,7 +52,7 @@ const Spinner: React.FC = () => (
   </div>
 );
 
-export const Faq: React.FC<FaqProps> = ({ title, subtitle, page, imageSrc, imageAlt, imageSrcLandscape, srcSet, srcSetLandscape, sizes }) => {
+export const Faq: React.FC<FaqProps> = ({ title, subtitle, page, imageSrc, imageAlt, imageSrcLandscape, srcSet, srcSetLandscape }) => {
   const [faqs, setFaqs] = useState<FaqItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -168,11 +167,12 @@ export const Faq: React.FC<FaqProps> = ({ title, subtitle, page, imageSrc, image
           <div className="relative flex items-center justify-center h-full order-1 lg:order-2">
             {imageSrcLandscape ? (
               <picture>
-                <source media="(min-width: 1024px)" srcSet={srcSet} />
-                <source media="(max-width: 1023px)" srcSet={srcSetLandscape} />
+                <source media="(min-width: 1024px)" srcSet={srcSet} sizes="33vw" />
+                <source media="(max-width: 1023px)" srcSet={srcSetLandscape} sizes="100vw" />
                 <img 
                   src={imageSrc}
-                  sizes={sizes}
+                  srcSet={srcSet}
+                  sizes="33vw"
                   alt={imageAlt} 
                   className="h-full w-full object-contain" 
                 />
@@ -181,7 +181,7 @@ export const Faq: React.FC<FaqProps> = ({ title, subtitle, page, imageSrc, image
               <img 
                 src={imageSrc} 
                 srcSet={srcSet}
-                sizes={sizes}
+                sizes="(min-width: 1024px) 33vw, 100vw"
                 alt={imageAlt} 
                 className="h-full w-full object-contain" 
               />
