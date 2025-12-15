@@ -8,7 +8,7 @@ This is a scheduled reminder for your upcoming event.
 ---
 EVENT DETAILS
 ---
-Event: {{ event.title }}
+Event: {{ event.name }}
 Date: {{ event.event_date | date:"F j, Y" }}
 {% if event.notes %}
 Your Notes:

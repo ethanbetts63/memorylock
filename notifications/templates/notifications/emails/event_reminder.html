@@ -1,9 +1,9 @@
 {% extends "notifications/emails/base.html" %}
 
-{% block title %}Reminder: {{ event.title }}{% endblock %}
+{% block title %}Reminder: {{ event.name }}{% endblock %}
 
 {% block preheader %}
-This is a reminder for your upcoming event: {{ event.title }} on {{ event.event_date | date:"F j, Y" }}.
+This is a reminder for your upcoming event: {{ event.name }} on {{ event.event_date | date:"F j, Y" }}.
 {% endblock %}
 
 {% block content %}
@@ -14,7 +14,7 @@ This is a reminder for your upcoming event: {{ event.title }} on {{ event.event_
 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #4A4560; border-radius: 5px; margin-bottom: 20px;">
     <tr>
         <td bgcolor="#4A4560" style="padding: 15px 20px; font-size: 18px; font-weight: bold; color: #ffffff; border-top-left-radius: 5px; border-top-right-radius: 5px;">
-            {{ event.title }}
+            {{ event.name }}
         </td>
     </tr>
     <tr>

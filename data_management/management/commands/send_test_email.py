@@ -63,7 +63,7 @@ class Command(BaseCommand):
                     return
                 
                 self.stdout.write(f"Found random User: {user.email}")
-                self.stdout.write(f"Found random Event: {event.title}")
+                self.stdout.write(f"Found random Event: {event.name}")
 
                 # Create a temporary, in-memory Notification object for the test
                 notification = Notification(

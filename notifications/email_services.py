@@ -36,7 +36,7 @@ def send_reminder_email(notification: Notification) -> bool:
         }
 
         # 3. Render the HTML and plain text templates
-        subject = f"Reminder: {notification.event.title}"
+        subject = f"Reminder: {notification.event.name}"
         html_template = "notifications/emails/event_reminder.html"
         txt_template = "notifications/emails/event_reminder.txt"
         
