@@ -1,0 +1,89 @@
+Futurereminder Email System Setup
+
+Purpose: Reliable, low-volume transactional email for high-consequence user reminders (IUD removals, patent renewals, warranty expirations, etc.).
+
+1. Email Provider
+
+Service chosen: Amazon SES (Simple Email Service)
+
+Region: EU-NORTH-1 (closest major AWS region; fully global delivery)
+
+Rationale: Extremely reliable, low cost, designed for transactional emails, handles retries/bounces automatically, scales if needed.
+
+2. Sending Domain
+
+Domain used: futurereminder.app
+
+From address: reminders@futurereminder.app
+
+Verified identities: Domain verified in SES
+
+DKIM setup: 3 CNAME records added to Cloudflare
+
+SPF setup: TXT record v=spf1 include:amazonses.com ~all added to Cloudflare
+
+MAIL FROM: default (SES managed)
+
+Dedicated IP: not used (shared pool)
+
+Tenant management: default/off
+
+3. Sandbox and Production
+
+Initial testing: SES sandbox
+
+Can only send to verified recipients
+
+Verified Gmail address used for testing
+
+Production access requested: Transactional emails only
+
+Low expected volume (<100 emails/day)
+
+Explicit user consent
+
+Bounces/complaints handled via suppression list
+
+4. Django Integration
+
+Settings (settings.py):
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "email-smtp.eu-north-1.amazonaws.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get("SES_SMTP_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("SES_SMTP_PASS")
+DEFAULT_FROM_EMAIL = "FutureReminder <reminders@futurereminder.app>"
+
+
+Test snippet:
+
+from django.core.mail import send_mail
+
+send_mail(
+    subject="Test Reminder",
+    message="This is a test email from SES sandbox.",
+    from_email="FutureReminder <reminders@futurereminder.app>",
+    recipient_list=["yourverifiedemail@gmail.com"],
+    fail_silently=False,
+)
+
+
+Logs SES response
+
+Confirms deliverability before moving out of sandbox
+
+5. Key Notes / Best Practices
+
+Emails are transactional, not marketing
+
+All recipients explicitly opt in
+
+Bounce/complaint monitoring planned (SNS + suppression list)
+
+Reply-To can later point to a real support mailbox (e.g., support@futurereminder.app)
+
+SPF, DKIM, and optional DMARC improve deliverability and trust
+
+This setup ensures cost-effective, reliable, and compliant email delivery for Futurereminder’s critical reminder system.
