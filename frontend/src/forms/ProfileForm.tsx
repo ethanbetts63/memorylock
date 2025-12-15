@@ -21,6 +21,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ profile, onProfileUpda
             first_name: profile.first_name || '',
             last_name: profile.last_name || '',
             email: profile.email || '',
+            country_code: profile.country_code || '',
             phone: profile.phone || '',
             backup_email: profile.backup_email || '',
             facebook_handle: profile.facebook_handle || '',
@@ -57,11 +58,24 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ profile, onProfileUpda
                     <ShadcnFormField control={control} name="last_name" render={({ field }) => (
                         <FormItem><FormLabel>Last Name</FormLabel><FormControl><Input {...field} disabled={!isEditing} /></FormControl><FormMessage /></FormItem>
                     )} />
-                    <ShadcnFormField control={control} name="email" render={({ field }) => (
-                        <FormItem><FormLabel>Email</FormLabel><FormControl><Input {...field} disabled={!isEditing} /></FormControl><FormMessage /></FormItem>
+                </div>
+                <ShadcnFormField control={control} name="email" render={({ field }) => (
+                    <FormItem><FormLabel>Email</FormLabel><FormControl><Input {...field} disabled={!isEditing} /></FormControl><FormMessage /></FormItem>
+                )} />
+                <div className="grid grid-cols-4 gap-x-4">
+                    <ShadcnFormField control={control} name="country_code" render={({ field }) => (
+                        <FormItem className="col-span-1">
+                            <FormLabel>Code</FormLabel>
+                            <FormControl><Input {...field} disabled={!isEditing} placeholder="1" /></FormControl>
+                            <FormMessage />
+                        </FormItem>
                     )} />
                     <ShadcnFormField control={control} name="phone" render={({ field }) => (
-                        <FormItem><FormLabel>Phone</FormLabel><FormControl><Input {...field} value={field.value || ''} disabled={!isEditing} /></FormControl><FormMessage /></FormItem>
+                        <FormItem className="col-span-3">
+                            <FormLabel>Phone Number</FormLabel>
+                            <FormControl><Input {...field} value={field.value || ''} disabled={!isEditing} placeholder="5551234567" /></FormControl>
+                            <FormMessage />
+                        </FormItem>
                     )} />
                 </div>
                 <h3 className="text-lg font-medium border-t pt-4">Backup Contacts</h3>

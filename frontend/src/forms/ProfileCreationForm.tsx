@@ -10,6 +10,7 @@ export interface ProfileCreationData {
     first_name: string;
     last_name: string;
     email: string;
+    country_code: string;
     phone: string;
     password?: string;
     confirmPassword?: string;
@@ -39,6 +40,11 @@ const profileFormResolver: Resolver<ProfileCreationData> = async (data) => {
         errors.email = { type: 'required', message: 'Email is required.' };
     } else if (!/\S+@\S+\.\S+/.test(data.email)) {
         errors.email = { type: 'pattern', message: 'Please enter a valid email.' };
+    }
+
+    // Country Code validation
+    if (!data.country_code) {
+        errors.country_code = { type: 'required', message: 'Country code is required.' };
     }
 
     // Phone validation
@@ -91,14 +97,33 @@ export const ProfileCreationForm: React.FC<ProfileCreationFormProps> = ({ initia
                     <FormField control={form.control} name="last_name" render={({ field }) => (
                         <FormItem><FormLabel>Last Name</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
                     )} />
-                    <FormField control={form.control} name="email" render={({ field }) => (
-                        <FormItem><FormLabel>Email</FormLabel><FormControl><Input {...field} type="email" /></FormControl><FormMessage /></FormItem>
+                </div>
+                <FormField control={form.control} name="email" render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                            <Input {...field} type="email" />
+                        </FormControl>
+                        <FormDescription>&nbsp;</FormDescription>
+                        <FormMessage />
+                    </FormItem>
+                )} />
+                <div className="grid grid-cols-4 gap-x-4">
+                    <FormField control={form.control} name="country_code" render={({ field }) => (
+                        <FormItem className="col-span-1">
+                            <FormLabel>Code</FormLabel>
+                            <FormControl>
+                                <Input {...field} placeholder="1" />
+                            </FormControl>
+                            <FormDescription>No +</FormDescription>
+                            <FormMessage />
+                        </FormItem>
                     )} />
                     <FormField control={form.control} name="phone" render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Phone</FormLabel>
+                        <FormItem className="col-span-3">
+                            <FormLabel>Phone Number</FormLabel>
                             <FormControl>
-                                <Input {...field} value={field.value || ''} />
+                                <Input {...field} value={field.value || ''} placeholder="5551234567" />
                             </FormControl>
                             <FormDescription>
                                 We may not be able to contact numbers outside of North America, Europe, and ANZ.

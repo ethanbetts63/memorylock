@@ -75,7 +75,7 @@ const Summary: React.FC<SummaryProps> = ({ event, user, emergencyContacts, class
             <div className="space-y-1">
                 <div className="flex justify-between"><span className="text-muted-foreground">Name:</span> <span className="font-semibold">{user.first_name} {user.last_name}</span></div>
                 <div className="flex justify-between"><span className="text-muted-foreground">Email:</span> <span className="font-semibold">{user.email}</span></div>
-                {user.phone && <div className="flex justify-between"><span className="text-muted-foreground">Phone:</span> <span className="font-semibold">{user.phone}</span></div>}
+                {user.phone && <div className="flex justify-between"><span className="text-muted-foreground">Phone:</span> <span className="font-semibold">+{user.country_code} {user.phone}</span></div>}
                 {user.backup_email && <div className="flex justify-between"><span className="text-muted-foreground">Backup Email:</span> <span className="font-semibold">{user.backup_email}</span></div>}
                 {user.facebook_handle && <div className="flex justify-between"><span className="text-muted-foreground">Facebook:</span> <span className="font-semibold">{user.facebook_handle}</span></div>}
                 {user.instagram_handle && <div className="flex justify-between"><span className="text-muted-foreground">Instagram:</span> <span className="font-semibold">{user.instagram_handle}</span></div>}

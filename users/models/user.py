@@ -7,6 +7,7 @@ class User(AbstractUser):
     Custom user model that includes fields for various contact methods.
     """
     # Primary contact details (email is inherited from AbstractUser)
+    country_code = models.CharField(max_length=5)
     phone = models.CharField(max_length=20)
 
     # Backup contact details
