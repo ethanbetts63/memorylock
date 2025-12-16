@@ -111,11 +111,23 @@ export const ProfileCreationForm: React.FC<ProfileCreationFormProps> = ({ initia
                 <div className="grid grid-cols-4 gap-x-4">
                     <FormField control={form.control} name="country_code" render={({ field }) => (
                         <FormItem className="col-span-1">
-                            <FormLabel>Code</FormLabel>
+                            <FormLabel>Country Code</FormLabel>
                             <FormControl>
-                                <Input {...field} placeholder="1" />
+                                <div className="relative">
+                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-muted-foreground">+</span>
+                                    <Input 
+                                        {...field} 
+                                        placeholder="1"
+                                        className="pl-7"
+                                        inputMode="numeric"
+                                        onChange={(e) => {
+                                            const sanitizedValue = e.target.value.replace(/[^0-9]/g, '');
+                                            field.onChange(sanitizedValue);
+                                        }}
+                                    />
+                                </div>
                             </FormControl>
-                            <FormDescription>No +</FormDescription>
+                            <FormDescription>&nbsp;</FormDescription>
                             <FormMessage />
                         </FormItem>
                     )} />
