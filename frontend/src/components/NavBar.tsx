@@ -87,7 +87,7 @@ const NavBar: React.FC = () => {
       </header>
       {user && !user.is_email_verified && (
         <Banner>
-          Your email is not verified. Please check your inbox for the verification link.
+          Your email is not verified. Please check your inbox. No notifications will be sent until verification.
           <Button variant="link" className="ml-2 h-auto p-0 text-yellow-800 dark:text-yellow-300 underline" onClick={handleResend}>
             Resend Email
           </Button>
