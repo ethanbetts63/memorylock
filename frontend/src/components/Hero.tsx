@@ -11,8 +11,8 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ title, subtitle, imageSrc, srcSet, imageAlt, ctaElement }) => {
   return (
-    <section className="container mx-auto px-4 pt-8 pb-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="container mx-auto px-4 pt-4 lg:pt-8 pb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center">
         <div>
           <img 
             width="1536"
