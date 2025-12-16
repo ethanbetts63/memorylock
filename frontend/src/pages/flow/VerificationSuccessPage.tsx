@@ -11,7 +11,7 @@ const VerificationSuccessPage: React.FC = () => {
     <div className="container mx-auto max-w-2xl py-12">
       <Seo title="Verification Successful | FutureReminder" />
       <Card>
-        <CardHeader className="items-center text-center">
+        <CardHeader className="flex flex-col items-center text-center">
           <CheckCircleIcon className="h-16 w-16 text-green-500 mb-4" />
           <CardTitle className="text-2xl">Verification Successful!</CardTitle>
           <CardDescription className="pt-2">

@@ -30,7 +30,7 @@ class EmailVerificationView(APIView):
         if user is not None and default_token_generator.check_token(user, token):
             if not user.is_email_verified:
                 user.is_email_verified = True
-                user.save()
+                user.save(update_fields=['is_email_verified'])
             
             # Redirect to a frontend page indicating success.
             return redirect(f"{settings.SITE_URL}/verification-success/")
