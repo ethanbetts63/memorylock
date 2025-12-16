@@ -76,7 +76,7 @@ const SubscriptionRenewal = () => {
           </ul>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">What’s the Best App for Subscription Renewal reminders?</h2>
-          <p className="mb-6">If a forgotten renewal could cost you real money or cause bigger problems, treat it differently. That’s the idea behind FutureReminder: not a replacement for every calendar alert, but a last-line safety net. When the reminder window opens, FutureReminder escalates from email and push to SMS, manual calls, and — if needed — outreach to emergency contacts until you acknowledge the event.</p>
+          <p className="mb-6">If a forgotten renewal could cost you real money or cause bigger problems, treat it differently. That’s the idea behind FutureReminder: not a replacement for every calendar alert, but a last-line safety net. When the reminder window opens, FutureReminder escalates from email and push to SMS, calls, and — if needed — outreach to emergency contacts until you acknowledge the event and finally even social media outreach.</p>
           <p className="mb-0"><span className="font-bold italic underline">It’s not about fear — it’s about matching the tool to the consequence.</span> For trivial subscriptions, keep it simple. For the few things where forgetting would hurt, use a system designed to persist. Our service is a cheap, quick to set up and transparent. We hope it can save you some money.</p>
         </div>
       </ArticleLayout>

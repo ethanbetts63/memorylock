@@ -48,7 +48,7 @@ const AnniversaryReminders = () => {
           <ul className="list-disc pl-8 mb-6 space-y-2">
             <li><strong>Redundancy:</strong> The reminder shouldn't live on one device. It needs to exist independently of your current phone or email provider.</li>
             <li><strong>Escalation:</strong> If you don't acknowledge the first email, the system shouldn't give up. It should try a different channel, like SMS.</li>
-            <li><strong>Human Intervention:</strong> Optionally, if digital nudges fail, the system can have a fail-safe—a phone call and/or email to an emergency contact (like a spouse or best friend) to ensure the message is received.</li>
+            <li><strong>Emergency Intervention:</strong> Optionally, if digital nudges fail, the system can have a fail-safe emergency contact (like a spouse or best friend) to ensure the message is received.</li>
           </ul>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">What is the Best Anniversary and Birthday Reminder App?</h2>
@@ -58,8 +58,8 @@ const AnniversaryReminders = () => {
             <li><strong>Tier 1:</strong> Standard alerts (Email/Push) begin well in advance of the anniversary.</li>
             <li><strong>Tier 2:</strong> If you don't confirm receipt, the system escalates to SMS.</li>
             <li><strong>Tier 3:</strong> If still no response the system automatically tries any backup contacts you may have provided.</li>
-            <li><strong>Tier 4:</strong> At this point the system moves to manual intervention. We will attempt to call you and even text you on social media if you gave us your handles.</li>
-            <li><strong>Tier 5:</strong> The "Last Line of Defense." If you are still unresponsive as the date nears, FutureReminder initiates manual phone calls or reaches out to your designated emergency contacts.</li>
+            <li><strong>Tier 4:</strong> The "Emergency Protocol" If you are still unresponsive as the date nears, FutureReminder reaches out to your designated emergency contacts.</li>
+            <li><strong>Tier 5:</strong> At this point the system moves to manual intervention. Admin will attempt to reach out on any social media platform handles you gave us.</li>
           </ul>
           <p className="mb-6">It promises that it will not stop reaching out until it receives an explicit acknowledgment from you. For a 50th Anniversary or a major life event, this persistence is what you need. <span className="font-bold italic underline">Stop stressing about dates. That’s our job.</span></p>
         </div>
