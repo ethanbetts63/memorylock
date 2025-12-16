@@ -21,13 +21,13 @@ const fullEscalationFeatures = [
 const Pricing: React.FC = () => {
 
   return (
-    <div className="bg-background rounded-xl md:py-10">
+    <div className="bg-background rounded-xl py-4 pz-2 md:p-8">
       <div className="w-full">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10 mt-6">
+          <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary-foreground">Choose Your Level of Security</h2>
             <p className="mt-4 text-lg text-primary-foreground max-w-2xl mx-auto">
-              From simple automated reminders to a full-scale outreach campaign from our team, select the plan that fits your needs.
+              You can try out a basic version of our system or opt for the full hiearchy of protection.
             </p>
           </div>
           
