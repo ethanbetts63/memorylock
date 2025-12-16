@@ -22,7 +22,7 @@ def anonymize_user(user: User):
         pending_notifications.delete()
 
     # --- Step 2 & 3: Hash and Wipe PII ---
-    salt = getattr(settings, 'PII_HASHING_SALT', None)
+    salt = getattr(settings, 'HASHING_SALT', None)
     if not salt:
         # In a real scenario, you might raise an exception or handle this more gracefully.
         # For now, we abort silently if the salt is not configured.
