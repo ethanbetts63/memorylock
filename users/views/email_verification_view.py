@@ -1,3 +1,5 @@
+from django.utils import timezone
+from datetime import timedelta
 from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_str
 from django.contrib.auth.tokens import default_token_generator
@@ -39,7 +41,7 @@ class EmailVerificationView(APIView):
 
 class ResendVerificationView(APIView):
     """
-    Allows a logged-in user to request a new verification email.
+    Allows a logged-in user to request a new verification email, with a rate limit.
     """
     permission_classes = [IsAuthenticated]
 
@@ -54,11 +56,30 @@ class ResendVerificationView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
         
-        # Re-send the verification email
-        send_verification_email(user)
-        
-        return Response(
-            {"detail": "A new verification email has been sent to your primary email address."},
-            status=status.HTTP_200_OK
-        )
+        # --- Rate Limiting Logic ---
+        if user.verification_email_last_sent_at:
+            time_since_last_send = timezone.now() - user.verification_email_last_sent_at
+            if time_since_last_send < timedelta(seconds=60):
+                wait_time = 60 - int(time_since_last_send.total_seconds())
+                return Response(
+                    {"detail": f"Please wait {wait_time} more seconds before requesting another email."},
+                    status=status.HTTP_429_TOO_MANY_REQUESTS
+                )
 
+        # Re-send the verification email
+        was_sent = send_verification_email(user)
+        
+        if was_sent:
+            # Update the timestamp only on successful send
+            user.verification_email_last_sent_at = timezone.now()
+            user.save(update_fields=['verification_email_last_sent_at'])
+            return Response(
+                {"detail": "A new verification email has been sent to your primary email address."},
+                status=status.HTTP_200_OK
+            )
+        else:
+            # If the email failed to send, return a server error
+            return Response(
+                {"detail": "There was an error sending the verification email. Please try again later."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )

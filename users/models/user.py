@@ -25,6 +25,11 @@ class User(AbstractUser):
         default=False,
         help_text="True if the user has verified their primary email address."
     )
+    verification_email_last_sent_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        help_text="Timestamp of when the last verification email was sent."
+    )
 
     # Legal
     agreed_to_terms = models.ForeignKey(
