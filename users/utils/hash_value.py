@@ -1,7 +1,7 @@
 import hashlib
 import hmac
 
-def hash_pii(value: str, salt: str) -> str:
+def hash_value(value: str, salt: str) -> str:
     """
     Creates a secure, salted hash (HMAC-SHA256) of a given string value.
 
