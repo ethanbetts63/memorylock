@@ -7,8 +7,10 @@ import logo640 from '../assets/logo-640w.webp';
 import logo768 from '../assets/logo-768w.webp';
 import logo1024 from '../assets/logo-1024w.webp';
 import logo1280 from '../assets/logo-1280w.webp';
-import { useAuth } from '@/context/AuthContext'; // Import the useAuth hook
-import { Banner } from './ui/Banner'; // Import the new Banner component
+import { useAuth } from '@/context/AuthContext';
+import { Banner } from './ui/Banner';
+import { resendVerificationEmail } from '@/api'; // Import the new api function
+import { toast } from 'sonner'; // Import toast
 
 const NavBar: React.FC = () => {
   const { user, logout } = useAuth(); // Get user and logout function from context
@@ -19,9 +21,13 @@ const NavBar: React.FC = () => {
     navigate('/'); // Redirect to homepage after logout
   };
 
-  const handleResend = () => {
-    // TODO: Implement resend verification email functionality
-    console.log("Resend verification email clicked.");
+  const handleResend = async () => {
+    try {
+      const response = await resendVerificationEmail();
+      toast.success(response.detail || "A new verification email has been sent.");
+    } catch (error) {
+      toast.error("Failed to send email. Please try again in a few moments.");
+    }
   };
 
   return (

@@ -9,4 +9,9 @@ urlpatterns = [
         email_verification_view.EmailVerificationView.as_view(),
         name='email_verify'
     ),
+    path(
+        'resend-verification/',
+        email_verification_view.ResendVerificationView.as_view(),
+        name='resend_verification'
+    ),
 ]

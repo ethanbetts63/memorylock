@@ -3,8 +3,13 @@ from django.utils.encoding import force_str
 from django.contrib.auth.tokens import default_token_generator
 from django.shortcuts import redirect
 from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 from users.models import User
 from django.conf import settings
+from users.utils.send_verification_email import send_verification_email
+
 
 class EmailVerificationView(APIView):
     """
@@ -30,3 +35,30 @@ class EmailVerificationView(APIView):
         else:
             # Redirect to a frontend page indicating failure.
             return redirect(f"{settings.SITE_URL}/verification-failed/")
+
+
+class ResendVerificationView(APIView):
+    """
+    Allows a logged-in user to request a new verification email.
+    """
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        """
+        Sends a new verification email to the currently authenticated user.
+        """
+        user = request.user
+        if user.is_email_verified:
+            return Response(
+                {"detail": "This email has already been verified."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Re-send the verification email
+        send_verification_email(user)
+        
+        return Response(
+            {"detail": "A new verification email has been sent to your primary email address."},
+            status=status.HTTP_200_OK
+        )
+

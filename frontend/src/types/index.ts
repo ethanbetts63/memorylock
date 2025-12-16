@@ -54,6 +54,7 @@ export interface UserProfile {
     x_handle: string | null;
     is_staff: boolean;
     is_superuser: boolean;
+    is_email_verified: boolean;
 }
 
 export interface EmergencyContact {

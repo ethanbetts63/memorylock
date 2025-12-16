@@ -65,6 +65,13 @@ export async function claimAccount(password: string): Promise<{ detail: string }
   return handleResponse(response);
 }
 
+export async function resendVerificationEmail(): Promise<{ detail: string }> {
+  const response = await authedFetch('/api/users/resend-verification/', {
+    method: 'POST',
+  });
+  return handleResponse(response);
+}
+
 
 // --- Legal Endpoints ---
 
