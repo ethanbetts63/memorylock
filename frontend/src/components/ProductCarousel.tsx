@@ -1,34 +1,34 @@
 const hierarchyLevels = [
   {
     level: 1,
-    title: 'Push Notifications + Email',
-    description: 'Initial, non-intrusive reminders sent directly to your primary devices.',
+    title: 'Primary Emails',
+    description: 'Initial, non-intrusive reminders sent directly to your inbox.',
   },
   {
     level: 2,
-    title: 'SMS',
-    description: 'If there is no response, we escalate to sending text messages to your primary phone number.',
+    title: 'Backup Emails',
+    description: 'We will escalate to your secondary email addresses if there is no response.',
   },
   {
     level: 3,
-    title: 'Backup Contacts',
-    description: 'We then begin to utilize the backup phone numbers and email addresses you provided.',
+    title: 'SMS',
+    description: 'If there is still no response, we escalate to sending text messages to your primary phone number.',
   },
   {
     level: 4,
     title: 'Phone Calls',
-    description: 'A member of our team will begin making manual, direct phone calls to your contact numbers.',
+    description: 'You will recieve and automated phone call, which is obviously much harder to ignore or miss.',
   },
   {
     level: 5,
-    title: 'Socials',
-    description: 'If you provided us with social media handles, we will reach out via those platforms.',
+    title: 'Emergency Contacts',
+    description: 'Optionally, we can send additional email or SMS notifications to your trusted emergency contacts.',
   },
   {
     level: 6,
-    title: 'Emergency Contacts',
-    description: 'As a last resort we will reach out personally to your designated emergency contacts.',
-  },
+    title: 'Socials',
+    description: 'Finally, if all else fails, our admin will reach out to you manually via social media platforms.',
+  }
 ];
 
 export const ProductCarousel = () => {

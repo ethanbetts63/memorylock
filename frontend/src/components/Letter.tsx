@@ -13,10 +13,10 @@ export const Letter: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 text-lg text-primary-foreground">
           <div className="flex flex-col gap-4">
             <p>
-              We all have these long-term, slow-burn obligations that matter far more than our calendars treat them. Passports. Visas. Domains. Warranties. Licenses. Insurance renewals. IUD’s. Trademark filings. Things that are harmless today but catastrophic when the deadline quietly slips by.
+              We all have obligations that matter far more than a calendar reminder was ever designed to handle. Visa or IUD expiries, trademark or domain renewals and even warranties, patents or business licences. Things that are harmless today but catastrophic when the deadline quietly slips by.
             </p>
             <p>
-              <span className="font-bold italic underline">Calendar apps are built for next Tuesday.</span> Not high concequence events in the distant future. That gap costs people real money, real stress, and real consequences. Worst of all, it usually happens silently. You don’t realize what you forgot until the fallout arrives.
+              <span className="font-bold italic underline">Calendar apps are for dentists appointments.</span> Not high-consequence events. That gap costs people real money, real stress, and real consequences. Worst of all, it usually happens silently. You don’t realize what you forgot until the fallout arrives.
             </p>
             <p>
                FutureReminder exists to eliminate that silence.
@@ -30,7 +30,7 @@ export const Letter: React.FC = () => {
               We won’t bother you until the date you tell us to. But once that date arrives, we won't stop until you acknowledge us.
             </p>
             <p>
-              <span className="font-bold italic underline">Single notifications get missed.</span> So we repeat them on a structured schedule. Emails change. Phone numbers change. People change. So we collect backups. Sometimes everything goes wrong at once. That’s why we include emergency contacts. It’s our absolute last resort. We’ll even call them personally.
+              <span className="font-bold italic underline">Single notifications get missed.</span> So we repeat them on a structured schedule. Emails change. Phone numbers change. People change. So we collect backups. Sometimes everything goes wrong at once. That’s why we include emergency contacts. It’s our absolute last resort.
             </p>
             <p>
               It’s not complicated or bloated—it’s a safety net for your long-memory. Feel free to poke around, set up your first reminder, and see how it feels to finally <span className="font-bold italic underline">offload the “don’t forget”</span> part of your brain.

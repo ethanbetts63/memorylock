@@ -37,7 +37,7 @@ const HomePage = () => {
       />
       <Hero
         title={<>Reminders that don't take <span className='italic'>silence</span> for an answer.</>}
-        subtitle={<>Calendars are for meetings. FutureReminder is for consequences. When a critical deadline hits, we don't just ping you—we trigger an <span className= "italic font-bold underline">escalating hierarchy of notifications</span> — from emails to emergency contacts.</>}
+        subtitle={<>Calendars are for time management. FutureReminder is for risk management.  When a critical deadline hits, we don't just ping you—we trigger an <span className= "italic font-bold underline">escalating hierarchy of notifications</span> — from emails to emergency contacts. </>}
         imageSrc={heroImage}
         srcSet={`${hero320} 320w, ${hero640} 640w, ${hero768} 768w, ${hero1024} 1024w, ${hero1280} 1280w`}
         imageAlt="A man sinking into a wormhole, sorrounded by examples of missed deadlines, to symbolize forgetting important events"
