@@ -19,7 +19,8 @@ class Command(BaseCommand):
         # Get all notifications that are pending and scheduled for a time in the past
         due_notifications = Notification.objects.filter(
             status='pending',
-            scheduled_send_time__lte=timezone.now()
+            scheduled_send_time__lte=timezone.now(),
+            user__is_email_verified=True
         )
 
         if not due_notifications.exists():

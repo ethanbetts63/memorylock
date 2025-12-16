@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from users.services import send_verification_email
 
 User = get_user_model()
 
@@ -41,4 +42,8 @@ class RegisterSerializer(serializers.ModelSerializer):
             password=password,
             **validated_data
         )
+        
+        # Automatically send the verification email upon registration
+        send_verification_email(user)
+        
         return user
