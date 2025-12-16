@@ -74,7 +74,7 @@ class Command(BaseCommand):
                 )
 
                 self.stdout.write(f"Attempting to send reminder email to {recipient}...")
-                success = send_reminder_email(notification)
+                success = send_reminder_email(notification, recipient)
 
                 if success:
                     self.stdout.write(self.style.SUCCESS("Successfully sent event reminder test email."))
