@@ -4,6 +4,7 @@ from django.conf import settings
 from django.utils.html import strip_tags
 
 from data_management.models import BlockedEmail
+from data_management.views.blocklist_view import signer # Import the signer
 from notifications.models import Notification
 
 def send_reminder_email(notification: Notification, recipient_address: str) -> bool:
@@ -31,18 +32,22 @@ def send_reminder_email(notification: Notification, recipient_address: str) -> b
 
     try:
         # 1. Construct the unique acknowledgement URL
-        # The frontend will need a corresponding route for this.
         acknowledgement_url = f"{settings.SITE_URL}/notifications/acknowledge/{notification.pk}/"
 
-        # 2. Prepare the context for the templates
+        # 2. Construct the unique blocklist URL
+        signed_email = signer.sign(recipient_address)
+        unsubscribe_url = f"{settings.SITE_URL}/api/data/blocklist/block/{signed_email}/"
+
+        # 3. Prepare the context for the templates
         context = {
             'user': notification.user,
             'event': notification.event,
             'acknowledgement_url': acknowledgement_url,
-            'site_url': settings.SITE_URL, # For base template
+            'site_url': settings.SITE_URL,
+            'unsubscribe_url': unsubscribe_url, # Add to context
         }
 
-        # 3. Render the HTML and plain text templates
+        # 4. Render the HTML and plain text templates
         subject = f"Reminder: {notification.event.name}"
         html_template = "notifications/emails/event_reminder.html"
         txt_template = "notifications/emails/event_reminder.txt"
@@ -50,7 +55,7 @@ def send_reminder_email(notification: Notification, recipient_address: str) -> b
         html_content = render_to_string(html_template, context)
         text_content = render_to_string(txt_template, context)
 
-        # 4. Send the email
+        # 5. Send the email
         msg = EmailMultiAlternatives(
             subject=subject,
             body=text_content,

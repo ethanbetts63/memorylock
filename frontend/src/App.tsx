@@ -22,6 +22,7 @@ const ActivationSuccessPage = lazy(() => import('./pages/flow/ActivationSuccessP
 const PaymentPage = lazy(() => import('./pages/flow/PaymentPage'));
 const PaymentStatusPage = lazy(() => import('./pages/flow/PaymentStatusPage'));
 const VerificationSuccessPage = lazy(() => import('./pages/flow/VerificationSuccessPage'));
+const BlocklistSuccessPage = lazy(() => import('./pages/flow/BlocklistSuccessPage'));
 const TermsAndConditionsPage = lazy(() => import('./pages/TermsAndConditionsPage'));
 
 // --- Lazy-loaded Admin Pages ---
@@ -61,6 +62,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
               <Route path="/verification-success" element={<VerificationSuccessPage />} />
+              <Route path="/blocklist-success" element={<BlocklistSuccessPage />} />
               <Route path="/articles/letter-to-future-self" element={<LetterToFutureSelf />} />
               <Route path="/articles/vaccine-boosters" element={<VaccineBoosters />} />
               <Route path="/articles/iud-expiration" element={<IUDExpiration />} />

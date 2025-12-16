@@ -5,6 +5,8 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 from users.models import User
+from data_management.models import BlockedEmail
+from data_management.views.blocklist_view import signer # Import the signer
 
 
 def send_verification_email(user: User):
@@ -12,6 +14,11 @@ def send_verification_email(user: User):
     Sends an email to the user with a link to verify their account.
     """
     try:
+        # --- Blocklist Check ---
+        if BlockedEmail.objects.filter(email=user.email).exists():
+            print(f"Verification email to {user.email} suppressed because it is on the blocklist.")
+            return False
+
         # Generate a token and user ID for the verification URL
         token = default_token_generator.make_token(user)
         uid = urlsafe_base64_encode(force_bytes(user.pk))
@@ -19,10 +26,15 @@ def send_verification_email(user: User):
         # Construct the verification URL
         verification_url = f"{settings.SITE_URL}/api/users/verify-email/{uid}/{token}/"
 
+        # Construct the unique blocklist URL
+        signed_email = signer.sign(user.email)
+        unsubscribe_url = f"{settings.SITE_URL}/api/data/blocklist/block/{signed_email}/"
+
         context = {
             'user': user,
             'verification_url': verification_url,
             'site_url': settings.SITE_URL,
+            'unsubscribe_url': unsubscribe_url, # Add to context
         }
 
         subject = "Verify Your FutureReminder Account"

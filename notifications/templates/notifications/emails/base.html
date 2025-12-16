@@ -59,14 +59,12 @@
                     <tr>
                         <td align="center" style="color: #999999; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 400; line-height: 18px;">
                             <p style="margin: 0;">You received this email because you set a reminder on <a href="{{ site_url | default:'https://www.futurereminder.app' }}" target="_blank" style="color: #5A95FF; text-decoration: none;">FutureReminder.app</a>.</p>
+                            {% if unsubscribe_url %}
+                            <p style="margin: 10px 0 0 0;">If you did not set this reminder, we sincerely apologize. You can block us from ever contacting this email again <a href="{{ unsubscribe_url }}" target="_blank" style="color: #999999; text-decoration: underline;">here</a>.</p>
+                            {% endif %}
                             <p style="margin: 10px 0;">
                                 FutureReminder 
                             </p>
-                            {% if unsubscribe_url %}
-                                <p style="margin: 0;">
-                                    <a href="{{ unsubscribe_url }}" target="_blank" style="color: #999999; text-decoration: underline;">Unsubscribe</a>
-                                </p>
-                            {% endif %}
                         </td>
                     </tr>
                 </table>
