@@ -20,6 +20,12 @@ class User(AbstractUser):
     snapchat_handle = models.CharField(max_length=255, blank=True, null=True)
     x_handle = models.CharField(max_length=255, blank=True, null=True)
 
+    # Account Status
+    is_email_verified = models.BooleanField(
+        default=False,
+        help_text="True if the user has verified their primary email address."
+    )
+
     # Legal
     agreed_to_terms = models.ForeignKey(
         TermsAndConditions,
