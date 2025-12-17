@@ -21,7 +21,7 @@ const tierData = {
   },
   fullEscalation: {
     name: 'Full Escalation',
-    price: '$5.99',
+    price: '$2.99',
     features: [
       "Includes everything in Automated",
       "Direct phone calls from an admin",

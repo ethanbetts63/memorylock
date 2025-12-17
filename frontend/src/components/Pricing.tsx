@@ -56,7 +56,7 @@ const Pricing: React.FC = () => {
             <div className="bg-white border rounded-xl shadow-lg flex flex-col p-8">
               <div className="uppercase tracking-wide text-m text-indigo-500 font-semibold">Full Escalation</div>
               <p className="block mt-1 text-5xl leading-tight font-bold text-black">
-                $5.99
+                $2.99
               </p>
               <p className="mt-2 text-black">Our complete outreach hierarchy for a single one time payment.</p>
               
