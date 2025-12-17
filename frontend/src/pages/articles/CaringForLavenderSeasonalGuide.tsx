@@ -1,5 +1,5 @@
 import { ArticleLayout } from '../../components/ArticleLayout';
-import articleImage from '../../assets/postnotes.webp'; // Using generic image as requested
+import articleImage from '../../assets/lavender.webp';
 import { ArticleCarousel } from '../../components/ArticleCarousel';
 import Seo from '../../components/Seo';
 
