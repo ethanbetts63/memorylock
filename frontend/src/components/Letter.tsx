@@ -30,7 +30,7 @@ export const Letter: React.FC = () => {
               We won’t bother you until the date you tell us to. But once that date arrives, we won't stop until you acknowledge us.
             </p>
             <p>
-              <span className="font-bold italic underline">Single notifications get missed.</span> So we repeat them on a structured schedule. Emails change. Phone numbers change. People change. So we collect backups. Sometimes everything goes wrong at once. That’s why we include emergency contacts. It’s our absolute last resort.
+              <span className="font-bold italic underline">Single notifications get missed.</span> So we repeat them on a structured schedule. Emails change. Phone numbers change. People change. So we collect backups. Sometimes everything goes wrong at once. That’s why we include emergency contacts. Finally, we can have admin reach out manually via social media.
             </p>
             <p>
               It’s not complicated or bloated—it’s a safety net for your long-memory. Feel free to poke around, set up your first reminder, and see how it feels to finally <span className="font-bold italic underline">offload the “don’t forget”</span> part of your brain.
