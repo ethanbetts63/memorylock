@@ -1,0 +1,65 @@
+import { ArticleLayout } from '../../components/ArticleLayout';
+import articleImage from '../../assets/postnotes.webp'; // Using generic image as requested
+import { ArticleCarousel } from '../../components/ArticleCarousel';
+import Seo from '../../components/Seo';
+
+const CaringForAppleTreesSeasonalGuide = () => {
+  return (
+    <>
+      <Seo
+        title="When & How to Care for Apple Trees (Seasonal Guide)"
+        description="Apple tree care centers on well‑timed pruning and disease prevention. Pruning affects both airflow and future harvests, so timing is critical."
+        canonicalPath="/articles/caring-for-apple-trees-seasonal-guide"
+        ogType="article"
+        ogImage="/og-images/og-caring-for-apple-trees.webp" // <-- TODO: Add this OG image
+      />
+      <ArticleLayout
+        title="When & How to Care for Apple Trees (A Seasonal Guide)"
+        subtitle={<>Apple tree care centers on well‑timed pruning and disease prevention. Apples bloom and fruit on specialized spurs that form over several years, so <strong>pruning affects both airflow and future harvests.</strong> The biggest mistakes are pruning too late, removing too much fruiting wood, and over‑fertilizing new trees.</>}
+        imageSrc={articleImage}
+        imageAlt="An apple tree with red apples ready for harvest"
+      >
+        <div className="text-lg text-primary-foreground">
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">When should you prune apple trees?</h2>
+          <p className="mb-6">Prune apple trees in late winter to early spring, before buds break and while the tree is dormant. This reduces disease exposure and encourages strong spring growth. Focus on opening the canopy for light and airflow, removing crowded branches, and shaping for long‑term structure. Young trees need yearly pruning to establish a productive framework.</p>
+          
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">When should you trim apple trees?</h2>
+          <p className="mb-6">Trimming during the growing season should be light and intentional. Remove water sprouts, suckers at the base, and small crossing branches. Summer thinning can help redirect energy to fruit development, but avoid major cuts that stress the tree or expose fruit to sunburn.</p>
+          
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">When should you fertilize apple trees?</h2>
+          <p className="mb-6">Fertilize in early spring as growth resumes. Young trees benefit from annual nitrogen applications in modest amounts. Mature trees may require little to no fertilizer if soil is healthy. Avoid fertilizing after midsummer, as late feeding encourages soft growth that’s susceptible to winter injury.</p>
+
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Should you prune apple trees in spring?</h2>
+          <p className="mb-6">Yes — late winter into early spring is the ideal pruning window. Once buds swell heavily, delay major cuts to avoid sap loss and reduced bloom potential. Prioritize removing diseased, damaged, or crossing branches.</p>
+
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Should you prune apple trees in summer?</h2>
+          <p className="mb-6">Summer pruning is safe if light and targeted. Removing water sprouts, reducing density, and thinning fruiting areas can improve sunlight penetration and reduce disease pressure. Avoid heavy cuts during extreme heat to prevent stress.</p>
+
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Should you prune apple trees in autumn (fall)?</h2>
+          <p className="mb-6">Avoid fall pruning. Fresh cuts heal slowly in cool, wet weather, increasing disease risk. Cuts made now often lead to tender growth that winter freezes may kill. Leave structural pruning for late winter.</p>
+
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Should you prune apple trees in winter?</h2>
+          <p className="mb-6">Late winter pruning is ideal, but deep winter pruning in extreme cold risks die‑back. Wait until the worst frost danger passes. Winter pruning can stimulate regrowth, so always balance structural needs with fruiting wood preservation.</p>
+
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Caring for apple trees? The most common mistake</h2>
+          <p className="mb-6">The most frequent errors include pruning too late or too heavily, removing productive fruiting spurs, and over‑fertilizing young trees. Dense canopies trap moisture and promote fungal disease. Avoid heavy fall pruning and monitor airflow carefully.</p>
+
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Reminder-friendly quick tasks</h2>
+          <ul className="list-disc list-inside space-y-2 mb-6">
+            <li><strong>Late winter / early spring:</strong> Structural pruning; remove damaged or diseased wood.</li>
+            <li><strong>Early spring:</strong> Fertilize if needed based on soil quality.</li>
+            <li><strong>Summer:</strong> Light thinning of canopy; remove water sprouts and suckers.</li>
+            <li><strong>Autumn:</strong> Avoid pruning; remove fallen fruit and leaves to reduce disease.</li>
+          </ul>
+          <p>Proper timing builds strong structure, improves airflow, and supports consistent harvests season after season.</p>
+
+        </div>
+      </ArticleLayout>
+      <section className="mt-16">
+        <ArticleCarousel exclude="/articles/caring-for-apple-trees-seasonal-guide" />
+      </section>
+    </>
+  );
+};
+
+export default CaringForAppleTreesSeasonalGuide;
