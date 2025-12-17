@@ -1,18 +1,16 @@
-from django.core.mail import EmailMultiAlternatives
+import requests
 from django.template.loader import render_to_string
 from django.conf import settings
-from django.utils.html import strip_tags
-
 from data_management.models import BlockedEmail
 from data_management.views.blocklist_view import signer # Import the signer
 from notifications.models import Notification
 
 def send_reminder_email(notification: Notification, recipient_address: str) -> bool:
     """
-    Sends a single event reminder email based on a Notification object.
+    Sends a single event reminder email based on a Notification object using Mailgun API.
 
     This function handles rendering the templates, constructing the email,
-    and sending it.
+    and sending it via Mailgun.
 
     Args:
         notification: The Notification instance to be sent.
@@ -55,17 +53,23 @@ def send_reminder_email(notification: Notification, recipient_address: str) -> b
         html_content = render_to_string(html_template, context)
         text_content = render_to_string(txt_template, context)
 
-        # 5. Send the email
-        msg = EmailMultiAlternatives(
-            subject=subject,
-            body=text_content,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[recipient_address]
-        )
-        msg.attach_alternative(html_content, "text/html")
-        msg.send(fail_silently=False)
+        # 5. Send the email using Mailgun API
+        response = requests.post(
+            f"https://api.mailgun.net/v3/{settings.MAILGUN_DOMAIN}/messages",
+            auth=("api", settings.MAILGUN_API_KEY),
+            data={"from": settings.DEFAULT_FROM_EMAIL,
+                  "to": [recipient_address],
+                  "subject": subject,
+                  "text": text_content,
+                  "html": html_content})
 
-        return True
+        # Check for a successful response
+        if response.status_code == 200:
+            return True
+        else:
+            # Log error from Mailgun
+            print(f"Failed to send email for Notification {notification.pk}. Mailgun API responded with {response.status_code}: {response.text}")
+            return False
 
     except Exception as e:
         # It's good practice to log this error. For now, we'll print it.

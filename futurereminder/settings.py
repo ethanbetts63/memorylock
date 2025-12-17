@@ -177,11 +177,7 @@ REST_FRAMEWORK = {
     ),
 }
 
-# Email Settings (Amazon SES)
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "email-smtp.eu-north-1.amazonaws.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get("SES_SMTP_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("SES_SMTP_PASS")
-DEFAULT_FROM_EMAIL = "FutureReminder <reminders@futurereminder.app>"
+# Email Settings (Mailgun)
+MAILGUN_API_KEY = os.environ.get("MAILGUN_API_KEY")
+MAILGUN_DOMAIN = os.environ.get("MAILGUN_DOMAIN")
+DEFAULT_FROM_EMAIL = "FutureReminder <postmaster@mail.futurereminder.app>"
