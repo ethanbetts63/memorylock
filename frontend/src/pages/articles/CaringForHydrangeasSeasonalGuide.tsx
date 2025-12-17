@@ -42,12 +42,7 @@ const CaringForHydrangeasSeasonalGuide = () => {
           <p className="mb-6">Winter pruning is usually limited to cleanup rather than shaping. Dead wood can be removed once the plant is fully dormant, but live stems should generally be left intact until spring reveals where new growth emerges. In colder climates, leaving stems in place also helps protect buds from frost damage.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Caring for hydrangeas? The most common mistake</h2>
-          <p className="mb-6">Most hydrangea problems come down to pruning at the wrong time. People prune based on habit or calendar dates rather than the plant’s flowering behavior, often cutting back healthy stems that already contain next season’s flowers. Because the consequences don’t appear until months later, the mistake is easy to repeat year after year unless timing is tracked carefully.</p>
-
-          <div className="mt-12 p-6 rounded-xl bg-primary/10 border border-primary/20">
-            <h2 className="text-2xl font-bold tracking-tight mb-3">Tired of Missing the Window?</h2>
-            <p className="text-base">One of the most common mistakes with hydrangea care is timing — people plan to prune, feed or protect their hydrangeas, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your hydrangeas’s.</p>
-          </div>
+          <p className="mb-6">One of the most common mistakes with hydrangea care is timing — people plan to prune, feed or protect their hydrangeas, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your hydrangeas’s.</p>
         </div>
       </ArticleLayout>
       <section className="mt-16">

@@ -42,21 +42,7 @@ const CaringForLavenderSeasonalGuide = () => {
           <p className="mb-6">Winter pruning is generally limited to removing obviously dead stems once the plant is fully dormant. Don’t cut into the woody base — those stems help protect the plant and may not reshoot if removed. In colder climates, leaving a tidy canopy through winter also protects crowns from freeze/thaw damage.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Caring for lavender? The most common mistake</h2>
-          <p className="mb-6">The most frequent errors are over-pruning into old wood, overwatering, and planting lavender in poorly drained or overly rich soils. Heavy pruning into the woody base often leaves bare, non-resprouting patches. Too much water or high-nitrogen feeding produces soft, floppy growth with fewer flowers and more disease. Keep plants in full sun, with excellent drainage and a light hand on pruning and feeding.</p>
-
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Reminder-friendly quick tasks</h2>
-          <ul className="list-disc list-inside space-y-2 mb-6">
-            <li><strong>After flowering (summer):</strong> Deadhead flower spikes and lightly reshape.</li>
-            <li><strong>Early spring:</strong> Check for winter damage; remove clearly dead stems; apply a light compost/top-dressing if needed.</li>
-            <li><strong>Annually (post-flower):</strong> Thin out a few of the oldest woody stems (only if green growth remains at the base) to maintain vigor.</li>
-            <li><strong>Fertilize:</strong> Once in early spring if soil is very poor — keep it light.</li>
-          </ul>
-          <p>Keep these timing rules in your reminders — “prune after bloom” and “don’t cut into old wood” are the two phrases that save next year’s display.</p>
-
-          <div className="mt-12 p-6 rounded-xl bg-primary/10 border border-primary/20">
-            <h2 className="text-2xl font-bold tracking-tight mb-3">Tired of Missing the Window?</h2>
-            <p className="text-base">One of the most common mistakes with lavender care is timing — people plan to prune, feed or protect their lavender, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your lavender’s.</p>
-          </div>
+          <p className="mb-6">One of the most common mistakes with lavender care is timing — people plan to prune, feed or protect their lavender, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your lavender’s.</p>
         </div>
       </ArticleLayout>
       <section className="mt-16">

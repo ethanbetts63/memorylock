@@ -42,23 +42,7 @@ const CaringForBlueberryBushesSeasonalGuide = () => {
           <p className="mb-6">Late winter dormant pruning is ideal. Prune on a mild day when plants are fully dormant but before sap flow begins. Remove oldest canes at the base, thin to maintain 6–8 strong canes per mature bush, and cut out weak, twiggy growth. Avoid pruning in deep freeze.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Caring for blueberry bushes? The most common mistake</h2>
-          <p className="mb-6">The most frequent errors are planting in neutral/alkaline soil, failing to maintain acidity and organic matter, and pruning at the wrong time (especially removing one‑year‑old fruiting wood). Over‑watering or poor drainage and over‑fertilizing with high‑nitrogen feeds also reduce fruit quality. Keep pH low, mulch heavily, and prune annually while dormant.</p>
-
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Reminder‑friendly quick tasks</h2>
-          <ul className="list-disc list-inside space-y-2 mb-6">
-            <li><strong>Late winter / very early spring:</strong> Dormant pruning — remove oldest canes, thin to 6–8 vigorous canes per bush.</li>
-            <li><strong>Early spring (bud swell):</strong> Apply ericaceous/acid fertilizer if soil is low in nutrients; check pH and amend if &gt;5.5.</li>
-            <li><strong>Late spring / early summer (flower & fruit set):</strong> Keep soil evenly moist; mulch to conserve moisture and maintain acidity.</li>
-            <li><strong>Summer (after harvest):</strong> Lightly remove suckers and dead wood; consider light pruning for shape.</li>
-            <li><strong>Autumn:</strong> Refresh mulch for winter protection; avoid pruning.</li>
-            <li><strong>Winter:</strong> Final dormant pruning if needed on mild days; protect roots in very cold climates.</li>
-          </ul>
-          <p>Simple rules to remember for reminders: “prune dormant,” “keep pH 4.5–5.5,” and “mulch & water during fruit set.” These three keep blueberries productive and healthy.</p>
-
-          <div className="mt-12 p-6 rounded-xl bg-primary/10 border border-primary/20">
-            <h2 className="text-2xl font-bold tracking-tight mb-3">Tired of Missing the Window?</h2>
-            <p className="text-base">One of the most common mistakes with blueberry bush care is timing — people plan to prune, feed or protect their blueberry bushes, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your blueberry bushes’s.</p>
-          </div>
+          <p className="mb-6">One of the most common mistakes with blueberry bush care is timing — people plan to prune, feed or protect their blueberry bushes, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your blueberry bushes’s.</p>
         </div>
       </ArticleLayout>
       <section className="mt-16">

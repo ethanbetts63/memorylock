@@ -42,21 +42,7 @@ const CaringForAppleTreesSeasonalGuide = () => {
           <p className="mb-6">Late winter pruning is ideal, but deep winter pruning in extreme cold risks die‑back. Wait until the worst frost danger passes. Winter pruning can stimulate regrowth, so always balance structural needs with fruiting wood preservation.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Caring for apple trees? The most common mistake</h2>
-          <p className="mb-6">The most frequent errors include pruning too late or too heavily, removing productive fruiting spurs, and over‑fertilizing young trees. Dense canopies trap moisture and promote fungal disease. Avoid heavy fall pruning and monitor airflow carefully.</p>
-
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Reminder-friendly quick tasks</h2>
-          <ul className="list-disc list-inside space-y-2 mb-6">
-            <li><strong>Late winter / early spring:</strong> Structural pruning; remove damaged or diseased wood.</li>
-            <li><strong>Early spring:</strong> Fertilize if needed based on soil quality.</li>
-            <li><strong>Summer:</strong> Light thinning of canopy; remove water sprouts and suckers.</li>
-            <li><strong>Autumn:</strong> Avoid pruning; remove fallen fruit and leaves to reduce disease.</li>
-          </ul>
-          <p>Proper timing builds strong structure, improves airflow, and supports consistent harvests season after season.</p>
-
-          <div className="mt-12 p-6 rounded-xl bg-primary/10 border border-primary/20">
-            <h2 className="text-2xl font-bold tracking-tight mb-3">Tired of Missing the Window?</h2>
-            <p className="text-base">One of the most common mistakes with apple tree care is timing — people plan to prune, feed or protect their apple trees, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your apple trees’s.</p>
-          </div>
+          <p className="mb-6">One of the most common mistakes with apple tree care is timing — people plan to prune, feed or protect their apple trees, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your apple trees’s.</p>
         </div>
       </ArticleLayout>
       <section className="mt-16">

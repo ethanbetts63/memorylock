@@ -42,22 +42,7 @@ const CaringForCrepeMyrtleSeasonalGuide = () => {
           <p className="mb-6">Yes — late winter is the safest time for structural pruning. Remove crossing limbs, root suckers, and any inward‑growing shoots to maintain airflow and shape. Winter is also a good time to correct past improper topping — selectively thin rather than cut everything to the same height.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Caring for crepe myrtle? The most common mistake</h2>
-          <p className="mb-6">The biggest mistake is topping crepe myrtles (“crape murder”). Cutting large limbs back to stubs causes weak regrowth, unattractive knobby joints, and fewer flowers. Instead, prune selectively, following the natural branching structure. Over‑fertilizing, over‑watering, or pruning too late are also common reasons crepe myrtles fail to bloom.</p>
-
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Reminder-friendly quick tasks</h2>
-          <ul className="list-disc list-inside space-y-2 mb-6">
-            <li><strong>Late winter / early spring:</strong> Perform structural pruning before new growth.</li>
-            <li><strong>Early spring:</strong> Apply light slow‑release fertilizer if needed.</li>
-            <li><strong>Summer:</strong> Deadhead to encourage additional flowering; remove suckers.</li>
-            <li><strong>Throughout growing season:</strong> Monitor shape and airflow; avoid topping.</li>
-            <li><strong>Autumn / winter:</strong> Avoid heavy pruning until late winter returns.</li>
-          </ul>
-          <p>Track pruning timing carefully — selective cuts in late winter reward you with stronger structure and a longer, more vibrant summer bloom.</p>
-
-          <div className="mt-12 p-6 rounded-xl bg-primary/10 border border-primary/20">
-            <h2 className="text-2xl font-bold tracking-tight mb-3">Tired of Missing the Window?</h2>
-            <p className="text-base">One of the most common mistakes with crepe myrtle care is timing — people plan to prune, feed or protect their crepe myrtles, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your crepe myrtles’s.</p>
-          </div>
+          <p className="mb-6">One of the most common mistakes with crepe myrtle care is timing — people plan to prune, feed or protect their crepe myrtles, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your crepe myrtles’s.</p>
         </div>
       </ArticleLayout>
       <section className="mt-16">

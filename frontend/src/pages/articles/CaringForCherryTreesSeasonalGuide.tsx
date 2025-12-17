@@ -42,21 +42,7 @@ const CaringForCherryTreesSeasonalGuide = () => {
           <p className="mb-6">Late winter pruning is safe once severe frost risk passes. Avoid cutting during deep cold snaps, which increase die‑back and disease vulnerability. Winter pruning should focus on structural corrections, removing dead/diseased wood, and thinning for airflow.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Caring for cherry trees? The most common mistake</h2>
-          <p className="mb-6">Over‑pruning and late pruning are the biggest issues. Heavy cuts, topping, or removing large limbs stimulates excessive regrowth, reduces flowering, and invites disease. Other frequent mistakes include over‑fertilizing, neglecting pest management, and allowing dense canopies that trap moisture.</p>
-
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Reminder-friendly quick tasks</h2>
-          <ul className="list-disc list-inside space-y-2 mb-6">
-            <li><strong>Late winter / early spring:</strong> Structural pruning before growth begins; remove diseased or crossing branches.</li>
-            <li><strong>Early spring:</strong> Fertilize lightly if soil is poor.</li>
-            <li><strong>Summer:</strong> After harvest (fruiting only), remove water sprouts and suckers.</li>
-            <li><strong>Autumn:</strong> Avoid pruning; monitor for pests.</li>
-          </ul>
-          <p>With proper timing and careful restraint, cherry trees reward you with healthier growth, abundant blossoms, and long‑term productivity.</p>
-
-          <div className="mt-12 p-6 rounded-xl bg-primary/10 border border-primary/20">
-            <h2 className="text-2xl font-bold tracking-tight mb-3">Tired of Missing the Window?</h2>
-            <p className="text-base">One of the most common mistakes with cherry tree care is timing — people plan to prune, feed or protect their cherry trees, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your cherry trees’s.</p>
-          </div>
+          <p className="mb-6">One of the most common mistakes with cherry tree care is timing — people plan to prune, feed or protect their cherry trees, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your cherry trees’s.</p>
         </div>
       </ArticleLayout>
       <section className="mt-16">

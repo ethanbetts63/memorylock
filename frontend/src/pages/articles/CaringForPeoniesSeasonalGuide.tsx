@@ -42,21 +42,7 @@ const CaringForPeoniesSeasonalGuide = () => {
           <p className="mb-6">If autumn cleanup wasn’t completed, you can cut back remaining dead stems during winter dormancy on mild days. Avoid disturbing frozen ground.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Caring for peonies? The most common mistake</h2>
-          <p className="mb-6">The biggest mistake is cutting foliage too early. Removing leaves before they’ve gathered enough energy weakens roots and reduces blooms the next year. Other issues include planting too deeply, overfertilizing, and failing to provide support for large blooms.</p>
-
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Reminder‑friendly quick tasks</h2>
-          <ul className="list-disc list-inside space-y-2 mb-6">
-            <li><strong>Early spring:</strong> Fertilize lightly as shoots emerge.</li>
-            <li><strong>Late spring / early summer:</strong> Deadhead blooms; avoid removing foliage.</li>
-            <li><strong>Autumn (after frost):</strong> Cut stems to soil level for herbaceous/ Itoh types; remove foliage to prevent disease.</li>
-            <li><strong>Late winter:</strong> Light cleanup if needed; prune tree peonies lightly.</li>
-          </ul>
-          <p>Correct timing protects roots and ensures stronger flowering in the following season.</p>
-
-          <div className="mt-12 p-6 rounded-xl bg-primary/10 border border-primary/20">
-            <h2 className="text-2xl font-bold tracking-tight mb-3">Tired of Missing the Window?</h2>
-            <p className="text-base">One of the most common mistakes with peony care is timing — people plan to prune, feed or protect their peonies, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your peonies’s.</p>
-          </div>
+          <p className="mb-6">One of the most common mistakes with peony care is timing — people plan to prune, feed or protect their peonies, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your peonies’s.</p>
         </div>
       </ArticleLayout>
       <section className="mt-16">

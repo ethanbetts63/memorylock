@@ -42,21 +42,7 @@ const CaringForAzaleasSeasonalGuide = () => {
           <p className="mb-6">Winter pruning is discouraged for shaping — buds are dormant but already present. Removing stems now means fewer blooms next season. If needed, winter pruning should be strictly limited to removing dead wood.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Caring for azaleas? The most common mistake</h2>
-          <p className="mb-6">The most frequent mistake is pruning too late, which removes the buds that form right after flowering. Other common issues include planting too deep, heavy fertilizing, and allowing soil to dry out. Protect shallow roots with mulch, avoid summer pruning, and feed lightly.</p>
-
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Reminder-friendly quick tasks</h2>
-          <ul className="list-disc list-inside space-y-2 mb-6">
-            <li><strong>Right after flowering (late spring / early summer):</strong> Light prune and shape; remove spent blooms.</li>
-            <li><strong>Early spring:</strong> Apply azalea‑safe fertilizer if needed.</li>
-            <li><strong>Winter / summer / fall:</strong> Avoid pruning except to remove dead or diseased wood.</li>
-            <li><strong>Throughout the year:</strong> Maintain mulch layer; monitor soil moisture for shallow roots.</li>
-          </ul>
-          <p>With careful timing, pruning right after bloom ensures a fuller flower display next spring.</p>
-
-          <div className="mt-12 p-6 rounded-xl bg-primary/10 border border-primary/20">
-            <h2 className="text-2xl font-bold tracking-tight mb-3">Tired of Missing the Window?</h2>
-            <p className="text-base">One of the most common mistakes with azalea care is timing — people plan to prune, feed or protect their azaleas, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your azaleas’s.</p>
-          </div>
+          <p className="mb-6">One of the most common mistakes with azalea care is timing — people plan to prune, feed or protect their azaleas, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your azaleas’s.</p>
         </div>
       </ArticleLayout>
       <section className="mt-16">
