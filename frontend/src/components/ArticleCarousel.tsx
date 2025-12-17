@@ -12,6 +12,9 @@ import cherriesImage from '../assets/cherries.webp';
 import lavenderImage from '../assets/lavender.webp';
 import peoniesImage from '../assets/peonies.webp';
 import rosesImage from '../assets/roses.webp';
+import crepeMyrtleImage from '../assets/crepe_myrtle.webp';
+import blueberriesImage from '../assets/blueberries.webp';
+import hydrangeasImage from '../assets/hydrangeas.webp';
 
 const articles = [
   {
@@ -64,7 +67,7 @@ const articles = [
   },
   {
     title: 'Caring for Hydrangeas: A Seasonal Guide',
-    imageSrc: postnotesImage, // Placeholder
+    imageSrc: hydrangeasImage,
     link: '/articles/caring-for-hydrangeas-seasonal-guide',
     alt: 'A guide to caring for hydrangeas throughout the seasons'
   },
@@ -76,7 +79,7 @@ const articles = [
   },
   {
     title: 'Caring for Crepe Myrtle: A Seasonal Guide',
-    imageSrc: postnotesImage, // Placeholder
+    imageSrc: crepeMyrtleImage,
     link: '/articles/caring-for-crepe-myrtle-seasonal-guide',
     alt: 'A guide to caring for crepe myrtle throughout the seasons'
   },
@@ -106,7 +109,7 @@ const articles = [
   },
   {
     title: 'Caring for Blueberry Bushes: A Seasonal Guide',
-    imageSrc: postnotesImage, // Placeholder
+    imageSrc: blueberriesImage,
     link: '/articles/caring-for-blueberry-bushes-seasonal-guide',
     alt: 'A guide to caring for blueberry bushes throughout the seasons'
   }
