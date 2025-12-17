@@ -41,6 +41,10 @@ const CaringForRosesSeasonalGuide = () => {
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Caring for roses? The most common mistake</h2>
           <p className="mb-6">The biggest practical error is timing — people plan to act but forget, or they rely on fixed months instead of watching local cues, and by the time they get around to pruning or feeding the window has passed. That delay often turns a helpful cut into a damaging one, or a well-timed feed into stress during dormancy. The simplest way to avoid this is to pair a clear seasonal plan with a reminder system that actually catches you before the window closes.</p>
 
+          <div className="mt-12 p-6 rounded-xl bg-primary/10 border border-primary/20">
+            <h2 className="text-2xl font-bold tracking-tight mb-3">Tired of Missing the Window?</h2>
+            <p className="text-base">One of the most common mistakes with rose care is timing — people plan to prune, feed or protect their roses, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your roses’s.</p>
+          </div>
         </div>
       </ArticleLayout>
       <section className="mt-16">

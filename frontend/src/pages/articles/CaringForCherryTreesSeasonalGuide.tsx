@@ -53,6 +53,10 @@ const CaringForCherryTreesSeasonalGuide = () => {
           </ul>
           <p>With proper timing and careful restraint, cherry trees reward you with healthier growth, abundant blossoms, and long‑term productivity.</p>
 
+          <div className="mt-12 p-6 rounded-xl bg-primary/10 border border-primary/20">
+            <h2 className="text-2xl font-bold tracking-tight mb-3">Tired of Missing the Window?</h2>
+            <p className="text-base">One of the most common mistakes with cherry tree care is timing — people plan to prune, feed or protect their cherry trees, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? Our free tier is perfect for this. We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your cherry trees’s.</p>
+          </div>
         </div>
       </ArticleLayout>
       <section className="mt-16">
