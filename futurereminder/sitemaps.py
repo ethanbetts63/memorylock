@@ -20,6 +20,15 @@ class StaticViewSitemap(Sitemap):
             '/articles/subscription-renewal',
             '/articles/visa-expiry',
             '/articles/reminder-apps-ranked',
+            '/articles/caring-for-roses-seasonal-guide',
+            '/articles/caring-for-hydrangeas-seasonal-guide',
+            '/articles/caring-for-lavender-seasonal-guide',
+            '/articles/caring-for-crepe-myrtle-seasonal-guide',
+            '/articles/caring-for-azaleas-seasonal-guide',
+            '/articles/caring-for-cherry-trees-seasonal-guide',
+            '/articles/caring-for-apple-trees-seasonal-guide',
+            '/articles/caring-for-peonies-seasonal-guide',
+            '/articles/caring-for-blueberry-bushes-seasonal-guide',
         ]
 
     def location(self, item):
