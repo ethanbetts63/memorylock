@@ -25,7 +25,7 @@ export const Hero: React.FC<HeroProps> = ({ title, subtitle, imageSrc, srcSet, i
             fetchPriority="high"
           />
         </div>
-        <div className="text-left">
+        <div className="text-left px-4">
           <h1 className="text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl">
             {title}
           </h1>
