@@ -20,7 +20,7 @@ const CaringForRosesSeasonalGuide = () => {
         imageAlt="A beautiful rose garden in full bloom"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">When should you prune roses?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">When should you prune roses?</h2>
           <p className="mb-6">Prune roses during their dormant phase, just before the sap starts to rise and buds swell. In most climates that means late winter or very early spring; you want to remove old, weak wood before new shoots appear so the plant can put energy into healthy canes and stronger blooms. Watch local cues — last hard frost passed and you see swelling buds — rather than a fixed calendar date, because frost timing varies by region.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">When should you trim or deadhead roses?</h2>

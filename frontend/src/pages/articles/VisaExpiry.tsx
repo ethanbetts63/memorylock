@@ -21,7 +21,7 @@ const VisaExpiry = () => {
         faqPage="visa-expiry"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">How to Remember a Visa Expiry and What do if you’ve missed it.</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">How to Remember a Visa Expiry and What do if you’ve missed it.</h2>
           <p className="mb-6">There’s really only two reasons you might be reading this article. Either you’re worried about forgetting a visa expiry or you’ve already missed it. For your sake I hope you’re in the first camp. <span className="font-bold italic underline">Visa expiries are incredibly easy to forget.</span> They hit that “important, but distant” niche that our brains just aren’t very good at tracking. For people on long-term visas — work permits, student visas that run a year or more, or multi-year residency permits — the deadline can sit quietly in the future until one day it doesn’t. You’re not irresponsible; you’re human. The system hands you a date, life hands you distractions, and suddenly you’re facing a deadline you forgot existed.</p>
           <p className="mb-6">This article is for the people who overstayed by accident or who are terrified they might. We’ve done the research so here are the facts, region-specific consequences, and practical steps you can take right now.</p>
           

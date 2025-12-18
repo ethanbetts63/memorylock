@@ -20,7 +20,7 @@ const CaringForAzaleasSeasonalGuide = () => {
         imageAlt="A flowering azalea bush with bright pink blooms"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">When should you prune azaleas?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">When should you prune azaleas?</h2>
           <p className="mb-6">Prune azaleas right after they finish flowering in late spring or early summer. They set next year’s buds soon after blooming, so delaying pruning risks removing those buds. Keep cuts light – azaleas respond poorly to heavy pruning and may become leggy if cut back too far.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">When should you trim azaleas?</h2>

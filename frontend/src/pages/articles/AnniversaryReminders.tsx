@@ -21,7 +21,7 @@ const AnniversaryReminders = () => {
         faqPage="anniversary-reminders"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-4">How do people remember anniversaries and birthdays?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">How do people remember anniversaries and birthdays?</h2>
           <p className="mb-6">We all have the same toolkit: smartphones, calendars, social media notifications and even sticky notes. Yet, there are still two feelings we can all relate to; the stress of trying to remember an important date, and the dread of realizing you missed it. Just by the fact that you are reading this, you obviously care. <span className="font-bold italic underline">The problem isn’t you</span>. We’re all human after all. The problem is you aren’t using the right tools. So let's go through the most popular options discussed in forums like Reddit and the criticism people gave them.</p>
           <p className="mb-6">When you put a 25th Wedding Anniversary into Google Calendar or Apple Reminders, it looks exactly the same as a reminder to "Buy Milk" or "Zoom call with marketing."</p>
           <ul className="list-disc pl-8 mb-6 space-y-2">

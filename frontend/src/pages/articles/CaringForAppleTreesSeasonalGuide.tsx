@@ -11,7 +11,7 @@ const CaringForAppleTreesSeasonalGuide = () => {
         description="Apple tree care centers on well‑timed pruning and disease prevention. Pruning affects both airflow and future harvests, so timing is critical."
         canonicalPath="/articles/caring-for-apple-trees-seasonal-guide"
         ogType="article"
-        ogImage="/og-images/og-caring-for-apple-trees.webp" // <-- TODO: Add this OG image
+        ogImage="/og-images/og-caring-for-apple-trees.webp" 
       />
       <ArticleLayout
         title="When & How to Care for Apple Trees (A Seasonal Guide)"
@@ -20,7 +20,7 @@ const CaringForAppleTreesSeasonalGuide = () => {
         imageAlt="An apple tree with red apples ready for harvest"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">When should you prune apple trees?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">When should you prune apple trees?</h2>
           <p className="mb-6">Prune apple trees in late winter to early spring, before buds break and while the tree is dormant. This reduces disease exposure and encourages strong spring growth. Focus on opening the canopy for light and airflow, removing crowded branches, and shaping for long‑term structure. Young trees need yearly pruning to establish a productive framework.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">When should you trim apple trees?</h2>

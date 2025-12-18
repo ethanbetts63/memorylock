@@ -21,7 +21,7 @@ const LetterToFutureSelf = () => {
         faqPage="future-letter"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-4">Can I Email Myself a Reminder for 2050?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">Can I Email Myself a Reminder for 2050?</h2>
           <p className="mb-6">Google Calendar, Apple Reminders, Outlook, and the various “email yourself in 10 years” services feel like natural tools for long‑term reminders. They’re convenient and familiar, but they <span className="font-bold italic underline">fail in predictable ways</span>. Single notifications are easy to miss during a busy moment. People change phones, email addresses, and platforms over time, which breaks the chain. Messages often fall into spam filters, and services evolve in ways that make old reminders disappear. These systems are excellent for day‑to‑day tasks, but they aren’t built to reliably surface something decades later.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Reliable Ways to Remember Something Years in the Future?</h2>

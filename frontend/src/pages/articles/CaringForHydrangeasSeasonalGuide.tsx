@@ -20,7 +20,7 @@ const CaringForHydrangeasSeasonalGuide = () => {
         imageAlt="A row of vibrant hydrangea bushes with large blooms"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">When should you prune hydrangeas?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">When should you prune hydrangeas?</h2>
           <p className="mb-6">The correct pruning time for hydrangeas depends on whether they flower on old wood, new wood, or both. Some varieties set their flower buds the previous year, meaning pruning too late removes the blooms before they ever appear. Others flower on new growth and benefit from harder seasonal pruning. Identifying your hydrangea type is essential before making any cuts.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">When should you trim hydrangeas?</h2>

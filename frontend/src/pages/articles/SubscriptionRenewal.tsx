@@ -21,7 +21,7 @@ const SubscriptionRenewal = () => {
         faqPage="subscription-renewal"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">The $5 → $300 renewal — why it hurts, why it happens, and what to do now</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">The $5 → $300 renewal — why it hurts, why it happens, and what to do now</h2>
           <p className="mb-6">If you’re reading this, there’s a good chance you’ve just been hit with a renewal charge you weren’t expecting — maybe $199, $249, or even $300. Worse, it’s probably for a subscription you haven’t used in months. It feels sneaky, unfair, and borderline predatory, and you’re not wrong to feel that way. Companies design those cheap introductory deals knowing many people will forget by the time renewal comes around. We aren't going to try and sell you anything in this article. We hope you find the information useful. Get your money back. And then remember us next time you're signing up for one of these subscriptions. </p>
           <p className="mb-6">Before we go anywhere else: <span className="font-bold italic underline">you’re not stupid, and you’re not alone.</span> This trap works on millions of people every year. It’s a dirty, and effective business model. Let’s talk about why it happens, why so many people still get caught, how you might be able to get your money back, and how you can stop it from ever happening again.</p>
 

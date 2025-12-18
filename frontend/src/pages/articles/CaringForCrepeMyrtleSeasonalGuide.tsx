@@ -20,7 +20,7 @@ const CaringForCrepeMyrtleSeasonalGuide = () => {
         imageAlt="A crepe myrtle tree in full bloom with vibrant flowers"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">When should you prune crepe myrtle?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">When should you prune crepe myrtle?</h2>
           <p className="mb-6">Crepe myrtles bloom on new wood, so prune in late winter to very early spring before new growth begins. Pruning earlier risks cold damage to exposed cuts, and pruning later can delay flowering. Remove crossing branches, suckers at the base, and keep the natural branching form — avoid topping or severe heading cuts.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">When should you trim crepe myrtle?</h2>

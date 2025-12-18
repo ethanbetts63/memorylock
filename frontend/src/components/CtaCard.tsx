@@ -24,9 +24,9 @@ const tierData = {
     price: '$2.99',
     features: [
       "Includes everything in Automated",
-      "Direct phone calls from an admin",
-      "Social media outreach",
+      "Direct phone calls",
       "Emergency contact outreach",
+      "Social media outreach"
     ],
   }
 };

@@ -20,7 +20,7 @@ const CaringForCherryTreesSeasonalGuide = () => {
         imageAlt="A cherry tree in full blossom with pink and white flowers"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">When should you prune cherry trees?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">When should you prune cherry trees?</h2>
           <p className="mb-6">Cherry trees are best pruned in late winter to early spring before new growth begins—but once the harshest frost risk has passed. This reduces the chance of disease entering fresh cuts. Fruiting cherries benefit from annual light pruning to open the canopy, improving airflow and reducing disease pressure.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">When should you trim cherry trees?</h2>

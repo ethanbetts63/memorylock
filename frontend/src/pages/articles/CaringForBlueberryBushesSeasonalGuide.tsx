@@ -20,7 +20,7 @@ const CaringForBlueberryBushesSeasonalGuide = () => {
         imageAlt="A blueberry bush with ripe blueberries ready for picking"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">When should you prune blueberry bushes?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">When should you prune blueberry bushes?</h2>
           <p className="mb-6">Prune blueberries during late winter while the plants are fully dormant (typically late winter to very early spring). Remove the oldest canes at the base to encourage vigorous new shoots — most growers remove about 10–30% of the oldest wood each year. Avoid heavy pruning in autumn or early winter, which can stimulate tender regrowth vulnerable to frost.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">When should you trim blueberry bushes?</h2>

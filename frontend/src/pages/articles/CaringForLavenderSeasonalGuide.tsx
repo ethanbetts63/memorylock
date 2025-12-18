@@ -20,7 +20,7 @@ const CaringForLavenderSeasonalGuide = () => {
         imageAlt="A field of blooming lavender under the sun"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">When should you prune lavender?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">When should you prune lavender?</h2>
           <p className="mb-6">Pruning timing depends on the variety and the age of the plant. Most common lavenders (English lavenders and many lavandins) respond best to pruning right after flowering — this trims back spent blooms and encourages fresh, bushy growth that will produce next season’s flowers. Avoid cutting hard into old, woody stems because many lavenders do not regenerate well from old wood.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">When should you trim lavender?</h2>

@@ -21,7 +21,7 @@ const IUDExpiration = () => {
         faqPage="iud-expiration"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-4">When do IUDs expire — and what happens after the label date?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">When do IUDs expire — and what happens after the label date?</h2>
           <p className="mb-6">IUDs come with clear expiration windows (Mirena up to 8 years, Kyleena ~5 years, Skyla ~3 years) tied to their design and hormone dose. Inside the uterus they gradually release levonorgestrel (hormonal IUDs) or copper (nonhormonal IUDs). That release tapers over time — <span className="font-bold italic underline">it's not a cliff, it's a slow slope</span> — so most people won’t notice a sudden change. In practical terms: during the first one to two years after the approved lifespan most hormonal IUDs still prevent pregnancy at high rates but the rate does begin to decline and become more unpredictable.</p>
           <p className="mb-6">Paragard (~10–12 years) and other copper IUDs can also remain protective for some years past their label. Additionally hormone-related benefits (lighter periods, less bleeding) can fade as levels fall, and bleeding or cramping may return. The main risk of keeping an IUD past its date is an unexpected pregnancy as effectiveness wanes — plus occasional technical issues like string retraction or device shift that can make removal a bit more complicated.</p>
           

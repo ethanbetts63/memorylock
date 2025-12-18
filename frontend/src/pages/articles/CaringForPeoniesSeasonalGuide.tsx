@@ -20,7 +20,7 @@ const CaringForPeoniesSeasonalGuide = () => {
         imageAlt="A large pink peony flower in full bloom"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">When should you prune peonies?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">When should you prune peonies?</h2>
           <p className="mb-6">Peonies are not pruned for shape. Instead, cut back the stems once the foliage naturally dies back in autumn. For herbaceous and intersectional (Itoh) peonies, cut stems to ground level after frost kills the foliage. Tree peonies should only be lightly pruned in late winter/early spring to remove winter damage.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">When should you trim peonies?</h2>

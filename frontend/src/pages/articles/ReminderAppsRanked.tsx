@@ -20,7 +20,7 @@ const ReminderAppsRanked = () => {
         imageAlt="A corkboard covered in colorful sticky notes with reminder icons"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-2">Some Guy on Reddit</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">Some Guy on Reddit</h2>
           <p className="mb-6">Turns out “some guy on Reddit” is actually really smart. So we read every single reddit and forum discussion we could find on reminder apps just to be sure. In the article that follows, we’ll try to give you the <span className="font-bold italic underline">community consensus</span> for all the major apps with just a little touch of our own opinions sprinkled on top.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">How We Scored These Apps</h2>

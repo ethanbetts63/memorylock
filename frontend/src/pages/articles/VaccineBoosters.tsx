@@ -21,7 +21,7 @@ const VaccineBoosters = () => {
         faqPage="vaccine-boosters"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-4">How often do you need a tetanus shot?</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">How often do you need a tetanus shot?</h2>
           <p className="mb-6">Tetanus is probably the most well-known vaccine that requires ongoing boosters throughout adult life. The standard recommendation is a <span className="font-bold italic underline">tetanus booster every 10 years</span> (typically given as Td or Tdap). Tetanus is a serious bacterial infection that affects the nervous system, leading to painful muscle contractions, particularly of the jaw and neck muscles. In severe cases, it can cause difficulty breathing and be life-threatening. Maintaining up-to-date vaccination status is the most effective way to prevent tetanus.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Which common vaccines require boosters? And why?</h2>
