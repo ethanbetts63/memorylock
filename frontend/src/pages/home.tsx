@@ -83,7 +83,7 @@ const HomePage = () => {
 
       </div>
       <section className="mt-16">
-        <ArticleCarousel />
+        <ArticleCarousel variant="homepage" />
       </section>
     </main>
   );

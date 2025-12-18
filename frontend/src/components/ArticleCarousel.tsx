@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import futureSelfImage from '../assets/solar_letters.webp';
 import vaccineImage from '../assets/vaccine_image.webp';
 import iudImage from '../assets/iud_expiry.webp';
@@ -117,10 +118,15 @@ const articles = [
 
 interface ArticleCarouselProps {
   exclude?: string;
+  variant?: 'homepage';
 }
 
-export const ArticleCarousel: React.FC<ArticleCarouselProps> = ({ exclude }) => {
-  const filteredArticles = articles.filter(article => article.link !== exclude);
+export const ArticleCarousel: React.FC<ArticleCarouselProps> = ({ exclude, variant }) => {
+  let filteredArticles = articles.filter(article => article.link !== exclude);
+
+  if (variant === 'homepage') {
+    filteredArticles = filteredArticles.slice(0, 3);
+  }
 
   if (filteredArticles.length === 0) {
     return null;
@@ -147,6 +153,16 @@ export const ArticleCarousel: React.FC<ArticleCarouselProps> = ({ exclude }) => 
               </div>
             </Link>
           ))}
+          {variant === 'homepage' && (
+            <Link to="/articles" className="flex-shrink-0 w-80 h-48 group">
+              <div className="relative w-full h-full bg-secondary rounded-xl shadow-md overflow-hidden transform transition-transform hover:-translate-y-1">
+                <div className="relative z-10 flex flex-col items-center justify-center h-full p-6 text-center text-secondary-foreground">
+                  <h3 className="text-2xl font-semibold">Click here to see all our blog posts</h3>
+                  <ArrowRight className="w-8 h-8 mt-2 group-hover:translate-x-2 transition-transform" />
+                </div>
+              </div>
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ class StaticViewSitemap(Sitemap):
         return [
             '/',
             '/login',
+            '/articles',
             '/articles/letter-to-future-self',
             '/articles/vaccine-boosters',
             '/articles/iud-expiration',
@@ -37,6 +38,8 @@ class StaticViewSitemap(Sitemap):
         return item
 
     def changefreq(self, item):
+        if item == '/articles':
+            return 'weekly'
         if item.startswith('/articles/'):
             return 'monthly'
         if item == '/':
@@ -44,8 +47,10 @@ class StaticViewSitemap(Sitemap):
         return 'yearly'
 
     def priority(self, item):
+        if item == '/articles':
+            return 0.8
         if item.startswith('/articles/'):
             return 0.9
         if item == '/':
             return 1.0
-        return 0.8
+        return 0.7
