@@ -53,7 +53,7 @@ export const ArticleLayout: React.FC<ArticleLayoutProps> = ({ title, subtitle, i
             imageSrcLandscape={faqImageLandscape}
             srcSet={`${faqImage320} 320w, ${faqImage640} 640w, ${faqImage768} 768w, ${faqImage1024} 1024w, ${faqImage1280} 1280w`}
             srcSetLandscape={`${faqImageLandscape320} 320w, ${faqImageLandscape640} 640w, ${faqImageLandscape768} 768w, ${faqImageLandscape1024} 1024w, ${faqImageLandscape1280} 1280w`}
-            imageAlt="Abstract representation of questions"
+            imageAlt="Abstract image representing frequently asked questions"
           />
               </div>
             </section>
