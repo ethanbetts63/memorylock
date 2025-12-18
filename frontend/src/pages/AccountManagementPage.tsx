@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Terminal } from "lucide-react";
 import { ProfileForm } from '@/forms/ProfileForm'; 
 import { EmergencyContactsManager } from '@/components/EmergencyContactsManager';
+import { ChangePasswordForm } from '@/forms/ChangePasswordForm';
 import Seo from '@/components/Seo';
 import DeleteAccountSection from '@/components/DeleteAccountSection';
 
@@ -126,6 +127,18 @@ const AccountManagementPage: React.FC = () => {
                         initialContacts={contacts} 
                         onContactsChange={setContacts} 
                     />
+                </CardContent>
+            </Card>
+
+            <Card className="bg-foreground text-background">
+                <CardHeader>
+                    <CardTitle className="text-2xl">Change Your Password</CardTitle>
+                     <CardDescription className="text-black">
+                        Update your password below. After changing, you may be required to log in again.
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <ChangePasswordForm />
                 </CardContent>
             </Card>
 

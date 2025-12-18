@@ -191,6 +191,14 @@ export async function deleteEmergencyContact(id: number): Promise<void> {
     await handleResponse(response);
 }
 
+export async function changePassword(passwordData: { old_password: string, new_password: string, new_password_confirm: string }): Promise<{ detail: string }> {
+  const response = await authedFetch('/api/users/change-password/', {
+    method: 'PUT',
+    body: JSON.stringify(passwordData),
+  });
+  return handleResponse(response);
+}
+
 // --- Payment Endpoints ---
 
 export async function getTiers(): Promise<Tier[]> {
