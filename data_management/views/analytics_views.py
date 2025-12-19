@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAdminUser
 from django.utils import timezone
-from datetime import timedelta
+from datetime import timedelta, date
 from collections import defaultdict
 from django.db.models.functions import TruncDate
 from django.db.models import Count

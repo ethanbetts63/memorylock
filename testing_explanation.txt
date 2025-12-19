@@ -1,0 +1,3 @@
+factory_boy + pytest-django setup
+
+All models must have a factories.p
