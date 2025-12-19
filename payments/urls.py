@@ -1,5 +1,6 @@
 from django.urls import path
-from .views.payment_views import CreatePaymentIntentView, StripeWebhookView
+from .views.create_payment_intent import CreatePaymentIntentView
+from .views.stripe_webhook import StripeWebhookView
 from .views.tier_list_view import TierListView
 
 app_name = 'payments'
