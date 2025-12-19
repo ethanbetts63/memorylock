@@ -2,7 +2,6 @@ from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from events.models import Event
 from events.serializers.event_serializer import EventSerializer
 from events.serializers.event_creation_serializers import AuthenticatedEventCreateSerializer
 
