@@ -26,7 +26,7 @@ const homeFaqs: FaqItem[] = [
   },
   {
     "question": "How do you use my data?",
-    "answer": "Sparingly. We are in the business of reminders, not data brokerage. We do not sell your data. We do not analyze your deadlines to serve you ads. We only ask for information that is functionally necessary to contact you (emails, phone numbers). That’s it. You are the customer, not the product."
+    "answer": "Sparingly. We are in the business of reminders, not data brokerage. We do not sell your data. We do not analyze your deadlines to serve you ads. We only ask for information that is functionally necessary to contact you (emails, phone numbers, etc.). That’s it. You are the customer, not the product."
   }
 ];
 
