@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { toast } from "sonner";
+import Seo from '@/components/Seo';
 
 type EmailFormData = {
   email: string;
@@ -50,6 +51,11 @@ const ForgotPasswordPage: React.FC = () => {
 
   return (
     <div className="container mx-auto max-w-md py-12">
+      <Seo
+        title="Forgot Password | FutureReminder"
+        description="Reset your password for your FutureReminder account. Enter your email to receive a password reset link."
+        canonicalPath="/forgot-password"
+      />
       <h1 className="text-2xl font-bold mb-6">Forgot Your Password?</h1>
       <p className="mb-6 text-muted-foreground">
         Enter your email address below and we'll send you a link to reset your password.

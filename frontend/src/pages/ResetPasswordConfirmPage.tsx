@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { toast } from "sonner";
+import Seo from '@/components/Seo';
 
 type PasswordResetFormData = {
   password: string;
@@ -76,6 +77,10 @@ const ResetPasswordConfirmPage: React.FC = () => {
 
   return (
     <div className="container mx-auto max-w-md py-12">
+      <Seo
+        title="Reset Your Password | FutureReminder"
+        description="Enter your new password to complete the password reset process."
+      />
       <h1 className="text-2xl font-bold mb-6">Set Your New Password</h1>
       <p className="mb-6 text-muted-foreground">
         Please enter and confirm your new password below.
