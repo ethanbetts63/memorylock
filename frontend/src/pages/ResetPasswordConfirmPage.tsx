@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { toast } from "sonner";
-import apiClient from '@/apiClient';
 
 type PasswordResetFormData = {
   password: string;
@@ -26,10 +25,28 @@ const ResetPasswordConfirmPage: React.FC = () => {
 
   const { register, handleSubmit, formState: { errors, isSubmitting }, setError: setFormError } = form;
 
-  const confirmPasswordReset = (data: PasswordResetFormData) => {
-    if (!uid || !token) return Promise.reject("UID or Token is missing.");
-    const url = `/users/password-reset/confirm/${uid}/${token}/`;
-    return apiClient.post(url, data);
+  const confirmPasswordReset = async (data: PasswordResetFormData) => {
+    if (!uid || !token) {
+        throw new Error("UID or Token is missing from the URL.");
+    }
+    const url = `/api/users/password-reset/confirm/${uid}/${token}/`;
+    
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+
+    const responseData = await response.json();
+
+    if (!response.ok) {
+        // Pass the error message from the backend to the caller
+        throw new Error(responseData.detail || "An unexpected error occurred.");
+    }
+
+    return responseData;
   };
 
   const onSubmit: SubmitHandler<PasswordResetFormData> = async (data) => {
@@ -46,11 +63,11 @@ const ResetPasswordConfirmPage: React.FC = () => {
     try {
       const response = await confirmPasswordReset(data);
       toast.success("Success!", {
-        description: response.data.detail,
+        description: response.detail,
       });
       navigate('/login');
     } catch (err: any) {
-      const errorMessage = err.response?.data?.detail || "An error occurred. Please try again.";
+      const errorMessage = err.message || "An error occurred. Please try again.";
       toast.error("Error", {
         description: errorMessage,
       });

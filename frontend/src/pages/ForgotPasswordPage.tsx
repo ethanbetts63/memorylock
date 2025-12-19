@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { toast } from "sonner";
-import apiClient from '@/apiClient';
 
 type EmailFormData = {
   email: string;
@@ -21,17 +20,29 @@ const ForgotPasswordPage: React.FC = () => {
   const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = form;
 
   const requestPasswordReset = async (data: EmailFormData) => {
-    return apiClient.post('/users/password-reset/request/', data);
+    const response = await fetch('/api/users/password-reset/request/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      // We don't expect a detailed error here due to the backend's design
+      // but we throw to be caught by the onSubmit handler.
+      throw new Error('An unexpected error occurred.');
+    }
+
+    return response.json();
   };
 
   const onSubmit: SubmitHandler<EmailFormData> = async (data) => {
     try {
       const response = await requestPasswordReset(data);
-      toast.info(response.data.detail); // Show the generic message from the backend
+      toast.info(response.detail); // Show the generic message from the backend
       reset();
     } catch (err: any) {
-      // Per the backend design, this part should ideally not be reached
-      // unless there's a network error or a 5xx server error.
       const errorMessage = err.message || 'An unexpected error occurred.';
       toast.error(errorMessage);
     }
