@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 interface SeoProps {
   title: string;
@@ -15,7 +16,7 @@ const Seo: React.FC<SeoProps> = ({ title, description, canonicalPath, ogType = '
   const imageUrl = ogImage ? `${siteUrl}${ogImage}` : undefined;
 
   return (
-    <>
+    <Helmet>
       <title>{title}</title>
       {description && <meta name="description" content={description} />}
       {noindex && <meta name="robots" content="noindex" />}
@@ -27,7 +28,7 @@ const Seo: React.FC<SeoProps> = ({ title, description, canonicalPath, ogType = '
       <meta property="og:type" content={ogType} />
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
       {imageUrl && <meta property="og:image" content={imageUrl} />}
-    </>
+    </Helmet>
   );
 };
 
