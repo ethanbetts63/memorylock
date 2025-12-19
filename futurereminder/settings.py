@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "rest_framework",
     "rest_framework_simplejwt",
-    "api",
     "users",
     "events",
     "notifications",
