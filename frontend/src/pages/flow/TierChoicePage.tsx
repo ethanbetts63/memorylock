@@ -117,7 +117,7 @@ const TierChoicePage: React.FC = () => {
                             <CardDescription>{paidTier.description}</CardDescription>
                         </CardHeader>
                         <CardContent className="flex-grow">
-                            <p className="text-4xl font-bold mb-6">${paidTier.prices[0]?.amount ?? '2.99'}</p>
+                            <p className="text-4xl font-bold mb-6">${paidTier.prices[0]?.amount ?? '9.99'}</p>
                             <ul className="space-y-3">
                                 <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-muted-foreground">Includes everything in Automated</span></li>
                                 <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-muted-foreground">Direct phone calls</span></li>
