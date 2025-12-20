@@ -18,7 +18,7 @@ const homeFaqs: FaqItem[] = [
   },
   {
     "question": "What if you can’t reach me?",
-    "answer": "We designed a robust system, but we are not magicians. Our system is designed to escalate. We try your email. Then we try your phone. Then we try your backup email. Finally, we try your emergency contact. But if your numbers are dead, your emails bounce, and your emergency contact doesn't pick up, the line of communication ends there. We can only be as robust as the information you give us."
+    "answer": "We designed a robust system, but we are not magicians. Our system is designed to escalate. We try your email. Then we try your phone. Then we try your backup email. Finally, we try your emergency contact. But if your numbers are dead, your emails bounce, the emergency contact fails and socials prove to be unreliable, then the line of communication ends there. We can only be as robust as the information you give us."
   },
   {
     "question": "Are you liable if I miss a deadline?",

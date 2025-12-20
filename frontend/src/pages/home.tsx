@@ -25,6 +25,7 @@ import { CtaCard } from '../components/CtaCard';
 import { CreateEventLink } from '../components/CreateEventLink';
 import { Hero } from '../components/Hero';
 import { ArticleCarousel } from '../components/ArticleCarousel';
+import TrustFeature from '../components/TrustFeature';
 
 const HomePage = () => {
   return (
@@ -56,7 +57,7 @@ const HomePage = () => {
         <div className="lg:col-span-2 bg-background text-primary-foreground rounded-lg p-4 sm:p-8 md:p-8 lg:p-8 flex flex-col gap-8">
           <Letter />
           <section>
-            <Pricing />
+            <TrustFeature />
           </section>
           <section className="bg-white text-gray-900 rounded-lg">
             <div className="container mx-auto px-4">
