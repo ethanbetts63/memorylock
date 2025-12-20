@@ -21,8 +21,8 @@ const TaxSeason2026 = () => {
         faqPage="tax-season"
       >
         <div className="text-lg text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">quick note — what this article covers (tax 2026, tax deadline, tax due date)</h2>
-          <p className="mb-6">This article explains the key tax deadlines you’ll see in 2026, when to start preparing, and the practical consequences of filing late — including late filing penalty rules and interest. If you’re searching “can i file taxes late” or “i forgot my taxes,” read the country section that applies to you and follow the immediate steps at the end.</p>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">Quick Note — what this article covers (tax 2026, tax deadline, tax due date)</h2>
+          <p className="mb-6">This article explains the key tax deadlines you’ll see in 2026, when to start preparing, and the practical consequences of filing late — including late filing penalty rules and interest. If you’re searching “can i file taxes late” or “i forgot my taxes,” read the country section that applies to you and follow the immediate steps at the end. We however, are not laywers. We have tried to do our research as thoroughly as possible in preperation for this article but can not assume any liablity for your taxes. Please check information to know what is right for you.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">United States (federal) — key tax dates and what to do if you missed the deadline</h2>
           <p className="mb-6"><strong>Tax due date (federal):</strong> For most individual filers the federal return for the 2025 tax year is due April 15, 2026 (if April 15 falls on a weekend or federal holiday the due date moves to the next business day). The IRS publishes annual filing schedules; generally the IRS begins accepting e-filed returns in mid-late January.</p>
@@ -60,7 +60,7 @@ const TaxSeason2026 = () => {
           <p className="mb-6">If you missed a tax deadline, the single best immediate action is the same in every country: file as soon as possible. Filing stops the accrual of failure-to-file penalties in many jurisdictions and gives you a legal record showing you submitted the return. If you can’t pay in full, file the return anyway and pay what you can — that reduces interest and the failure-to-pay component of penalties. Then contact the tax authority to arrange a payment plan, a Time-to-Pay arrangement, or to ask about penalty relief for a reasonable excuse (illness, disaster, or similar circumstances are commonly accepted reasons).</p>
           <p className="mb-6"><strong>Important nuance:</strong> An extension to file (for example, the U.S. Form 4868 extension) typically does not extend the time to pay tax due. That means even with an approved filing extension you may still owe interest on unpaid tax from the original due date. Always check both the file-by and pay-by dates for your jurisdiction.</p>
 
-          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">short checklist — what to do right now if you forgot to file (step-by-step)</h2>
+          <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Short Checklist — What to do right now if you forgot to file (step-by-step)</h2>
           <ul className="list-disc pl-8 mb-6 space-y-2">
             <li>Gather documents (W-2/1099, T4/T5, PAYG summaries, P60/P45, IRD pre-fill statements).</li>
             <li>File the return immediately (e-file where available) — filing limits additional failure-to-file penalties.</li>
