@@ -1,5 +1,6 @@
 # users/tests/serializer_tests/test_register_serializer.py
 import pytest
+from rest_framework import serializers
 from users.serializers.register_serializer import RegisterSerializer
 from users.tests.factories.user_factory import UserFactory
 from django.contrib.auth import get_user_model

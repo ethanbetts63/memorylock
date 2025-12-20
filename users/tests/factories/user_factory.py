@@ -15,7 +15,16 @@ class UserFactory(DjangoModelFactory):
     last_name = factory.Faker('last_name')
     username = factory.Faker('user_name')
     email = factory.Faker('email')
-    password = factory.PostGeneration(lambda obj, create, extracted, **kwargs: obj.set_password('password'))
+    
+    @factory.post_generation
+    def password(self, create, extracted, **kwargs):
+        """
+        Handles password setting. If a password is provided to the factory,
+        it's used. Otherwise, a default password 'password' is set.
+        """
+        password = extracted if extracted else 'password'
+        self.set_password(password)
+
     is_active = True
     country_code = factory.Faker('country_code')
     phone = factory.LazyFunction(lambda: fake.numerify(text='##########'))

@@ -36,7 +36,7 @@ export const Letter: React.FC = () => {
               It’s not complicated or bloated—it’s a safety net for your long-memory. Feel free to poke around, set up your first reminder, and see how it feels to finally <span className="font-bold italic underline">offload the “don’t forget”</span> part of your brain.
             </p>
             <div>
-              <p>Ethan Betts, <a href="mailto:ethanbetts63@gmail.com" className="font-bold italic hover:underline">ethanbetts63@gmail.com</a></p>
+              <p>Ethan Betts.</p>
               <p className="italic text-sm">Founder and Developer</p>
             </div>
           </div>

@@ -1,5 +1,6 @@
 # users/serializers/change_password_serializer.py
 from rest_framework import serializers
+from django.core.exceptions import ValidationError as DjangoValidationError
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import update_session_auth_hash
 
@@ -22,7 +23,7 @@ class ChangePasswordSerializer(serializers.Serializer):
 
     def validate(self, data):
         """
-        Check that the two new password entries match.
+        Check that the two new password entries match and validate password strength.
         """
         if data['new_password'] != data['new_password_confirm']:
             raise serializers.ValidationError({"new_password_confirm": "The two password fields didn't match."})
@@ -30,8 +31,10 @@ class ChangePasswordSerializer(serializers.Serializer):
         # Run the new password against Django's password validators
         try:
             validate_password(data['new_password'], self.context['request'].user)
-        except serializers.ValidationError as e:
-            raise serializers.ValidationError({'new_password': e.messages})
+        except DjangoValidationError as e:
+            # Catch the correct exception and raise a DRF ValidationError
+            # with the error message nested under the correct field.
+            raise serializers.ValidationError({'new_password': list(e.messages)})
 
         return data
 

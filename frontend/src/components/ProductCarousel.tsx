@@ -17,7 +17,7 @@ const hierarchyLevels = [
   {
     level: 4,
     title: 'Phone Calls',
-    description: 'You will recieve and automated phone call, which is obviously much harder to ignore or miss.',
+    description: "For when texts just don't ding loud enough, a phone call will be made to your primary number.",
   },
   {
     level: 5,
@@ -27,7 +27,7 @@ const hierarchyLevels = [
   {
     level: 6,
     title: 'Socials',
-    description: 'Finally, if all else fails, our admin will reach out to you manually via social media platforms.',
+    description: "If all else fails, admin will reach out to you manually via any social media platforms that you provided. That's can be a lot of work which is why this only works becuase we are so confident you will respond before this stage!",
   }
 ];
 
@@ -37,7 +37,7 @@ export const ProductCarousel = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold tracking-tight text-center text-primary-foreground mb-2">The <span className= "font-bold italic underline">FutureReminder</span> System</h2>
         <p className="text-lg text-primary-foreground text-center mb-8">
-          You can define how long before your event we begin to try and reach you. Then we will repeat email notifications, whilst also stepping through our hierachy of other contact options until you acknowledge.
+          You can define how long before your event we begin to try and reach you. Then we will repeat email notifications, whilst stepping through our hierachy of other contact options until you acknowledge. Every notification containts a quick stop link so can stop the spam in an instant.
         </p>
         <div className="flex overflow-x-auto space-x-6 pb-4">
           {hierarchyLevels.map((item) => (
