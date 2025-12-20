@@ -40,7 +40,7 @@ class EventSerializer(serializers.ModelSerializer):
         
         if successful_payment:
             return {
-                'amount': successful_payment.amount,
+                'amount': str(successful_payment.amount),
                 'date': successful_payment.created_at
             }
         return None
