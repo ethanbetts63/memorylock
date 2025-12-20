@@ -1,15 +1,15 @@
 import React from 'react';
-import logo from '../assets/logo.webp';
+import letterLasers from '../assets/lasers.webp';
 
 const TrustFeature: React.FC = () => {
   return (
     <div className="bg-primary p-6 rounded-lg shadow-md">
       <div className="flex flex-col lg:flex-row items-center">
         <div className="w-full lg:w-1/3 pb-2 flex justify-center">
-          <img src={logo} alt="FutureReminder logo" className="w-full h-auto rounded-md max-h-32 object-contain" />
+          <img src={letterLasers} alt="A letter protected by a glass case and laser beams" className="w-full h-auto rounded-md object-contain" />
         </div>
-        <div className="w-full lg:w-2/3 lg:pl-4">
-          <h2 className="text-2xl font-bold mb-2">Built on trust, not data.</h2>
+        <div className="w-full lg:w-2/3 lg:pl-4 text-center">
+          <h2 className="text-2xl font-bold mb-8">Built on trust, not data.</h2>
           <p className="mb-4">When you secure an event with FutureReminder, we take your trust seriously.</p>
           <ul className="list-disc list-inside">
             <li className="mb-2"><strong>True Deletion:</strong> We go beyond industry-standard hashing to ensure that when you delete your data, it stays gone.</li>

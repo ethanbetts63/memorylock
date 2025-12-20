@@ -58,6 +58,9 @@ const HomePage = () => {
           <section>
             <TrustFeature />
           </section>
+          <section className="lg:hidden">
+            <CtaCard />
+          </section>
           <section className="bg-white text-gray-900 rounded-lg">
             <div className="container mx-auto px-4">
               <Faq 
