@@ -84,7 +84,7 @@ export async function getLatestTermsAndConditions(): Promise<TermsAndConditions>
 // --- FAQ Endpoint ---
 
 export async function getFaqs(page: string): Promise<FaqItem[]> {
-    const response = await authedFetch(`/api/faqs/?page=${page}`, {
+    const response = await authedFetch(`/api/data/faqs/?page=${page}`, {
         method: 'GET',
     });
     return handleResponse(response);

@@ -18,7 +18,7 @@ const TaxSeason2026 = () => {
         subtitle={<><span className="font-bold italic underline">Article Summary:</span> Tax dates, tax filing deadlines, tax penalties and extension rules vary a lot between countries. Below is a clear, country-by-country guide for the USA, UK, Australia, New Zealand and Canada. Common individual tax situations such as missed or forgotten tax deadlines and tax interest are often complicated. The following article is a guide for how to navigate this tax season.</>}
         imageSrc={articleImage}
         imageAlt="A guide to tax season 2026"
-        faqPage="tax-season"
+        faqPage="tax-season-2026"
       >
         <div className="text-lg text-primary-foreground">
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">Quick Note — what this article covers (tax 2026, tax deadline, tax due date)</h2>

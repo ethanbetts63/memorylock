@@ -9,7 +9,7 @@ This session covered a wide range of tasks, from configuration simplification an
 
 ### 2. Production Bug Fix: FAQ Page 500 Error
 
-*   **Issue:** A 500 Internal Server Error was reported on the `/api/faqs/` endpoint, but only in the production environment on PythonAnywhere.
+*   **Issue:** A 500 Internal Server Error was reported on the `/api/data/faqs/` endpoint, but only in the production environment on PythonAnywhere.
 *   **Investigation:** By examining the `FaqListView` and the `FAQ` model, we determined the view was performing a `pages__contains` query on a `JSONField`.
 *   **Diagnosis:** The root cause was diagnosed as a very likely incompatibility between this type of query and the version of the MySQL database running on PythonAnywhere, which may not support the necessary JSON functions. An alternative, less likely cause was identified as missing database migrations.
 
