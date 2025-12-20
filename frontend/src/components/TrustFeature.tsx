@@ -17,7 +17,7 @@ const TrustFeature: React.FC = () => {
         <div className="p-4 md:p-6 lg:p-8">
           <h2 className="text-4xl lg:text-4xl font-bold mb-8 text-center">Built on reputation, not <span className="italic">data.</span></h2>
           <ul className="list-disc list-inside text-lg">
-            <li className="mb-4"><strong>True Deletion:</strong> We go beyond industry-standard hashing to ensure that when you delete your data, it stays gone.</li>
+            <li className="mb-4"><strong>True Deletion:</strong> Industry standard account deletion means just disabling your account not deleting it. We cryptographically erase your data.</li>
             <li className="mb-4"><strong>No Ads, No Selling:</strong> Your contact info is used for one thing: finding you when it matters. We do not sell data.</li>
             <li className="mb-4"><strong>One-Click Stop:</strong> A link is present in all notifications to stop reminder sequences instantly. Events timelines and contact methods are manageable editable even after creation.</li>
           </ul>
