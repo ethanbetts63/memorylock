@@ -77,7 +77,7 @@ export const CtaCard: React.FC = () => {
               {currentTier.price}
               {selectedTier === 'fullEscalation' && (
                 <span className="text-base font-normal text-grey-600 ml-2">
-                  (one-time payment)
+                  (per event)
                 </span>
               )}
             </p>
