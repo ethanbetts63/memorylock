@@ -23,9 +23,6 @@ const TierChoicePage: React.FC = () => {
             .then(data => {
                 setTiers(data);
                 setIsLoading(false);
-                toast.info("Tiers loaded from API:", { 
-                    description: JSON.stringify(data.map(t => t.name)) 
-                });
             })
             .catch(error => {
                 toast.error("Failed to load pricing tiers.", { description: error.message });

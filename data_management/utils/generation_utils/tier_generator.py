@@ -46,7 +46,7 @@ class TierUpdateOrchestrator:
             defaults={
                 'amount': data['price'],
                 'stripe_price_id': data['stripe_price_id'],
-                'currency': 'usd',
+                'currency': data['currency'],
             }
         )
         
