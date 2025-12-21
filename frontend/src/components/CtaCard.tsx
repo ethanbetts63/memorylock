@@ -14,26 +14,34 @@ const tierData = {
     name: 'Automated',
     price: '$0.00',
     features: [
-      "Automated emails to primary email",
-      "Automated texts to primary number",
-      "Backup email & SMS notifications",
+      "Primary emails",
+      "Secondary emails",
+      "Text via primary mobile",
+    ],
+  },
+  advanced: {
+    name: 'Advanced',
+    price: '$4.99',
+    features: [
+      "Everything in Automated",
+      "Secondary phone number",
+      "Emergency contact",
+      "Phone calls",
     ],
   },
   fullEscalation: {
     name: 'Full Escalation',
-    price: '$9.99',
+    price: '$8.99',
     features: [
-      "Includes everything in Automated",
-      "Direct phone calls",
-      "Emergency contact outreach",
-      "Social media outreach"
+      "Everything in Advanced",
+      "Manual admin outreach via social media"
     ],
   }
 };
 
 
 export const CtaCard: React.FC = () => {
-  const [selectedTier, setSelectedTier] = useState<'automated' | 'fullEscalation'>('fullEscalation');
+  const [selectedTier, setSelectedTier] = useState<'automated' | 'advanced' | 'fullEscalation'>('fullEscalation');
 
   const currentTier = tierData[selectedTier];
 
@@ -59,13 +67,19 @@ export const CtaCard: React.FC = () => {
         <div className="flex justify-center bg-muted p-1 rounded-md">
           <button 
             onClick={() => setSelectedTier('automated')}
-            className={`w-1/2 px-4 py-2 text-m font-bold rounded ${selectedTier === 'automated' ? 'bg-primary text-primary-foreground' : 'text-white'}`}
+            className={`w-1/3 px-4 py-2 text-sm font-bold rounded ${selectedTier === 'automated' ? 'bg-primary text-primary-foreground' : 'text-white'}`}
           >
             Automated
           </button>
+          <button
+            onClick={() => setSelectedTier('advanced')}
+            className={`w-1/3 px-4 py-2 text-sm font-bold rounded ${selectedTier === 'advanced' ? 'bg-primary text-primary-foreground' : 'text-white'}`}
+          >
+            Advanced
+          </button>
           <button 
             onClick={() => setSelectedTier('fullEscalation')}
-            className={`w-1/2 px-4 py-2 text-m font-bold rounded ${selectedTier === 'fullEscalation' ? 'bg-primary text-primary-foreground' : 'text-white'}`}
+            className={`w-1/3 px-4 py-2 text-sm font-bold rounded ${selectedTier === 'fullEscalation' ? 'bg-primary text-primary-foreground' : 'text-white'}`}
           >
             Full Escalation
           </button>
@@ -75,7 +89,7 @@ export const CtaCard: React.FC = () => {
         <div className="flex flex-col gap-4">
             <p className="text-center text-3xl font-bold mt-2">
               {currentTier.price}
-              {selectedTier === 'fullEscalation' && (
+              {(selectedTier === 'advanced' || selectedTier === 'fullEscalation') && (
                 <span className="text-base font-normal text-grey-600 ml-2">
                   (per event)
                 </span>
