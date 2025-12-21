@@ -132,6 +132,7 @@ class TestEventViewSet:
         paid_tier = TierFactory(name="Paid Tier")
         PriceFactory(tier=paid_tier, amount=10)
         self.event.tier = paid_tier
+        self.event.is_active = False # Explicitly set to inactive for the test
         self.event.save()
         
         response = self.client.post(f'/api/events/{self.event.id}/activate/')

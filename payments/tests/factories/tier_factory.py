@@ -7,7 +7,7 @@ class TierFactory(DjangoModelFactory):
     class Meta:
         model = Tier
 
-    name = Faker('word')
+    name = factory.Sequence(lambda n: f'Tier {n}')
     description = Faker('paragraph')
     stripe_product_id = Faker('uuid4')
     is_active = Faker('boolean')
