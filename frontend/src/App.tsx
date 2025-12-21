@@ -52,6 +52,7 @@ const CaringForAppleTreesSeasonalGuide = lazy(() => import('./pages/articles/Car
 const CaringForPeoniesSeasonalGuide = lazy(() => import('./pages/articles/CaringForPeoniesSeasonalGuide'));
 const CaringForBlueberryBushesSeasonalGuide = lazy(() => import('./pages/articles/CaringForBlueberryBushesSeasonalGuide'));
 const TaxSeason2026 = lazy(() => import('./pages/articles/TaxSeason2026'));
+const BestDailyReminderApps = lazy(() => import('./pages/articles/BestDailyReminderApps'));
 const BlogExplorePage = lazy(() => import('./pages/BlogExplorePage'));
 
 
@@ -97,6 +98,7 @@ function App() {
                 <Route path="/articles/caring-for-peonies-seasonal-guide" element={<CaringForPeoniesSeasonalGuide />} />
                 <Route path="/articles/caring-for-blueberry-bushes-seasonal-guide" element={<CaringForBlueberryBushesSeasonalGuide />} />
                 <Route path="/articles/tax-season-2026" element={<TaxSeason2026 />} />
+                <Route path="/articles/best-daily-reminder-apps" element={<BestDailyReminderApps />} />
                 <Route path="/articles" element={<BlogExplorePage />} />
 
                 {/* Event Creation Flow */}

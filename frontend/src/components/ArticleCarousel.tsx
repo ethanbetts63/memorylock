@@ -20,6 +20,12 @@ import taxImage from '../assets/taxes.webp';
 
 const articles = [
   {
+    title: 'Best Daily Reminder Apps in 2025',
+    imageSrc: postnotesImage,
+    link: '/articles/best-daily-reminder-apps',
+    alt: 'A collection of sticky notes representing daily reminders'
+  },
+  {
     title: 'The Best Reminder Apps of 2025, Ranked',
     imageSrc: postnotesImage,
     link: '/articles/reminder-apps-ranked',
