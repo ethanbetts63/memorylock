@@ -20,42 +20,6 @@ import taxImage from '../assets/taxes.webp';
 
 const articles = [
   {
-    title: 'Best Daily Reminder Apps in 2025',
-    imageSrc: postnotesImage,
-    link: '/articles/best-daily-reminder-apps',
-    alt: 'A collection of sticky notes representing daily reminders'
-  },
-  {
-    title: 'Best Free Reminder Apps in 2025 — No Fees, No Friction',
-    imageSrc: postnotesImage,
-    link: '/articles/best-free-reminder-apps',
-    alt: 'A collection of sticky notes representing daily reminders'
-  },
-  {
-    title: 'Best Email Reminder Apps in 2025 — Ranked',
-    imageSrc: postnotesImage,
-    link: '/articles/best-email-reminder-apps',
-    alt: 'A collection of sticky notes representing email reminders'
-  },
-  {
-    title: 'Best Text-Message Reminder Apps in 2025 — Ranked',
-    imageSrc: postnotesImage,
-    link: '/articles/best-text-message-reminder-apps',
-    alt: 'A collection of sticky notes representing text message reminders'
-  },
-  {
-    title: 'Best Medication Reminder Apps in 2025 — Ranked',
-    imageSrc: postnotesImage,
-    link: '/articles/best-medication-reminder-apps',
-    alt: 'A collection of sticky notes representing medication reminders'
-  },
-  {
-    title: 'Best Bill & Subscription Reminder Apps in 2025 — Ranked',
-    imageSrc: postnotesImage,
-    link: '/articles/best-bill-and-subscription-reminder-apps',
-    alt: 'A collection of sticky notes representing bill and subscription reminders'
-  },
-  {
     title: 'The Best Reminder Apps of 2025, Ranked',
     imageSrc: postnotesImage,
     link: '/articles/reminder-apps-ranked',
@@ -102,6 +66,42 @@ const articles = [
     imageSrc: taxImage,
     link: '/articles/tax-season-2026',
     alt: 'A guide to tax season 2026'
+  },
+    {
+    title: 'Best Daily Reminder Apps in 2025',
+    imageSrc: postnotesImage,
+    link: '/articles/best-daily-reminder-apps',
+    alt: 'A collection of sticky notes representing daily reminders'
+  },
+  {
+    title: 'Best Free Reminder Apps in 2025 — No Fees, No Friction',
+    imageSrc: postnotesImage,
+    link: '/articles/best-free-reminder-apps',
+    alt: 'A collection of sticky notes representing daily reminders'
+  },
+  {
+    title: 'Best Email Reminder Apps in 2025 — Ranked',
+    imageSrc: postnotesImage,
+    link: '/articles/best-email-reminder-apps',
+    alt: 'A collection of sticky notes representing email reminders'
+  },
+  {
+    title: 'Best Text-Message Reminder Apps in 2025 — Ranked',
+    imageSrc: postnotesImage,
+    link: '/articles/best-text-message-reminder-apps',
+    alt: 'A collection of sticky notes representing text message reminders'
+  },
+  {
+    title: 'Best Medication Reminder Apps in 2025 — Ranked',
+    imageSrc: postnotesImage,
+    link: '/articles/best-medication-reminder-apps',
+    alt: 'A collection of sticky notes representing medication reminders'
+  },
+  {
+    title: 'Best Bill & Subscription Reminder Apps in 2025 — Ranked',
+    imageSrc: postnotesImage,
+    link: '/articles/best-bill-and-subscription-reminder-apps',
+    alt: 'A collection of sticky notes representing bill and subscription reminders'
   },
   {
     title: 'Caring for Roses: A Seasonal Guide',
