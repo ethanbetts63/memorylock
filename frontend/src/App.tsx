@@ -56,6 +56,8 @@ const BestDailyReminderApps = lazy(() => import('./pages/articles/BestDailyRemin
 const BestFreeReminderApps = lazy(() => import('./pages/articles/BestFreeReminderApps'));
 const BestEmailReminderApps = lazy(() => import('./pages/articles/BestEmailReminderApps'));
 const BestTextMessageReminderApps = lazy(() => import('./pages/articles/BestTextMessageReminderApps'));
+const BestMedicationReminderApps = lazy(() => import('./pages/articles/BestMedicationReminderApps'));
+const BestBillAndSubscriptionReminderApps = lazy(() => import('./pages/articles/BestBillAndSubscriptionReminderApps'));
 const BlogExplorePage = lazy(() => import('./pages/BlogExplorePage'));
 
 
@@ -105,6 +107,8 @@ function App() {
                 <Route path="/articles/best-free-reminder-apps" element={<BestFreeReminderApps />} />
                 <Route path="/articles/best-email-reminder-apps" element={<BestEmailReminderApps />} />
                 <Route path="/articles/best-text-message-reminder-apps" element={<BestTextMessageReminderApps />} />
+                <Route path="/articles/best-medication-reminder-apps" element={<BestMedicationReminderApps />} />
+                <Route path="/articles/best-bill-and-subscription-reminder-apps" element={<BestBillAndSubscriptionReminderApps />} />
                 <Route path="/articles" element={<BlogExplorePage />} />
 
                 {/* Event Creation Flow */}

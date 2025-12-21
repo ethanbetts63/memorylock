@@ -44,6 +44,18 @@ const articles = [
     alt: 'A collection of sticky notes representing text message reminders'
   },
   {
+    title: 'Best Medication Reminder Apps in 2025 — Ranked',
+    imageSrc: postnotesImage,
+    link: '/articles/best-medication-reminder-apps',
+    alt: 'A collection of sticky notes representing medication reminders'
+  },
+  {
+    title: 'Best Bill & Subscription Reminder Apps in 2025 — Ranked',
+    imageSrc: postnotesImage,
+    link: '/articles/best-bill-and-subscription-reminder-apps',
+    alt: 'A collection of sticky notes representing bill and subscription reminders'
+  },
+  {
     title: 'The Best Reminder Apps of 2025, Ranked',
     imageSrc: postnotesImage,
     link: '/articles/reminder-apps-ranked',
