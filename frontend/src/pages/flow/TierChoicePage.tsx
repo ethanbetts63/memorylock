@@ -69,7 +69,7 @@ const TierChoicePage: React.FC = () => {
     }
 
     return (
-        <div className="container mx-auto max-w-6xl py-12">
+        <div className="container mx-auto max-w-6xl py-12 px-4">
             <Seo title="Activate Your Event | FutureReminder" />
             <div className="text-center mb-10">
                 <h1 className="text-4xl font-bold tracking-tight">Activate Your Reminder</h1>
@@ -80,7 +80,7 @@ const TierChoicePage: React.FC = () => {
                 </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            <div className="flex flex-col-reverse md:grid md:grid-cols-3 gap-8">
                 {/* Automated Tier Card */}
                 {automatedTier && (
                     <Card className="flex flex-col h-full">
@@ -91,9 +91,9 @@ const TierChoicePage: React.FC = () => {
                         <CardContent className="flex-grow">
                             <p className="text-4xl font-bold mb-6">${automatedTier.prices[0]?.amount ?? '0.00'}</p>
                             <ul className="space-y-3">
-                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-muted-foreground">Primary emails</span></li>
-                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-muted-foreground">Secondary emails</span></li>
-                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-muted-foreground">Text via primary mobile</span></li>
+                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-foreground">Primary emails</span></li>
+                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-foreground">Secondary emails</span></li>
+                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-foreground">Text via primary mobile</span></li>
                             </ul>
                         </CardContent>
                         <CardFooter>
@@ -120,10 +120,10 @@ const TierChoicePage: React.FC = () => {
                         <CardContent className="flex-grow">
                             <p className="text-4xl font-bold mb-6">${advancedTier.prices[0]?.amount ?? '4.99'}</p>
                             <ul className="space-y-3">
-                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-muted-foreground">Everything in Automated</span></li>
-                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-muted-foreground">Secondary phone number</span></li>
-                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-muted-foreground">Emergency contact</span></li>
-                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-muted-foreground">Phone calls</span></li>
+                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-foreground">Everything in Automated</span></li>
+                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-foreground">Secondary phone number</span></li>
+                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-foreground">Emergency contact</span></li>
+                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-foreground">Phone calls</span></li>
                             </ul>
                         </CardContent>
                         <CardFooter>
@@ -149,8 +149,8 @@ const TierChoicePage: React.FC = () => {
                         <CardContent className="flex-grow">
                             <p className="text-4xl font-bold mb-6">${fullEscalationTier.prices[0]?.amount ?? '8.99'}</p>
                             <ul className="space-y-3">
-                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-muted-foreground">Everything in Advanced</span></li>
-                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-muted-foreground">Manual admin outreach via social media</span></li>
+                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-foreground">Everything in Advanced</span></li>
+                                <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-green-500" /><span className="text-foreground">Manual admin outreach via social media</span></li>
                             </ul>
                         </CardContent>
                         <CardFooter>
