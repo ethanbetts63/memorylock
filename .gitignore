@@ -23,7 +23,7 @@ explanation.txt
 .DS_Store
 *.sqlite3
 media/
-
+django_cache/
 # React
 node_modules/
 build/
