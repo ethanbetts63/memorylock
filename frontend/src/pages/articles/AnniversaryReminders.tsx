@@ -2,6 +2,7 @@ import { ArticleLayout } from '../../components/ArticleLayout';
 import articleImage from '../../assets/bday_calander.webp';
 import { ArticleCarousel } from '../../components/ArticleCarousel';
 import Seo from '../../components/Seo';
+import { Link } from 'react-router-dom';
 
 const AnniversaryReminders = () => {
   return (
@@ -47,7 +48,7 @@ const AnniversaryReminders = () => {
           <p className="mb-6">This is where the philosophy of consequence-based reminding comes in. If the event is vital, the reminder system should treat it like <span className="font-bold italic underline">an emergency, not a suggestion</span>. A robust system for long-term anniversaries requires three layers:</p>
           <ul className="list-disc pl-8 mb-6 space-y-2">
             <li><strong>Redundancy:</strong> The reminder shouldn't live on one device. It needs to exist independently of your current phone or email provider.</li>
-            <li><strong>Escalation:</strong> If you don't acknowledge the first email, the system shouldn't give up. It should try a different channel, like SMS.</li>
+            <li><strong>Escalation:</strong> If you don't acknowledge the first <Link to="/articles/best-email-reminder-apps" className="font-bold text-white underline hover:text-primary">email</Link>, the system shouldn't give up. It should try a different channel, like <Link to="/articles/best-text-message-reminder-apps" className="font-bold text-white underline hover:text-primary">SMS</Link>.</li>
             <li><strong>Emergency Intervention:</strong> Optionally, if digital nudges fail, the system can have a fail-safe emergency contact (like a spouse or best friend) to ensure the message is received.</li>
           </ul>
 
@@ -55,8 +56,8 @@ const AnniversaryReminders = () => {
           <p className="mb-6">There are quite literally hundreds of reminder apps and they are all designed for next Tuesday. FutureReminder is the only one that focuses on the niche of important events in the distant future.</p>
           <p className="mb-6">Unlike a calendar that pings you once and goes silent, FutureReminder operates on an aggressive escalation hierarchy:</p>
           <ul className="list-disc pl-8 mb-6 space-y-2">
-            <li><strong>Tier 1:</strong> Standard alerts (Email/Push) begin well in advance of the anniversary.</li>
-            <li><strong>Tier 2:</strong> If you don't confirm receipt, the system escalates to SMS.</li>
+            <li><strong>Tier 1:</strong> Standard alerts (<Link to="/articles/best-email-reminder-apps" className="font-bold text-white underline hover:text-primary">Email</Link>/Push) begin well in advance of the anniversary.</li>
+            <li><strong>Tier 2:</strong> If you don't confirm receipt, the system escalates to <Link to="/articles/best-text-message-reminder-apps" className="font-bold text-white underline hover:text-primary">SMS</Link>.</li>
             <li><strong>Tier 3:</strong> If still no response the system automatically tries any backup contacts you may have provided.</li>
             <li><strong>Tier 4:</strong> The "Emergency Protocol" If you are still unresponsive as the date nears, FutureReminder reaches out to your designated emergency contacts.</li>
             <li><strong>Tier 5:</strong> At this point the system moves to manual intervention. Admin will attempt to reach out on any social media platform handles you gave us.</li>

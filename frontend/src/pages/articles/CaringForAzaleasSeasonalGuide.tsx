@@ -2,6 +2,7 @@ import { ArticleLayout } from '../../components/ArticleLayout';
 import articleImage from '../../assets/azalea.webp';
 import { ArticleCarousel } from '../../components/ArticleCarousel';
 import Seo from '../../components/Seo';
+import { Link } from 'react-router-dom';
 
 const CaringForAzaleasSeasonalGuide = () => {
   return (
@@ -43,7 +44,7 @@ const CaringForAzaleasSeasonalGuide = () => {
           <p className="mb-6">Winter pruning is discouraged for shaping — buds are dormant but already present. Removing stems now means fewer blooms next season. If needed, winter pruning should be strictly limited to removing dead wood.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Caring for azaleas? The most common mistake</h2>
-          <p className="mb-6">One of the most common mistakes with azalea care is timing — people plan to prune, feed or protect their azaleas, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our free tier is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? We use a notification hierarchy. We’ll start with emails, then we’ll send you texts. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your azaleas’s. If you're interested checkout our homepage <a href="/" className="font-bold text-white italic hover:underline">here</a>.</p>
+          <p className="mb-6">One of the most common mistakes with azalea care is timing — people plan to prune, feed or protect their azaleas, then life gets in the way and the window closes. You probably saw this coming. FutureReminder exists to solve that problem: our <Link to="/articles/best-free-reminder-apps" className="font-bold text-white underline hover:text-primary">free tier</Link> is perfect for these sorts of gardening reminder needs. Why not just use your calender app? You definitely could. But a single notification is easy to miss. And what if you change phones? We use a notification hierarchy. We’ll start with <Link to="/articles/best-email-reminder-apps" className="font-bold text-white underline hover:text-primary">emails</Link>, then we’ll send you <Link to="/articles/best-text-message-reminder-apps" className="font-bold text-white underline hover:text-primary">texts</Link>. And we’ll keep trying to reach out until you acknowledge us. So that’s the pitch, nothing too complicated. We’d love for you to give it a try. And so would your azaleas’s. If you're interested checkout our homepage <Link to="/" className="font-bold text-white underline hover:text-primary">here</Link>.</p>
         </div>
       </ArticleLayout>
       <section className="mt-16">

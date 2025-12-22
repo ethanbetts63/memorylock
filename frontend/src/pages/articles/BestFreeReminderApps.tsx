@@ -85,7 +85,7 @@ const BestFreeReminderApps = () => {
 
             {/* 1. TickTick */}
             <div>
-              <h3 className="text-2xl font-bold tracking-tight mb-4 border-b pb-2">1. TickTick — Best free+optionally-powerful balance (our top free pick)</h3>
+              <h3 className="text-2xl font-bold tracking-tight mb-4 border-b pb-2">1. TickTick — Best free + optionally-powerful balance (our top free pick)</h3>
               <div className="grid grid-cols-2 gap-x-8 gap-y-4 mb-4">
                 <p><strong>Cross-platform sync:</strong> 5/5</p>
                 <p><strong>Hard-to-ignore:</strong> 4/5</p>
