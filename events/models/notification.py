@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from events.models import Event
+from .event import Event
 
 class Notification(models.Model):
     """

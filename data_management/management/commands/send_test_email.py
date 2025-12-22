@@ -6,8 +6,8 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from users.models import User
 from events.models import Event
-from notifications.models import Notification
-from notifications.utils.send_reminder_email import send_reminder_email
+from events.models import Notification
+from events.utils.send_reminder_email import send_reminder_email
 
 class Command(BaseCommand):
     help = 'Sends a test email using the configured email backend. Can send a simple text email or a multipart email based on a Django template.'

@@ -1,4 +1,4 @@
-# Import the functions from their new, separate files
+from ..models import Event
 from .clear_pending_notifications import clear_pending_notifications
 from ._create_notification import _create_notification
 
@@ -9,8 +9,6 @@ def schedule_notifications_for_event(event: 'Event'):
 
     This function should be called whenever an event is created or updated.
     """
-    # This local import prevents a potential circular dependency.
-    from events.models import Event
     
     # 1. Clear any existing pending notifications for this event
     clear_pending_notifications(event)

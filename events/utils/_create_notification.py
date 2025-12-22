@@ -1,4 +1,4 @@
-from notifications.models import Notification
+from ..models import Notification
 
 def _create_notification(event, channel, send_time, contact_info):
     """

@@ -3,7 +3,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 from data_management.models import BlockedEmail
 from data_management.views.add_to_blocklist_view import signer # Import the signer
-from notifications.models import Notification
+from ..models import Notification
 
 def send_reminder_email(notification: Notification, recipient_address: str) -> bool:
     """
@@ -30,7 +30,7 @@ def send_reminder_email(notification: Notification, recipient_address: str) -> b
 
     try:
         # 1. Construct the unique acknowledgement URL
-        acknowledgement_url = f"{settings.SITE_URL}/notifications/acknowledge/{notification.pk}/"
+        acknowledgement_url = f"{settings.SITE_URL}/events/acknowledge/{notification.pk}/"
 
         # 2. Construct the unique blocklist URL
         signed_email = signer.sign(recipient_address)

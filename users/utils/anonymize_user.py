@@ -2,7 +2,7 @@ from django.conf import settings
 from django.utils import timezone
 from users.models import User
 from users.utils.hash_value import hash_value
-from notifications.models import Notification
+from events.models import Notification
 
 
 def anonymize_user(user: User):

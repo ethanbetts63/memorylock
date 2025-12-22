@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "users",
     "events",
-    "notifications",
     "payments",
     "data_management",
 ]

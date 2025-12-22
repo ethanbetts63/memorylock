@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from notifications.models import Notification
+from ..models import Notification
 
 class AdminTaskSerializer(serializers.ModelSerializer):
     """

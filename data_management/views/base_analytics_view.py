@@ -7,7 +7,7 @@ from collections import defaultdict
 from django.db.models.functions import TruncDate
 from django.db.models import Count
 
-from notifications.models import Notification
+from events.models import Notification
 
 class BaseAnalyticsView(APIView):
     """

@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.utils import timezone
-from notifications.models import Notification
-from notifications.utils.send_reminder_email import send_reminder_email
+from events.models import Notification
+from events.utils.send_reminder_email import send_reminder_email
 import logging
 
 # It's better to get the logger for the specific app
