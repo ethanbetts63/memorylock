@@ -2,7 +2,6 @@ from django.db import models
 from django.conf import settings
 from datetime import timedelta
 from django.core.exceptions import ValidationError
-from ..utils.schedule_notifications_for_event import schedule_notifications_for_event
 
 class Event(models.Model):
     """
@@ -60,6 +59,9 @@ class Event(models.Model):
         return f"'{self.name}' on {self.event_date} for {self.user.username}"
 
     def save(self, *args, **kwargs):
+        # Local import to prevent circular dependency
+        from ..utils.schedule_notifications_for_event import schedule_notifications_for_event
+
         # Auto-calculate the notification start date before saving
         if self.event_date and self.weeks_in_advance:
             self.notification_start_date = self.event_date - timedelta(weeks=self.weeks_in_advance)
