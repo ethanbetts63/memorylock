@@ -20,6 +20,8 @@ def test_user_profile_serializer():
         'country_code': user.country_code,
         'phone': user.phone,
         'backup_email': user.backup_email,
+        'secondary_backup_email': user.secondary_backup_email,
+        'backup_phone': user.backup_phone,
         'facebook_handle': user.facebook_handle,
         'instagram_handle': user.instagram_handle,
         'snapchat_handle': user.snapchat_handle,

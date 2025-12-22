@@ -11,7 +11,7 @@ class NotificationFactory(DjangoModelFactory):
 
     event = SubFactory(EventFactory)
     user = SubFactory(UserFactory)
-    scheduled_send_time = Faker('future_datetime', tzinfo=factory.Faker('pytz'))
+    scheduled_send_time = Faker('future_datetime', tzinfo=factory.Faker('timezone'))
     channel = factory.Iterator([choice[0] for choice in Notification.CHANNEL_CHOICES])
     status = factory.Iterator([choice[0] for choice in Notification.STATUS_CHOICES])
     recipient_contact_info = Faker('email')
