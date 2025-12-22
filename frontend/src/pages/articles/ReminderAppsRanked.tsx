@@ -10,7 +10,7 @@ const ReminderAppsRanked = () => {
     title: "The Best Reminder Apps in 2025 — Ranked by a Niche Reminder App",
     description: "We live and breathe the reminder app ecosystem. We read every forum discussion to give you the community consensus for all the major apps, with a little of our own opinion sprinkled on top.",
     url: "https://www.futurereminder.app/articles/reminder-apps-ranked",
-    imageUrl: "https://www.futurereminder.app/og-images/og-reminder-apps.webp",
+    imageUrl: "https://www.futurereminder.app/static/og-images/og-reminder-apps-ranked.webp",
     authorName: "The FutureReminder Team",
     publisherName: "FutureReminder",
     publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
@@ -25,7 +25,7 @@ const ReminderAppsRanked = () => {
         description={articleDetails.description}
         canonicalPath="/articles/reminder-apps-ranked"
         ogType="article"
-        ogImage="/og-images/og-reminder-apps.webp" 
+        ogImage="/static/og-images/og-reminder-apps-ranked.webp" 
       >
         <ArticleStructuredData
           title={articleDetails.title}
