@@ -2,6 +2,7 @@ import { ArticleLayout } from '../../components/ArticleLayout';
 import articleImage from '../../assets/visa.webp';
 import { ArticleCarousel } from '../../components/ArticleCarousel';
 import Seo from '../../components/Seo';
+import { Link } from 'react-router-dom';
 
 const VisaExpiry = () => {
   return (
@@ -26,7 +27,7 @@ const VisaExpiry = () => {
           <p className="mb-6">This article is for the people who overstayed by accident or who are terrified they might. We’ve done the research so here are the facts, region-specific consequences, and practical steps you can take right now.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Why accidental visa overstays happen.</h2>
-          <p className="mb-6">Long-term visas create a dangerous gap between the moment you get approved and the moment you must act again. Unlike a dentist appointment next week, a visa renewal can sit 12–36 months away — precisely the kind of thing human memory is bad at preserving. Add work, travel, a phone change, or an email that lands in spam, and the date disappears.</p>
+          <p className="mb-6">Long-term visas create a dangerous gap between the moment you get approved and the moment you must act again. Unlike a dentist appointment next week, a visa renewal can sit 12–36 months away — precisely the kind of thing human memory is bad at preserving. Add work, travel, a phone change, or an <Link to="/articles/best-email-reminder-apps" className="font-bold text-white underline hover:text-primary">email</Link> that lands in spam, and the date disappears.</p>
           <p className="mb-6">The emotional arc is predictable: a low-level, background stress of “I should remember this” for months, followed by <span className="font-bold italic underline">acute panic</span> when you realise you didn’t. That panic matters because the consequences — even for small mistakes — can be severe.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">What can happen if you overstay (short, region-by-region guide)</h2>

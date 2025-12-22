@@ -2,6 +2,7 @@ import { ArticleLayout } from '../../components/ArticleLayout';
 import articleImage from '../../assets/solar_letters.webp';
 import { ArticleCarousel } from '../../components/ArticleCarousel';
 import Seo from '../../components/Seo';
+import { Link } from 'react-router-dom';
 
 const LetterToFutureSelf = () => {
   return (
@@ -15,14 +16,14 @@ const LetterToFutureSelf = () => {
       />
       <ArticleLayout
         title="How can I write a letter or message to my future self?"
-        subtitle={<><span className="font-bold italic underline">Article Summary:</span> Reddit, forums and legal communities have numerous solutions that can be split into two groups. Group 1: calendar apps, future-email websites and basic reminder apps. They generally only send one reminder which is easy to miss, due to changing contacts and/or junk mail. Group 2: Notes, time capsules, lawyers and bank deposit boxes. The issue being that a human being is responsible for remembering. There is only one service engineered to solve these issues and that is FutureReminder.</>}
+        subtitle={<><span className="font-bold italic underline">Article Summary:</span> Reddit, forums and legal communities have numerous solutions that can be split into two groups. Group 1: <Link to="/articles/best-daily-reminder-apps" className="font-bold text-white underline hover:text-primary">calendar apps</Link>, <Link to="/articles/best-email-reminder-apps" className="font-bold text-white underline hover:text-primary">future-email websites</Link> and <Link to="/articles/best-free-reminder-apps" className="font-bold text-white underline hover:text-primary">basic reminder apps</Link>. They generally only send one reminder which is easy to miss, due to changing contacts and/or junk mail. Group 2: Notes, time capsules, lawyers and bank deposit boxes. The issue being that a human being is responsible for remembering. There is only one service engineered to solve these issues and that is FutureReminder.</>}
         imageSrc={articleImage}
         imageAlt="Conceptual image about sending messages to the future"
         faqPage="letter-to-future-self"
       >
         <div className="text-lg text-primary-foreground">
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-0">Can I Email Myself a Reminder for 2050?</h2>
-          <p className="mb-6">Google Calendar, Apple Reminders, Outlook, and the various “email yourself in 10 years” services feel like natural tools for long‑term reminders. They’re convenient and familiar, but they <span className="font-bold italic underline">fail in predictable ways</span>. Single notifications are easy to miss during a busy moment. People change phones, email addresses, and platforms over time, which breaks the chain. Messages often fall into spam filters, and services evolve in ways that make old reminders disappear. These systems are excellent for day‑to‑day tasks, but they aren’t built to reliably surface something decades later.</p>
+          <p className="mb-6">Google Calendar, Apple Reminders, Outlook, and the various “email yourself in 10 years” services feel like natural tools for long‑term reminders. They’re convenient and familiar, but they <span className="font-bold italic underline">fail in predictable ways</span>. Single notifications are easy to miss during a busy moment. People change phones, <Link to="/articles/best-email-reminder-apps" className="font-bold text-white underline hover:text-primary">email addresses</Link>, and platforms over time, which breaks the chain. Messages often fall into spam filters, and services evolve in ways that make old reminders disappear. These systems are excellent for day‑to‑day tasks, but they aren’t built to reliably surface something decades later.</p>
           
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Reliable Ways to Remember Something Years in the Future?</h2>
           <p className="mb-6">How do I set a reminder for myself for several years in the future? Physical or DIY systems seem simple, but they suffer from the same core flaw: they rely on a <span className="font-bold italic underline">human memory somewhere in the chain</span>. A handwritten note in a drawer, a letter placed in a safe, or a box sealed for your future self can be misplaced or forgotten. Time capsules are easily lost during moves or ownership changes. Even bank deposit boxes or stored documents depend on staff turnover, system changes, or your own ongoing access.</p>

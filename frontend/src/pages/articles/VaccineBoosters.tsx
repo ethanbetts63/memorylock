@@ -2,6 +2,7 @@ import { ArticleLayout } from '../../components/ArticleLayout';
 import articleImage from '../../assets/vaccine_image.webp';
 import { ArticleCarousel } from '../../components/ArticleCarousel';
 import Seo from '../../components/Seo';
+import { Link } from 'react-router-dom';
 
 const VaccineBoosters = () => {
   return (
@@ -36,8 +37,8 @@ const VaccineBoosters = () => {
           <p className="mb-6">These aren’t everyday vaccines for most people — but for travelers, aid workers, veterinarians, lab workers, and people living abroad, missing a booster can have real consequences.</p>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Which vaccine or flu-shot reminder app is best?</h2>
-          <p className="mb-6">Regular calendar and reminder apps are not designed to bridge the five-, eight-, or ten-year gaps required for booster shots. Over time, phone numbers change, email accounts are abandoned, and apps are deleted. Even the single emails and notifications that make it to users are often missed or lost in junk mail. Vaccine boosters can be incredibly important and deserve to be treated as such.</p>
-          <p className="mb-6"> FutureReminder is engineered specifically for these long-term, high-consequence events. Rather than relying on a single alert that can be easily missed, it utilizes a <span className="font-bold italic underline">notification escalation hierarchy</span> that persists until you acknowledge it. If your primary email or mobile number bounces, the FutureReminder system moves to backup contacts and social media handles. If all else fails, it even has the ability to utilize emergency contacts.  For critical, long-cycle health requirements—such as Tetanus boosters or occupational Rabies checks— FutureReminder acts as a vital additional layer of health security.</p>
+          <p className="mb-6"> Regular calendar and reminder apps are not designed to bridge the five-, eight-, or ten-year gaps required for booster shots. Over time, phone numbers change, email accounts are abandoned, and apps are deleted. Even the single emails and notifications that make it to users are often missed or lost in junk mail. Vaccine boosters can be incredibly important and deserve to be treated as such.</p>
+          <p className="mb-6"> FutureReminder is engineered specifically for these long-term, high-consequence events. Rather than relying on a single alert that can be easily missed, it utilizes a <span className="font-bold italic underline">notification escalation hierarchy</span> that persists until you acknowledge it. If your primary <Link to="/articles/best-email-reminder-apps" className="font-bold text-white underline hover:text-primary">email</Link> or <Link to="/articles/best-text-message-reminder-apps" className="font-bold text-white underline hover:text-primary">mobile number</Link> bounces, the FutureReminder system moves to backup contacts and social media handles. If all else fails, it even has the ability to utilize emergency contacts.  For critical, long-cycle health requirements—such as Tetanus boosters or occupational Rabies checks— FutureReminder acts as a vital additional layer of health security.</p>
         </div>
       </ArticleLayout>
       <section className="mt-16">

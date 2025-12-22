@@ -2,6 +2,7 @@ import { ArticleLayout } from '../../components/ArticleLayout';
 import articleImage from '../../assets/subscription.webp';
 import { ArticleCarousel } from '../../components/ArticleCarousel';
 import Seo from '../../components/Seo';
+import { Link } from 'react-router-dom';
 
 const SubscriptionRenewal = () => {
   return (
@@ -68,7 +69,7 @@ const SubscriptionRenewal = () => {
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">Longer-term prevention (don’t trust willpower alone)</h2>
           <p className="mb-6">If you want to stop this from happening again, treat subscriptions like financial commitments, not minor to-dos.</p>
           <ul className="list-disc list-inside mb-6 space-y-2">
-            <li><span className="font-bold">Track renewals.</span>  One small spreadsheet or a subscription-tracking app with renewal dates that you review quarterly.</li>
+            <li><span className="font-bold">Track renewals.</span>  One small spreadsheet or a <Link to="/articles/best-bill-and-subscription-reminder-apps" className="font-bold text-white underline hover:text-primary">subscription-tracking app</Link> with renewal dates that you review quarterly.</li>
             <li><span className="font-bold">Use multiple reminders.</span>  Set reminders at sign-up, 6 months, 1 month, and 1 week before renewal. Make each reminder require an action (review/cancel).</li>
             <li><span className="font-bold">Use payment hygiene.</span>  Virtual or single-use cards for trials limit vendor access when the card expires. Consider a dedicated card for subscriptions.</li>
             <li><span className="font-bold">Cancel immediately for trials.</span>  If you only want the trial, cancel on day one — you usually retain access and remove the risk.</li>
@@ -76,7 +77,7 @@ const SubscriptionRenewal = () => {
           </ul>
 
           <h2 className="text-3xl font-bold tracking-tight mb-4 mt-8">What’s the Best App for Subscription Renewal reminders?</h2>
-          <p className="mb-6">If a forgotten renewal could cost you real money or cause bigger problems, treat it differently. That’s the idea behind FutureReminder: not a replacement for every calendar alert, but a last-line safety net. When the reminder window opens, FutureReminder escalates from email and push to SMS, calls, and — if needed — outreach to emergency contacts until you acknowledge the event and finally even social media outreach.</p>
+          <p className="mb-6">If a forgotten renewal could cost you real money or cause bigger problems, treat it differently. That’s the idea behind FutureReminder: not a replacement for every calendar alert, but a last-line safety net. When the reminder window opens, FutureReminder escalates from <Link to="/articles/best-email-reminder-apps" className="font-bold text-white underline hover:text-primary">email</Link> and push to <Link to="/articles/best-text-message-reminder-apps" className="font-bold text-white underline hover:text-primary">SMS</Link>, calls, and — if needed — outreach to emergency contacts until you acknowledge the event and finally even social media outreach.</p>
           <p className="mb-0"><span className="font-bold italic underline">It’s not about fear — it’s about matching the tool to the consequence.</span> For trivial subscriptions, keep it simple. For the few things where forgetting would hurt, use a system designed to persist. Our service is a cheap, quick to set up and transparent. We hope it can save you some money.</p>
         </div>
       </ArticleLayout>
