@@ -8,9 +8,10 @@ interface SeoProps {
   ogType?: 'website' | 'article';
   ogImage?: string;
   noindex?: boolean;
+  children?: React.ReactNode;
 }
 
-const Seo: React.FC<SeoProps> = ({ title, description, canonicalPath, ogType = 'website', ogImage, noindex }) => {
+const Seo: React.FC<SeoProps> = ({ title, description, canonicalPath, ogType = 'website', ogImage, noindex, children }) => {
   const siteUrl = 'https://www.futurereminder.app'; // This should ideally come from an environment variable
   const canonicalUrl = canonicalPath ? `${siteUrl}${canonicalPath}` : undefined;
   const imageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/static/square-image.jpg`; // Fallback image
@@ -35,6 +36,9 @@ const Seo: React.FC<SeoProps> = ({ title, description, canonicalPath, ogType = '
       <meta name="twitter:title" content={title} />
       {description && <meta name="twitter:description" content={description} />}
       <meta name="twitter:image" content={imageUrl} />
+
+      {/* Render children for additional tags like JSON-LD */}
+      {children}
     </Helmet>
   );
 };

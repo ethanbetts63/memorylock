@@ -3,17 +3,42 @@ import articleImage from '../../assets/postnotes.webp';
 import { ArticleCarousel } from '../../components/ArticleCarousel';
 import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
+import { ArticleStructuredData } from '../../components/ArticleStructuredData';
 
 const ReminderAppsRanked = () => {
+  const articleDetails = {
+    title: "The Best Reminder Apps in 2025 — Ranked by a Niche Reminder App",
+    description: "We live and breathe the reminder app ecosystem. We read every forum discussion to give you the community consensus for all the major apps, with a little of our own opinion sprinkled on top.",
+    url: "https://www.futurereminder.app/articles/reminder-apps-ranked",
+    imageUrl: "https://www.futurereminder.app/og-images/og-reminder-apps.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
   return (
     <>
       <Seo
-        title="The Best Reminder Apps in 2025 — Ranked by a Niche Reminder App"
-        description="We live and breathe the reminder app ecosystem. We read every forum discussion to give you the community consensus for all the major apps, with a little of our own opinion sprinkled on top."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/reminder-apps-ranked"
         ogType="article"
         ogImage="/og-images/og-reminder-apps.webp" 
-      />
+      >
+        <ArticleStructuredData
+          title={articleDetails.title}
+          url={articleDetails.url}
+          imageUrl={articleDetails.imageUrl}
+          authorName={articleDetails.authorName}
+          publisherName={articleDetails.publisherName}
+          publisherLogoUrl={articleDetails.publisherLogoUrl}
+          datePublished={articleDetails.datePublished}
+          dateModified={articleDetails.dateModified}
+          description={articleDetails.description}
+        />
+      </Seo>
       <ArticleLayout
         title="The Best Reminder Apps in 2025 — Ranked by a Reminder App That Only Wants 1% of You"
         subtitle={<>We’re not actually a reminder app. We’re reminder app adjacent. If you need to be reminded about something really important and/or well into the future go check out our home page. If not, keep reading. We live and breathe the reminder app ecosystem and we don’t want your business. Who else’s opinion would you rather. Some guy on reddit? </>}
