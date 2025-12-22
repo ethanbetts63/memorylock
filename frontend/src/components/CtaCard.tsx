@@ -41,7 +41,7 @@ const tierData = {
 
 
 export const CtaCard: React.FC = () => {
-  const [selectedTier, setSelectedTier] = useState<'automated' | 'advanced' | 'fullEscalation'>('fullEscalation');
+  const [selectedTier, setSelectedTier] = useState<'automated' | 'advanced' | 'fullEscalation'>('advanced');
 
   const currentTier = tierData[selectedTier];
 
