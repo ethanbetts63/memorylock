@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const CaringForCherryTreesSeasonalGuide = () => {
   const articleDetails = {
     title: "When & How to Care for Cherry Trees (Seasonal Guide)",
-    description: "Cherry tree care hinges on timing and restraint. Pruning too late or too aggressively reduces blooms, increases disease risk, and weakens future harvests.",
+    description: "Cherry tree care hinges on timing and restraint. Pruning too late or too aggressively reduces blooms, increases disease risk, and weakens future harvests. Learn when to prune, trim, and fertilize cherry trees throughout the year.",
     url: "https://www.futurereminder.app/articles/caring-for-cherry-trees-seasonal-guide",
     ogImage: "/static/og-images/og-caring-for-cherry-trees-seasonal-guide.webp",
     authorName: "The FutureReminder Team",

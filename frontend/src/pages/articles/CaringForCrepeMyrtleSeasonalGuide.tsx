@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const CaringForCrepeMyrtleSeasonalGuide = () => {
   const articleDetails = {
     title: "When & How to Care for Crepe Myrtle (Seasonal Guide)",
-    description: "Crepe myrtle care is simple once timing is understood. These shrubs and trees bloom on new growth, so pruning at the right moment encourages abundant flowers and strong structure.",
+    description: "Crepe myrtle care is simple once timing is understood. These shrubs and trees bloom on new growth, so pruning at the right moment encourages abundant flowers and strong structure. Learn when to prune, trim, and fertilize crepe myrtle throughout the year.",
     url: "https://www.futurereminder.app/articles/caring-for-crepe-myrtle-seasonal-guide",
     ogImage: "/static/og-images/og-caring-for-crepe-myrtle-seasonal-guide.webp",
     authorName: "The FutureReminder Team",

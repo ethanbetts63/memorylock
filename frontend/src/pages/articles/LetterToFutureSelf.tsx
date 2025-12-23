@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const LetterToFutureSelf = () => {
   const articleDetails = {
     title: "How to Write a Letter to Your Future Self | FutureReminder",
-    description: "Explore reliable ways to send a message to your future self. Learn why calendar apps and physical notes fail and discover a system built for long-term reliability.",
+    description: "Explore reliable ways to send a message to your future self. Learn why calendar apps and physical notes fail and discover other systems built for long-term reliability.",
     url: "https://www.futurereminder.app/articles/letter-to-future-self",
     ogImage: "/static/og-images/og-letter-to-future-self.webp",
     authorName: "The FutureReminder Team",

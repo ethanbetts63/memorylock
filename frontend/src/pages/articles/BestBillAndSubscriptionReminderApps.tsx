@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const BestBillAndSubscriptionReminderApps = () => {
+  const articleDetails = {
+    title: "Best Bill & Subscription Reminder Apps in 2025 — Ranked | FutureReminder",
+    description: "A review of the best apps for tracking bills, subscriptions, and other recurring payments to avoid missed payments and late fees based on forum, reddit and expert consensus.",
+    url: "https://www.futurereminder.app/articles/best-bill-and-subscription-reminder-apps",
+    ogImage: "/static/og-images/og-reminder-apps-ranked.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="Best Bill & Subscription Reminder Apps in 2025 — Ranked | FutureReminder"
-        description="A review of the best apps for tracking bills, subscriptions, and other recurring payments to avoid missed payments and late fees."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/best-bill-and-subscription-reminder-apps"
         ogType="article"
-        ogImage="/og-images/og-best-bill-reminders.webp" // Assuming an OG image will be created
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="Best Bill & Subscription Reminder Apps in 2025 — Ranked"

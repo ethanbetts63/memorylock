@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const ReminderAppsRanked = () => {
   const articleDetails = {
     title: "The Best Reminder Apps in 2025 — Ranked by a Niche Reminder App",
-    description: "We live and breathe the reminder app ecosystem. We read every forum discussion to give you the community consensus for all the major apps, with a little of our own opinion sprinkled on top.",
+    description: "This article reviews and ranks the best reminder apps of 2025, based on community consensus from forums and Reddit. Discover which apps excel in cross-platform sync, persistence, ease of use, cost, and features.",
     url: "https://www.futurereminder.app/articles/reminder-apps-ranked",
     ogImage: "/static/og-images/og-reminder-apps-ranked.webp",
     authorName: "The FutureReminder Team",

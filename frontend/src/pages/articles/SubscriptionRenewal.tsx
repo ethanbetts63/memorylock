@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const SubscriptionRenewal = () => {
   const articleDetails = {
     title: "The $5 → $300 renewal — why it hurts, why it happens, and what to do now",
-    description: "Unexpected subscription renewal charges are a common trap. This article explains why it happens, how to get your money back, and how to prevent it.",
+    description: "Unexpected subscription renewal charges are a common trap. This article explains why it happens, how to get your money back, and how to prevent it in the future.",
     url: "https://www.futurereminder.app/articles/subscription-renewal",
     ogImage: "/static/og-images/og-subscription-renewal.webp",
     authorName: "The FutureReminder Team",

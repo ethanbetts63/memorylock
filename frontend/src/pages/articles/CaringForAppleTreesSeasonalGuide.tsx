@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const CaringForAppleTreesSeasonalGuide = () => {
   const articleDetails = {
     title: "When & How to Care for Apple Trees (Seasonal Guide)",
-    description: "Apple tree care centers on well‑timed pruning and disease prevention. Pruning affects both airflow and future harvests, so timing is critical.",
+    description: "Apple tree care centers on well‑timed pruning and disease prevention. Pruning affects both airflow and future harvests, so timing is critical. Learn when to prune, trim, and fertilize apple trees throughout the year.",
     url: "https://www.futurereminder.app/articles/caring-for-apple-trees-seasonal-guide",
     ogImage: "/static/og-images/og-caring-for-apple-trees-seasonal-guide.webp",
     authorName: "The FutureReminder Team",

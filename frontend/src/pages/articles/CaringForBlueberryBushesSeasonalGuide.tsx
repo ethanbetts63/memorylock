@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const CaringForBlueberryBushesSeasonalGuide = () => {
   const articleDetails = {
     title: "When & How to Care for Blueberry Bushes (Seasonal Guide)",
-    description: "Blueberries need acidic soil, regular pruning to renew fruiting wood, and consistent moisture. Pruning at the wrong time or neglecting soil pH are the fastest ways to reduce yields.",
+    description: "Blueberries need acidic soil, regular pruning to renew fruiting wood, and consistent moisture. Pruning at the wrong time or neglecting soil pH are the fastest ways to reduce yields. Learn when to prune, trim, and fertilize blueberry bushes throughout the year.",
     url: "https://www.futurereminder.app/articles/caring-for-blueberry-bushes-seasonal-guide",
     ogImage: "/static/og-images/og-caring-for-blueberry-bushes-seasonal-guide.webp",
     authorName: "The FutureReminder Team",

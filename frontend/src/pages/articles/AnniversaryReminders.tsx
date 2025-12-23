@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const AnniversaryReminders = () => {
   const articleDetails = {
     title: "Best Anniversary & Birthday Reminder App | FutureReminder",
-    description: "Learn why calendar apps fail for important dates like anniversaries and birthdays, and discover a reliable, escalating reminder system that ensures you never forget.",
+    description: "A review of the best apps for important dates like anniversaries and birthdays based on forum, reddit and expert consensus.",
     url: "https://www.futurereminder.app/articles/anniversary-reminders",
     ogImage: "/static/og-images/og-anniversary-reminders.webp",
     authorName: "The FutureReminder Team",
