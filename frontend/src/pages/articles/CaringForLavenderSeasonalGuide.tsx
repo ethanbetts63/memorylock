@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const CaringForLavenderSeasonalGuide = () => {
+  const articleDetails = {
+    title: "When & How to Care for Lavender (Seasonal Guide)",
+    description: "Lavender care revolves around proper timing. Most problems come from pruning into the plant’s woody base or encouraging lush growth with too much water or fertilizer.",
+    url: "https://www.futurereminder.app/articles/caring-for-lavender-seasonal-guide",
+    ogImage: "/static/og-images/og-caring-for-lavender-seasonal-guide.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="When & How to Care for Lavender (Seasonal Guide)"
-        description="Lavender care revolves around proper timing. Most problems come from pruning into the plant’s woody base or encouraging lush growth with too much water or fertilizer."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/caring-for-lavender-seasonal-guide"
         ogType="article"
-        ogImage="/og-images/og-caring-for-lavender.webp" // <-- TODO: Add this OG image
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="When & How to Care for Lavender (A Seasonal Guide)"

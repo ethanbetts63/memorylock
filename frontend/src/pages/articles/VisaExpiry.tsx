@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const VisaExpiry = () => {
+  const articleDetails = {
+    title: "How to Remember a Visa Expiry and What to do if you’ve missed it",
+    description: "Visa expiries are incredibly easy to forget. They hit that 'important, but distant' niche that our brains just aren’t very good at tracking. This article covers why it happens and what to do.",
+    url: "https://www.futurereminder.app/articles/visa-expiry",
+    ogImage: "/static/og-images/og-visa-expiry.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="How to Remember a Visa Expiry and What to do if you’ve missed it"
-        description="Visa expiries are incredibly easy to forget. They hit that 'important, but distant' niche that our brains just aren’t very good at tracking. This article covers why it happens and what to do."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/visa-expiry"
         ogType="article"
-        ogImage="/og-images/og-homepage.webp"
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="How to Remember a Visa Expiry and What to do if you’ve missed it"

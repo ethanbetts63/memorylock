@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const SubscriptionRenewal = () => {
+  const articleDetails = {
+    title: "The $5 → $300 renewal — why it hurts, why it happens, and what to do now",
+    description: "Unexpected subscription renewal charges are a common trap. This article explains why it happens, how to get your money back, and how to prevent it.",
+    url: "https://www.futurereminder.app/articles/subscription-renewal",
+    ogImage: "/static/og-images/og-subscription-renewal.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="The $5 → $300 renewal — why it hurts, why it happens, and what to do now"
-        description="Unexpected subscription renewal charges are a common trap. This article explains why it happens, how to get your money back, and how to prevent it."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/subscription-renewal"
         ogType="article"
-        ogImage="/og-images/og-homepage.webp"
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="Predatory Subscription Renewals: Why They Happen and How to Fight Back"

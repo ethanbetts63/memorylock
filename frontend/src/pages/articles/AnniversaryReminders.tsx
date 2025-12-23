@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const AnniversaryReminders = () => {
+  const articleDetails = {
+    title: "Best Anniversary & Birthday Reminder App | FutureReminder",
+    description: "Learn why calendar apps fail for important dates like anniversaries and birthdays, and discover a reliable, escalating reminder system that ensures you never forget.",
+    url: "https://www.futurereminder.app/articles/anniversary-reminders",
+    ogImage: "/static/og-images/og-anniversary-reminders.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="Best Anniversary & Birthday Reminder App | FutureReminder"
-        description="Learn why calendar apps fail for important dates like anniversaries and birthdays, and discover a reliable, escalating reminder system that ensures you never forget."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/anniversary-reminders"
         ogType="article"
-        ogImage="/og-images/og-anniversary-reminders.webp"
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="Best Ways to Remember an Anniversary or Birthday?"

@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const LetterToFutureSelf = () => {
+  const articleDetails = {
+    title: "How to Write a Letter to Your Future Self | FutureReminder",
+    description: "Explore reliable ways to send a message to your future self. Learn why calendar apps and physical notes fail and discover a system built for long-term reliability.",
+    url: "https://www.futurereminder.app/articles/letter-to-future-self",
+    ogImage: "/static/og-images/og-letter-to-future-self.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="How to Write a Letter to Your Future Self | FutureReminder"
-        description="Explore reliable ways to send a message to your future self. Learn why calendar apps and physical notes fail and discover a system built for long-term reliability."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/letter-to-future-self"
         ogType="article"
-        ogImage="/og-images/og-letter-to-future-self.webp"
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="How can I write a letter or message to my future self?"

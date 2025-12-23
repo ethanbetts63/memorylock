@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const VaccineBoosters = () => {
+  const articleDetails = {
+    title: "Vaccine Boosters: What You Need and When",
+    description: "This article covers effectiveness duration for common vaccines that require boosters, including Tetanus. Learn why these boosters are essential and how to remember them.",
+    url: "https://www.futurereminder.app/articles/vaccine-boosters",
+    ogImage: "/static/og-images/og-vaccine-boosters.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="Vaccine Boosters: What You Need and When"
-        description="This article covers effectiveness duration for common vaccines that require boosters, including Tetanus. Learn why these boosters are essential and how to remember them."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/vaccine-boosters"
         ogType="article"
-        ogImage="/og-images/og-vaccine-boosters.webp"
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="Vaccine Boosters: What You Need and When"

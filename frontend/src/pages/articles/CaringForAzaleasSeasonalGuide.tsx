@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const CaringForAzaleasSeasonalGuide = () => {
+  const articleDetails = {
+    title: "When & How to Care for Azaleas (Seasonal Guide)",
+    description: "Azalea care depends heavily on bloom timing and root health. Pruning at the wrong time quickly removes next year’s display, so timing is critical.",
+    url: "https://www.futurereminder.app/articles/caring-for-azaleas-seasonal-guide",
+    ogImage: "/static/og-images/og-caring-for-azaleas-seasonal-guide.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="When & How to Care for Azaleas (Seasonal Guide)"
-        description="Azalea care depends heavily on bloom timing and root health. Pruning at the wrong time quickly removes next year’s display, so timing is critical."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/caring-for-azaleas-seasonal-guide"
         ogType="article"
-        ogImage="/og-images/og-caring-for-azaleas.webp" // <-- TODO: Add this OG image
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="When & How to Care for Azaleas (A Seasonal Guide)"

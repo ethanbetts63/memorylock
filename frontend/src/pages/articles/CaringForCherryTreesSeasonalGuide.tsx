@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const CaringForCherryTreesSeasonalGuide = () => {
+  const articleDetails = {
+    title: "When & How to Care for Cherry Trees (Seasonal Guide)",
+    description: "Cherry tree care hinges on timing and restraint. Pruning too late or too aggressively reduces blooms, increases disease risk, and weakens future harvests.",
+    url: "https://www.futurereminder.app/articles/caring-for-cherry-trees-seasonal-guide",
+    ogImage: "/static/og-images/og-caring-for-cherry-trees-seasonal-guide.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="When & How to Care for Cherry Trees (Seasonal Guide)"
-        description="Cherry tree care hinges on timing and restraint. Pruning too late or too aggressively reduces blooms, increases disease risk, and weakens future harvests."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/caring-for-cherry-trees-seasonal-guide"
         ogType="article"
-        ogImage="/og-images/og-caring-for-cherry-trees.webp" // <-- TODO: Add this OG image
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="When & How to Care for Cherry Trees (A Seasonal Guide)"

@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const CaringForAppleTreesSeasonalGuide = () => {
+  const articleDetails = {
+    title: "When & How to Care for Apple Trees (Seasonal Guide)",
+    description: "Apple tree care centers on well‑timed pruning and disease prevention. Pruning affects both airflow and future harvests, so timing is critical.",
+    url: "https://www.futurereminder.app/articles/caring-for-apple-trees-seasonal-guide",
+    ogImage: "/static/og-images/og-caring-for-apple-trees-seasonal-guide.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="When & How to Care for Apple Trees (Seasonal Guide)"
-        description="Apple tree care centers on well‑timed pruning and disease prevention. Pruning affects both airflow and future harvests, so timing is critical."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/caring-for-apple-trees-seasonal-guide"
         ogType="article"
-        ogImage="/og-images/og-caring-for-apple-trees.webp" 
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="When & How to Care for Apple Trees (A Seasonal Guide)"

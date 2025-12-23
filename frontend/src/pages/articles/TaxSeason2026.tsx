@@ -4,14 +4,53 @@ import { ArticleCarousel } from '../../components/ArticleCarousel';
 import Seo from '../../components/Seo';
 
 const TaxSeason2026 = () => {
+  const articleDetails = {
+    title: "Guide - Tax Season 2026 | FutureReminder",
+    description: "A country-by-country guide for tax dates, deadlines, penalties, and extensions for the USA, UK, Australia, New Zealand, and Canada.",
+    url: "https://www.futurereminder.app/articles/tax-season-2026",
+    ogImage: "/static/og-images/og-tax-season-2026.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="Guide - Tax Season 2026 | FutureReminder"
-        description="A country-by-country guide for tax dates, deadlines, penalties, and extensions for the USA, UK, Australia, New Zealand, and Canada."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/tax-season-2026"
         ogType="article"
-        ogImage={articleImage}
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="Guide - Tax Season 2026"

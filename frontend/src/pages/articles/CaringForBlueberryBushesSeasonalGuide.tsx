@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const CaringForBlueberryBushesSeasonalGuide = () => {
+  const articleDetails = {
+    title: "When & How to Care for Blueberry Bushes (Seasonal Guide)",
+    description: "Blueberries need acidic soil, regular pruning to renew fruiting wood, and consistent moisture. Pruning at the wrong time or neglecting soil pH are the fastest ways to reduce yields.",
+    url: "https://www.futurereminder.app/articles/caring-for-blueberry-bushes-seasonal-guide",
+    ogImage: "/static/og-images/og-caring-for-blueberry-bushes-seasonal-guide.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="When & How to Care for Blueberry Bushes (Seasonal Guide)"
-        description="Blueberries need acidic soil, regular pruning to renew fruiting wood, and consistent moisture. Pruning at the wrong time or neglecting soil pH are the fastest ways to reduce yields."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/caring-for-blueberry-bushes-seasonal-guide"
         ogType="article"
-        ogImage="/og-images/og-caring-for-blueberry-bushes.webp" // <-- TODO: Add this OG image
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="When & How to Care for Blueberry Bushes (A Seasonal Guide)"

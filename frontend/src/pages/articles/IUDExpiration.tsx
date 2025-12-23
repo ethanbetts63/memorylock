@@ -5,14 +5,53 @@ import Seo from '../../components/Seo';
 import { Link } from 'react-router-dom';
 
 const IUDExpiration = () => {
+  const articleDetails = {
+    title: "When do IUDs expire — and what happens after the label date?",
+    description: "Contraceptive implants are effective for 3-12 years depending on type. After expiration, effectiveness wanes gradually, and forgetting removal is common. Learn when to replace and how to remember.",
+    url: "https://www.futurereminder.app/articles/iud-expiration",
+    ogImage: "/static/og-images/og-iud-expiration.webp",
+    authorName: "The FutureReminder Team",
+    publisherName: "FutureReminder",
+    publisherLogoUrl: "https://www.futurereminder.app/static/logo_128_black.png",
+    datePublished: "2025-12-22T00:00:00Z",
+    dateModified: "2025-12-22T00:00:00Z",
+  };
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleDetails.url,
+    },
+    headline: articleDetails.title,
+    description: articleDetails.description,
+    image: `https://www.futurereminder.app${articleDetails.ogImage}`,
+    author: {
+      '@type': 'Person',
+      name: articleDetails.authorName,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: articleDetails.publisherName,
+      logo: {
+        '@type': 'ImageObject',
+        url: articleDetails.publisherLogoUrl,
+      },
+    },
+    datePublished: articleDetails.datePublished,
+    dateModified: articleDetails.dateModified,
+  };
+
   return (
     <>
       <Seo
-        title="When do IUDs expire — and what happens after the label date?"
-        description="Contraceptive implants are effective for 3-12 years depending on type. After expiration, effectiveness wanes gradually, and forgetting removal is common. Learn when to replace and how to remember."
+        title={articleDetails.title}
+        description={articleDetails.description}
         canonicalPath="/articles/iud-expiration"
         ogType="article"
-        ogImage="/og-images/og-iud-expiration.webp"
+        ogImage={articleDetails.ogImage}
+        structuredData={structuredData}
       />
       <ArticleLayout
         title="IUD & Implant Expiry: When, What and How to Remember"
