@@ -8,10 +8,10 @@ interface SeoProps {
   ogType?: 'website' | 'article';
   ogImage?: string;
   noindex?: boolean;
-  children?: React.ReactNode;
+  structuredData?: object;
 }
 
-const Seo: React.FC<SeoProps> = ({ title, description, canonicalPath, ogType = 'website', ogImage, noindex, children }) => {
+const Seo: React.FC<SeoProps> = ({ title, description, canonicalPath, ogType = 'website', ogImage, noindex, structuredData }) => {
   const siteUrl = 'https://www.futurereminder.app'; // This should ideally come from an environment variable
   const canonicalUrl = canonicalPath ? `${siteUrl}${canonicalPath}` : undefined;
   const imageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/static/square-image.jpg`; // Fallback image
@@ -37,8 +37,12 @@ const Seo: React.FC<SeoProps> = ({ title, description, canonicalPath, ogType = '
       {description && <meta name="twitter:description" content={description} />}
       <meta name="twitter:image" content={imageUrl} />
 
-      {/* Render children for additional tags like JSON-LD */}
-      {children}
+      {/* Render structured data if provided */}
+      {structuredData && (
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      )}
     </Helmet>
   );
 };
