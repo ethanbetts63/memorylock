@@ -3,7 +3,7 @@ import letterLasers from '../assets/lasers.webp';
 
 const TrustFeature: React.FC = () => {
   return (
-    <div className="bg-primary rounded-lg shadow-md overflow-hidden">
+    <div className="bg-primary rounded-none sm:rounded-lg shadow-md overflow-hidden">
       <div className="lg:grid lg:grid-cols-2">
         {/* Image Section */}
         <div 
@@ -14,7 +14,7 @@ const TrustFeature: React.FC = () => {
         </div>
         
         {/* Text Section */}
-        <div className="p-4 md:p-6 lg:p-8">
+        <div className="pt-4 pb-0 px-0 sm:p-4 md:p-6 lg:p-8">
           <h2 className="text-4xl lg:text-4xl font-bold mb-8 text-center">Built on reputation, not <span className="italic">data.</span></h2>
           <ul className="list-disc list-inside text-lg">
             <li className="mb-4"><strong>True Deletion:</strong> Industry standard account deletion means just disabling your account not deleting it. We cryptographically erase your data.</li>
