@@ -76,7 +76,7 @@ export async function resendVerificationEmail(): Promise<{ detail: string }> {
 // --- Legal Endpoints ---
 
 export async function getLatestTermsAndConditions(): Promise<TermsAndConditions> {
-    const response = await fetch('/api/terms/latest/');
+    const response = await fetch('/api/data/terms/latest/');
     return handleResponse(response);
 }
 
