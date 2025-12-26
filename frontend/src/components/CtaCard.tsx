@@ -85,7 +85,7 @@ export const CtaCard: React.FC = () => {
           </button>
         </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-4 sm:px-6">
         <div className="flex flex-col gap-4">
             <p className="text-center text-3xl font-bold mt-2">
               {currentTier.price}
