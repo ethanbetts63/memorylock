@@ -198,7 +198,7 @@ export const ArticleCarousel: React.FC<ArticleCarouselProps> = ({ exclude, showA
             <Link to="/articles" className="flex-shrink-0 w-80 h-48 group">
               <div className="relative w-full h-full bg-secondary rounded-xl shadow-md overflow-hidden transform transition-transform hover:-translate-y-1">
                 <div className="relative z-10 flex flex-col items-center justify-center h-full p-6 text-center text-secondary-foreground">
-                  <h3 className="text-2xl font-semibold">Click here to see all our blog posts</h3>
+                  <h3 className="text-2xl font-semibold">See more blog posts</h3>
                   <ArrowRight className="w-8 h-8 mt-2 group-hover:translate-x-2 transition-transform" />
                 </div>
               </div>
