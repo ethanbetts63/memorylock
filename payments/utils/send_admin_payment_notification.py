@@ -1,9 +1,6 @@
-import logging
+import requests
 from django.conf import settings
-from events.utils.send_reminder_email import send_reminder_email
-from events.utils.send_reminder_sms import send_reminder_sms
-
-logger = logging.getLogger(__name__)
+from twilio.rest import Client
 
 def send_admin_payment_notification(payment_id: str):
     """
@@ -19,31 +16,32 @@ def send_admin_payment_notification(payment_id: str):
     admin_number = settings.ADMIN_NUMBER
 
     if not all([admin_email, admin_number]):
-        logger.error(
+        print(
             f"Admin contact details (ADMIN_EMAIL, ADMIN_NUMBER) are not fully configured. "
             f"Cannot send payment notification for payment_id: {payment_id}."
         )
         return
 
     try:
-        # Send email to admin
-        logger.info(f"Sending payment success email to admin for payment_id: {payment_id}")
-        send_reminder_email(
-            recipient_email=admin_email,
-            subject=subject,
-            body=message
-        )
+        # Send email to admin directly via Mailgun
+        response = requests.post(
+            f"https://api.mailgun.net/v3/{settings.MAILGUN_DOMAIN}/messages",
+            auth=("api", settings.MAILGUN_API_KEY),
+            data={"from": settings.DEFAULT_FROM_EMAIL,
+                  "to": [admin_email],
+                  "subject": subject,
+                  "text": message})
+        response.raise_for_status()
 
-        # Send SMS to admin
-        logger.info(f"Sending payment success SMS to admin for payment_id: {payment_id}")
-        send_reminder_sms(
-            to_number=admin_number,
-            body=message
+        # Send SMS to admin directly via Twilio
+        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+        client.messages.create(
+            body=message,
+            messaging_service_sid=settings.TWILIO_MESSAGING_SERVICE_SID,
+            to=admin_number
         )
-        logger.info(f"Successfully sent admin payment notifications for payment_id: {payment_id}")
 
     except Exception as e:
-        logger.error(
-            f"An error occurred while sending admin payment notification for payment_id: {payment_id}. Error: {e}",
-            exc_info=True
+        print(
+            f"An error occurred while sending admin payment notification for payment_id: {payment_id}. Error: {e}"
         )
