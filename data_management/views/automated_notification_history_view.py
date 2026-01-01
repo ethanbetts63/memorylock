@@ -4,4 +4,4 @@ class AutomatedNotificationHistoryView(BaseAnalyticsView):
     """
     Provides time-series data for automated notifications.
     """
-    CHANNELS = ['primary_email', 'primary_sms', 'backup_email', 'backup_sms']
+    CHANNELS = ['primary_email', 'primary_sms', 'backup_email', 'backup_sms', 'emergency_contact']

@@ -4,4 +4,4 @@ class ManualNotificationHistoryView(BaseAnalyticsView):
     """
     Provides time-series data for manual notifications.
     """
-    CHANNELS = ['admin_call', 'social_media', 'emergency_contact']
+    CHANNELS = ['social_media']

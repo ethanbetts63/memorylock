@@ -94,8 +94,9 @@ class Notification(models.Model):
                 if recipient:
                     sid_or_success = send_reminder_sms(self, recipient)
             elif self.channel == 'emergency_contact':
-                recipient = self.user.emergency_contact_phone
-                if recipient:
+                emergency_contact = self.user.emergency_contacts.first()
+                if emergency_contact and emergency_contact.phone:
+                    recipient = emergency_contact.phone
                     sid_or_success = send_reminder_sms(self, recipient)
 
             if sid_or_success:
