@@ -53,14 +53,18 @@ class Command(BaseCommand):
             
             try:
                 # --- Channel and Recipient Routing ---
+                supported_channels = ['primary_email', 'backup_email', 'emergency_contact_email', 'primary_sms', 'backup_sms']
+                if n.channel not in supported_channels:
+                    raise NotImplementedError(f"Channel '{n.channel}' is not a supported sending channel.")
+
                 if n.channel == 'primary_email':
                     recipient = n.user.email
                 elif n.channel == 'backup_email':
                     recipient = n.user.backup_email
                 elif n.channel == 'primary_sms':
-                    recipient = n.user.phone_number
+                    recipient = n.user.phone
                 elif n.channel == 'backup_sms':
-                    recipient = n.user.backup_phone_number
+                    recipient = n.user.backup_phone
                 elif n.channel == 'emergency_contact_email':
                     contact = n.user.emergency_contacts.first()
                     if contact: recipient = contact.email
@@ -76,9 +80,7 @@ class Command(BaseCommand):
                     sid_or_success = send_reminder_email(n, recipient)
                 elif n.channel in ['primary_sms', 'backup_sms']:
                     sid_or_success = send_reminder_sms(n, recipient)
-                else:
-                    raise NotImplementedError(f"Channel '{n.channel}' is not a supported sending channel.")
-
+                
                 # --- Status Update ---
                 if sid_or_success:
                     n.status = 'sent'
