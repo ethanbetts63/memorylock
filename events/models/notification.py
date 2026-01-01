@@ -15,7 +15,7 @@ class Notification(models.Model):
         ('backup_email', 'Backup Email'),
         ('backup_sms', 'Backup SMS'),
         ('social_media', 'Social Media Outreach Task'),
-        ('emergency_contact', 'Emergency Contact Outreach'),
+        ('emergency_contact_email', 'Emergency Contact Email'),
     ]
 
     STATUS_CHOICES = [
@@ -31,7 +31,7 @@ class Notification(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='notifications')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='notifications')
     scheduled_send_time = models.DateTimeField(db_index=True)
-    channel = models.CharField(max_length=20, choices=CHANNEL_CHOICES)
+    channel = models.CharField(max_length=30, choices=CHANNEL_CHOICES)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending', db_index=True)
     
     recipient_contact_info = models.CharField(
@@ -93,11 +93,11 @@ class Notification(models.Model):
                 recipient = self.user.backup_phone_number
                 if recipient:
                     sid_or_success = send_reminder_sms(self, recipient)
-            elif self.channel == 'emergency_contact':
+            elif self.channel == 'emergency_contact_email':
                 emergency_contact = self.user.emergency_contacts.first()
-                if emergency_contact and emergency_contact.phone:
-                    recipient = emergency_contact.phone
-                    sid_or_success = send_reminder_sms(self, recipient)
+                if emergency_contact and emergency_contact.email:
+                    recipient = emergency_contact.email
+                    sid_or_success = send_reminder_email(self, recipient)
 
             if sid_or_success:
                 self.status = 'sent'

@@ -16,16 +16,11 @@ const hierarchyLevels = [
   },
   {
     level: 4,
-    title: 'Phone Calls',
-    description: "For when texts just don't ding loud enough, a phone call will be made to your primary number.",
-  },
-  {
-    level: 5,
     title: 'Emergency Contacts',
     description: 'Optionally, we can send additional email or SMS notifications to your trusted emergency contacts.',
   },
   {
-    level: 6,
+    level: 5,
     title: 'Socials',
     description: "If all else fails, admin will reach out to you manually via any social media platforms that you provided.",
   }
