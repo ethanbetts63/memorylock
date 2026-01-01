@@ -1,6 +1,3 @@
-The user prefers that I do not run npm or git commands or python manage.py runserver.
-Never use zod. 
-
 # Project Overview
 
 This project, named , is a web application designed to act as a highly persistent reminder service. The goal is to ensure users never miss critical, long-term events by using an escalating hierarchy of notifications.
@@ -11,7 +8,6 @@ The Django backend is structured into several dedicated apps: `users` for managi
 
 The frontend is a standard React application, which will provide the user interface for creating accounts, setting up events, and managing contact information.
 
-
 Sometimes a summary file must be created to document the work performed. This summary should cover all major changes, discussions, and decisions made during the session. If the users requests this document please make it as follows:
 
 -   **Location:** `C:\Users\ethan\coding\futurereminder\gemini_session_summaries\`
@@ -21,3 +17,5 @@ Sometimes a summary file must be created to document the work performed. This su
 - never run npm or runserver
 - do not ask to read files just read them. 
 - never run pytest on its own alway specify a dir or file. 
+- never use zod
+- always read the read me for the app you are working in. 

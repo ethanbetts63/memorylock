@@ -36,6 +36,7 @@ STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", "")
 EVENT_PRICE = 10.00
 SITE_URL = os.environ.get("SITE_URL")
 HASHING_SALT = os.environ.get("HASHING_SALT")
+ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "admin@example.com")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 

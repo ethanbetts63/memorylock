@@ -13,7 +13,7 @@ const ManualNotificationsPage: React.FC = () => {
         <div>
           <h1 className="text-3xl font-bold">Manual Notification Tasks</h1>
           <p className="text-muted-foreground mt-2">
-            History and forecast of scheduled vs. completed manual tasks (Admin Calls, Social Media, etc.).
+            History and forecast of scheduled vs. completed manual tasks (Social Media, etc.).
           </p>
         </div>
         <NotificationHistoryChart
