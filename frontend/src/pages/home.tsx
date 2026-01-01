@@ -4,21 +4,10 @@ import hero640 from '../assets/hero-640w.webp';
 import hero768 from '../assets/hero-768w.webp';
 import hero1024 from '../assets/hero-1024w.webp';
 import hero1280 from '../assets/hero-1280w.webp';
-import faqImage from '../assets/faq_image.webp';
-import faqImageLandscape from '../assets/faq_image_landscape.webp';
-import faqImage320 from '../assets/faq_image-320w.webp';
-import faqImage640 from '../assets/faq_image-640w.webp';
-import faqImage768 from '../assets/faq_image-768w.webp';
-import faqImage1024 from '../assets/faq_image-1024w.webp';
-import faqImage1280 from '../assets/faq_image-1280w.webp';
-import faqImageLandscape320 from '../assets/faq_image_landscape-320w.webp';
-import faqImageLandscape640 from '../assets/faq_image_landscape-640w.webp';
-import faqImageLandscape768 from '../assets/faq_image_landscape-768w.webp';
-import faqImageLandscape1024 from '../assets/faq_image_landscape-1024w.webp';
-import faqImageLandscape1280 from '../assets/faq_image_landscape-1280w.webp';
+
 import Seo from '../components/Seo';
 import { ProductCarousel } from '../components/ProductCarousel';
-import { Faq } from '../components/Faq';
+import { FaqV2 } from '../components/FaqV2';
 import { Letter } from '../components/Letter';
 import { CtaCard } from '../components/CtaCard';
 import { CreateEventLink } from '../components/CreateEventLink';
@@ -61,20 +50,6 @@ const HomePage = () => {
           <section className="lg:hidden">
             <CtaCard />
           </section>
-          <section className="bg-white text-gray-900 rounded-lg">
-            <div className="container mx-auto">
-              <Faq 
-                title="The Fine Print"
-                subtitle="(Plain English)"
-                page="home"
-                imageSrc={faqImage}
-                imageSrcLandscape={faqImageLandscape}
-                srcSet={`${faqImage320} 320w, ${faqImage640} 640w, ${faqImage768} 768w, ${faqImage1024} 1024w, ${faqImage1280} 1280w`}
-                srcSetLandscape={`${faqImageLandscape320} 320w, ${faqImageLandscape640} 640w, ${faqImageLandscape768} 768w, ${faqImageLandscape1024} 1024w, ${faqImageLandscape1280} 1280w`}
-                imageAlt="Abstract image representing frequently asked questions"
-              />
-            </div>
-          </section>
         </div>
 
         {/* Sticky Sidebar Column (1/3 width) */}
@@ -85,6 +60,11 @@ const HomePage = () => {
         </aside>
 
       </div>
+      <section className="mb-16">
+        <FaqV2
+          title="Questions? We have answers."
+        />
+      </section>
       <div className="mt-16" id="blog">
         <ArticleCarousel />
       </div>
