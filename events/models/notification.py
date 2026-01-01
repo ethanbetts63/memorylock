@@ -14,7 +14,6 @@ class Notification(models.Model):
         ('primary_sms', 'Primary SMS'),
         ('backup_email', 'Backup Email'),
         ('backup_sms', 'Backup SMS'),
-        ('admin_call', 'Admin Call Task'),
         ('social_media', 'Social Media Outreach Task'),
         ('emergency_contact', 'Emergency Contact Outreach'),
     ]
@@ -92,6 +91,10 @@ class Notification(models.Model):
                     sid_or_success = send_reminder_sms(self, recipient)
             elif self.channel == 'backup_sms':
                 recipient = self.user.backup_phone_number
+                if recipient:
+                    sid_or_success = send_reminder_sms(self, recipient)
+            elif self.channel == 'emergency_contact':
+                recipient = self.user.emergency_contact_phone
                 if recipient:
                     sid_or_success = send_reminder_sms(self, recipient)
 

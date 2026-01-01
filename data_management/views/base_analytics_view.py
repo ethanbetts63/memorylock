@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAdminUser
 from django.utils import timezone
-from datetime import timedelta, date
+from datetime import timedelta
 from collections import defaultdict
 from django.db.models.functions import TruncDate
 from django.db.models import Count
@@ -12,12 +12,12 @@ from events.models import Notification
 class BaseAnalyticsView(APIView):
     """
     Base class for notification analytics views to share common logic.
+    Provides time-series data for scheduled, sent, delivered, and failed notifications.
     """
     permission_classes = [IsAdminUser]
 
     # To be defined by subclasses
     CHANNELS = []
-    COMPLETED_STATUSES = []
 
     def get(self, request, *args, **kwargs):
         # 1. Determine date range
@@ -39,29 +39,48 @@ class BaseAnalyticsView(APIView):
         if latest_pending:
             end_date = latest_pending.scheduled_send_time.date() + timedelta(days=7)
 
-        # 2. Get "scheduled" counts
+        date_range = [start_date, end_date]
+
+        # 2. Get counts for each status, grouped by day
         scheduled_counts = Notification.objects.filter(
             channel__in=self.CHANNELS,
-            scheduled_send_time__date__range=[start_date, end_date]
+            scheduled_send_time__date__range=date_range
         ).annotate(day=TruncDate('scheduled_send_time')).values('day').annotate(count=Count('id')).order_by('day')
 
-        # 3. Get "completed" counts
-        completed_counts = Notification.objects.filter(
+        sent_counts = Notification.objects.filter(
             channel__in=self.CHANNELS,
-            status__in=self.COMPLETED_STATUSES,
-            updated_at__date__range=[start_date, end_date]
+            status='sent',
+            updated_at__date__range=date_range
         ).annotate(day=TruncDate('updated_at')).values('day').annotate(count=Count('id')).order_by('day')
         
-        # 4. Combine and format the data
-        chart_data = defaultdict(lambda: {'scheduled': 0, 'completed': 0})
+        delivered_counts = Notification.objects.filter(
+            channel__in=self.CHANNELS,
+            status='delivered',
+            updated_at__date__range=date_range
+        ).annotate(day=TruncDate('updated_at')).values('day').annotate(count=Count('id')).order_by('day')
+
+        error_counts = Notification.objects.filter(
+            channel__in=self.CHANNELS,
+            status='failed',
+            updated_at__date__range=date_range
+        ).annotate(day=TruncDate('updated_at')).values('day').annotate(count=Count('id')).order_by('day')
+        
+        # 3. Combine and format the data
+        chart_data = defaultdict(lambda: {'scheduled': 0, 'sent': 0, 'delivered': 0, 'errors': 0})
 
         for item in scheduled_counts:
             chart_data[item['day']]['scheduled'] = item['count']
+        
+        for item in sent_counts:
+            chart_data[item['day']]['sent'] = item['count']
 
-        for item in completed_counts:
-            chart_data[item['day']]['completed'] = item['count']
+        for item in delivered_counts:
+            chart_data[item['day']]['delivered'] = item['count']
 
-        # 5. Format for the chart
+        for item in error_counts:
+            chart_data[item['day']]['errors'] = item['count']
+
+        # 4. Format for the chart response
         response_data = []
         current_date = start_date
         while current_date <= end_date:
@@ -69,7 +88,9 @@ class BaseAnalyticsView(APIView):
             response_data.append({
                 'date': current_date.strftime('%Y-%m-%d'),
                 'scheduled': data_point['scheduled'],
-                'completed': data_point['completed'],
+                'sent': data_point['sent'],
+                'delivered': data_point['delivered'],
+                'errors': data_point['errors'],
             })
             current_date += timedelta(days=1)
 
