@@ -23,7 +23,7 @@ This model represents a single, scheduled communication to be sent for a specifi
 *   **Links:** Foreign keys to both `Event` and `User`.
 *   **Scheduling:** `scheduled_send_time` stores the exact time the notification is due.
 *   **Channel:** A choice field indicating the delivery method (e.g., `primary_email`, `primary_sms`, `emergency_contact_email`).
-*   **Status:** Tracks the full lifecycle of the notification (`pending`, `in_progress`, `sent`, `delivered`, `failed`).
+*   **Status:** Tracks the full lifecycle of the notification (`pending`, `sent`, `delivered`, `failed`). The `in_progress` status has been removed as the new process is atomic.
 *   **Provider SID:** `message_sid` stores the unique ID from the provider (e.g., Twilio, Mailgun) after a message is successfully sent. This is our tracking number.
 *   **Failure Logging:** `failure_reason` stores the error message if a notification fails at any stage, providing crucial data for debugging.
 *   **PII Cache:** `recipient_contact_info` stores a copy of the contact detail used at the moment of sending.
@@ -35,23 +35,37 @@ The core logic for scheduling is located in the `events/utils/schedule_notificat
 
 1.  **Trigger:** The process is initiated whenever an `Event` is saved (e.g., upon creation, update, or activation).
 2.  **Cleanup:** The utility first deletes all existing `pending` notifications for the event to ensure a clean slate.
-3.  **Manifest Lookup:** It retrieves the notification schedule (the "manifest") directly from the `manifest` field of the event's associated `Tier` object (`event.tier.manifest`). A manifest is an ordered list of notification channel strings (e.g., `['primary_email', 'primary_sms', 'emergency_contact_email']`). The order defines the escalation path. This approach allows schedules to be managed dynamically in the database.
+3.  **Manifest Lookup:** It retrieves the notification schedule (the "manifest") from the `manifest` field of the event's associated `Tier` object (`event.tier.manifest`). A manifest is an ordered list of notification channel strings (e.g., `['primary_email', 'primary_sms', 'emergency_contact_email']`). The order defines the escalation path. This approach allows schedules to be managed dynamically in the database.
 4.  **Interval Calculation:** The system calculates an even time interval by dividing the total duration (from `notification_start_date` to `event_date`) by the number of notifications in the manifest.
 5.  **Creation:** It then iterates through the manifest, creating a `Notification` object for each channel, with the `scheduled_send_time` staggered by the calculated interval. All new notifications have a status of `pending`.
 
-### Notification Sending: A Closed-Loop System
-The actual sending of notifications is a robust, closed-loop process designed for reliability and tracking. It is handled by the `send_notifications` management command, which is intended to be run on a recurring schedule (e.g., daily).
+### Notification Sending: A Centralized Service Approach
+The architecture has been refactored to a "fat service" model where all sending logic is centralized in a single management command. This simplifies the flow and removes business logic from the model layer. The `Notification.send()` method has been removed.
 
-1.  **Query & Lock:** The command queries the database for `pending` notifications that are past their `scheduled_send_time`. To prevent race conditions, it immediately locks this batch of notifications by updating their status to `in_progress`.
-2.  **Dispatch via `Notification.send()`:** The command iterates through the claimed notifications and calls the `.send()` method on each one. This method acts as a dispatcher:
-    *   It reads the notification's own `channel`.
-    *   It calls the appropriate utility function (`send_reminder_email` for Mailgun, `send_reminder_sms` for Twilio).
-    *   The `send` method is wrapped in a `try...except` block. If the API call fails at this stage, the exception is caught, the `status` is set to `failed`, and the error is logged in the `failure_reason` field.
-3.  **API Call & Callback:** The sending utility (e.g., `send_reminder_sms`) makes the API call to the external provider. It includes a `StatusCallback` URL pointing back to our application's webhook endpoint. If the call is successful, the provider returns a unique `message_sid`, which is saved on the `Notification` object, and the status is updated to `sent`.
-4.  **Webhook Feedback Loop:** When the final delivery status is known, the provider makes a POST request to our callback URL (`/api/events/webhooks/twilio/status/`).
-    *   A dedicated webhook view receives this request.
-    *   It uses the `message_sid` from the request data to find the corresponding `Notification`.
-    *   It updates the notification's `status` to its final state, either `delivered` or `failed`. If it failed, the `failure_reason` is updated with the error code from the provider.
+1.  **Central Command:** The `data_management/management/commands/process_notifications.py` command is the single point of entry for all notification sending. It is designed to be run as a periodic task (e.g., a daily cron job).
+2.  **Query:** The command queries the database for all notifications that are due (`scheduled_send_time` is in the past) and have a status of `pending` or `failed`. This allows the system to automatically retry failed notifications.
+3.  **Dispatch:** For each notification, the command inspects the `channel` field.
+    *   It retrieves the correct recipient information (e.g., user's primary email, backup phone number).
+    *   It calls the appropriate sending utility (e.g., `send_reminder_email`, `send_reminder_sms`).
+    *   If a channel is not supported (i.e., no sending logic is defined for it), the notification is marked as `failed` with an appropriate reason.
+4.  **Atomic Update:** The sending utility attempts to make the API call.
+    *   If successful, it returns the provider's message ID. The notification `status` is immediately updated to `sent` and the `message_sid` is saved.
+    *   If the API call fails, the exception is caught, and the `status` is updated to `failed` with the error message logged in `failure_reason`. The entire operation is atomic for each notification.
+5.  **Webhook Feedback Loop:** The webhook process remains the same. External providers call our webhook endpoints to provide final delivery status updates (`delivered` or `failed`), which are looked up by `message_sid`.
+
+## End-to-End Testing
+To ensure the entire notification pipeline works correctly with live credentials, a dedicated end-to-end test command is provided.
+
+**Command:** `python manage.py run_e2e_notification_test`
+
+**Functionality:**
+1.  **Safety Check:** First, it verifies that `DEBUG` is `True` in the settings to prevent it from ever running in a production environment.
+2.  **Setup:** It creates a test `User` and an associated `Event` using the "Full Escalation" tier. It populates the user with backup and emergency contact details.
+3.  **Simulation:** It simulates the passage of 15 days, calling the `process_notifications` command once for each day to mimic a real-world cron job.
+4.  **Reporting:** After the simulation, it prints a final report showing the status of every notification that was scheduled.
+5.  **Cleanup:** Finally, it deletes the test `User`, which cascades to delete the `Event` and all associated `Notification` objects, leaving the database clean.
+
+This command provides a true E2E validation of the system, from event creation to sending real emails and SMS messages via the configured providers.
 
 ## API Endpoints
 
