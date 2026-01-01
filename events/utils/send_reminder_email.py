@@ -1,11 +1,13 @@
 import requests
+import json
 from django.template.loader import render_to_string
 from django.conf import settings
 from data_management.models import BlockedEmail
 from data_management.views.add_to_blocklist_view import signer # Import the signer
+from typing import Union
 
 
-def send_reminder_email(notification: 'Notification', recipient_address: str) -> bool:
+def send_reminder_email(notification: 'Notification', recipient_address: str) -> Union[str, bool]:
     """
     Sends a single event reminder email based on a Notification object using Mailgun API.
 
@@ -17,7 +19,7 @@ def send_reminder_email(notification: 'Notification', recipient_address: str) ->
         recipient_address: The email address to send the reminder to.
 
     Returns:
-        True if the email was sent successfully, False otherwise.
+        The message ID if the email was sent successfully, False otherwise.
     """
     from ..models import Notification
     # --- Blocklist Check ---
@@ -26,7 +28,6 @@ def send_reminder_email(notification: 'Notification', recipient_address: str) ->
         return False # Returning False because the email was not sent.
     
     if not notification.user or not notification.event or not recipient_address:
-        # Cannot send an email without context or a recipient.
         return False
 
     try:
@@ -43,7 +44,7 @@ def send_reminder_email(notification: 'Notification', recipient_address: str) ->
             'event': notification.event,
             'acknowledgement_url': acknowledgement_url,
             'site_url': settings.SITE_URL,
-            'unsubscribe_url': unsubscribe_url, # Add to context
+            'unsubscribe_url': unsubscribe_url,
         }
 
         # 4. Render the HTML and plain text templates
@@ -54,7 +55,10 @@ def send_reminder_email(notification: 'Notification', recipient_address: str) ->
         html_content = render_to_string(html_template, context)
         text_content = render_to_string(txt_template, context)
 
-        # 5. Send the email using Mailgun API
+        # 5. Prepare webhook data
+        webhook_data = {'notification_id': notification.pk}
+
+        # 6. Send the email using Mailgun API
         response = requests.post(
             f"https://api.mailgun.net/v3/{settings.MAILGUN_DOMAIN}/messages",
             auth=("api", settings.MAILGUN_API_KEY),
@@ -62,17 +66,20 @@ def send_reminder_email(notification: 'Notification', recipient_address: str) ->
                   "to": [recipient_address],
                   "subject": subject,
                   "text": text_content,
-                  "html": html_content})
+                  "html": html_content,
+                  "h:X-Mailgun-Variables": json.dumps(webhook_data)})
 
-        # Check for a successful response
-        if response.status_code == 200:
-            return True
-        else:
-            # Log error from Mailgun
-            print(f"Failed to send email for Notification {notification.pk}. Mailgun API responded with {response.status_code}: {response.text}")
-            return False
+        response.raise_for_status() # Raise an HTTPError for bad responses (4xx or 5xx)
+
+        response_json = response.json()
+        message_id = response_json.get('id')
+
+        # Mailgun message IDs are often enclosed in <>. We strip them for cleaner storage.
+        if message_id:
+            return message_id.strip('<>')
+        
+        return False
 
     except Exception as e:
-        # It's good practice to log this error. For now, we'll print it.
-        print(f"Failed to send email for Notification {notification.pk}. Error: {e}")
-        return False
+        # Re-raise the exception to be handled by the Notification.send() method
+        raise e

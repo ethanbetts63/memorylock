@@ -21,8 +21,10 @@ class Notification(models.Model):
 
     STATUS_CHOICES = [
         ('pending', 'Pending'),
+        ('in_progress', 'In Progress'),
         ('sent', 'Sent'),
         ('failed', 'Failed'),
+        ('delivered', 'Delivered'),
         ('completed', 'Completed'),
         ('cancelled', 'Cancelled'),
     ]
@@ -31,14 +33,28 @@ class Notification(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='notifications')
     scheduled_send_time = models.DateTimeField(db_index=True)
     channel = models.CharField(max_length=20, choices=CHANNEL_CHOICES)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending', db_index=True)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending', db_index=True)
     
-    # This will be populated with the contact info that was used at the time of sending.
     recipient_contact_info = models.CharField(
         max_length=255,
         help_text="The contact info used for sending. Populated after the notification is sent.",
         null=True,
         blank=True
+    )
+
+    message_sid = models.CharField(
+        max_length=40, 
+        null=True, 
+        blank=True, 
+        unique=True, 
+        db_index=True,
+        help_text="The unique identifier for the message from the provider (e.g., Twilio SID)."
+    )
+
+    failure_reason = models.TextField(
+        null=True, 
+        blank=True,
+        help_text="Reason for failure, captured from provider or sending exception."
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -49,39 +65,50 @@ class Notification(models.Model):
 
     def send(self):
         """
-
         Sends the notification based on its channel.
-        Updates the notification status to 'sent' or 'failed'.
+        Updates status, saves message_sid on success, and logs exceptions on failure.
         """
         if self.status != 'pending':
-            return # Don't send notifications that are not pending
+            return
 
-        sent = False
+        self.status = 'in_progress'
+        self.save()
+
+        sid_or_success = None
         recipient = None
 
-        if self.channel == 'primary_email':
-            recipient = self.user.email
-            if recipient:
-                sent = send_reminder_email(self, recipient)
-        elif self.channel == 'backup_email':
-            recipient = self.user.backup_email
-            if recipient:
-                sent = send_reminder_email(self, recipient)
-        elif self.channel == 'primary_sms':
-            recipient = self.user.phone_number
-            if recipient:
-                sent = send_reminder_sms(self, recipient)
-        elif self.channel == 'backup_sms':
-            recipient = self.user.backup_phone_number
-            if recipient:
-                sent = send_reminder_sms(self, recipient)
-        # Add other channels here in the future (admin calls, etc.)
-        
-        if sent:
-            self.status = 'sent'
-            self.recipient_contact_info = recipient
-        else:
+        try:
+            if self.channel == 'primary_email':
+                recipient = self.user.email
+                if recipient:
+                    sid_or_success = send_reminder_email(self, recipient)
+            elif self.channel == 'backup_email':
+                recipient = self.user.backup_email
+                if recipient:
+                    sid_or_success = send_reminder_email(self, recipient)
+            elif self.channel == 'primary_sms':
+                recipient = self.user.phone_number
+                if recipient:
+                    sid_or_success = send_reminder_sms(self, recipient)
+            elif self.channel == 'backup_sms':
+                recipient = self.user.backup_phone_number
+                if recipient:
+                    sid_or_success = send_reminder_sms(self, recipient)
+
+            if sid_or_success:
+                self.status = 'sent'
+                self.recipient_contact_info = recipient
+                # For SMS, this will be the SID. For email, it might just be True.
+                if isinstance(sid_or_success, str):
+                    self.message_sid = sid_or_success
+            else:
+                self.status = 'failed'
+                if not self.failure_reason: # Don't overwrite a reason if one was already logged
+                    self.failure_reason = "Sending function returned a falsy value."
+
+        except Exception as e:
             self.status = 'failed'
+            self.failure_reason = str(e)
         
         self.save()
 
@@ -89,4 +116,5 @@ class Notification(models.Model):
         ordering = ['scheduled_send_time']
         indexes = [
             models.Index(fields=['status', 'scheduled_send_time']),
+            models.Index(fields=['message_sid']),
         ]
