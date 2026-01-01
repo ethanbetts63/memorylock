@@ -20,13 +20,25 @@ class Command(BaseCommand):
         self.stdout.write(self.style.WARNING("--- Step 1: Safety Check ---"))
         if not settings.DEBUG:
             raise CommandError("This command can only be run in a DEBUG environment. Aborting.")
-        self.stdout.write(self.style.SUCCESS("DEBUG is True. Proceeding."))
+        self.stdout.write(self.style.SUCCESS(f"DEBUG is True. Proceeding."))
 
         # 2. --- Test Setup ---
         self.stdout.write(self.style.WARNING("\n--- Step 2: Test Setup ---"))
+
+        # Ensure the Admin user exists so tasks can be assigned
+        admin_email = settings.ADMIN_EMAIL
+        if not admin_email:
+            raise CommandError("ADMIN_EMAIL setting is not configured.")
+        admin_user, admin_created = User.objects.get_or_create(
+            email=admin_email,
+            defaults={'username': admin_email.split('@')[0], 'is_staff': True, 'is_superuser': True}
+        )
+        if admin_created:
+            self.stdout.write(f"Admin user '{admin_email}' created.")
         
-        user_email = "nahte12321@gmail.com"
-        user_phone = "+4591749128"
+        # Prepare the test user and event
+        user_email = "ethanbetts63@gmail.com"
+        user_phone = settings.TWILIO_PHONE_NUMBER # Send to self for testing
 
         user, created = User.objects.get_or_create(
             username=user_email,

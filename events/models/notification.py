@@ -20,12 +20,12 @@ class Notification(models.Model):
 
     STATUS_CHOICES = [
         ('pending', 'Pending'),
-        ('in_progress', 'In Progress'),
         ('sent', 'Sent'),
         ('failed', 'Failed'),
         ('delivered', 'Delivered'),
         ('completed', 'Completed'),
         ('cancelled', 'Cancelled'),
+        ('admin_task_created', 'Admin Task Created'),
     ]
 
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='notifications')
@@ -61,6 +61,29 @@ class Notification(models.Model):
 
     def __str__(self):
         return f"Notification for {self.event.name} to {self.user.email} via {self.get_channel_display()} on {self.scheduled_send_time}"
+
+    def save(self, *args, **kwargs):
+        # --- Handle Social Media Task Creation ---
+        # On the first save of a 'social_media' notification, intercept it,
+        # create the admin tasks, and update the status.
+        if self._state.adding and self.channel == 'social_media':
+            # Local import to prevent circular dependency
+            from ..utils.create_admin_tasks_for_notification import create_admin_tasks_for_notification
+            
+            try:
+                tasks_created = create_admin_tasks_for_notification(self)
+                if tasks_created > 0:
+                    self.status = 'admin_task_created'
+                    self.failure_reason = f"Successfully generated {tasks_created} admin task(s)."
+                else:
+                    self.status = 'failed'
+                    self.failure_reason = "User has no social media handles specified."
+            except Exception as e:
+                # Catch exceptions from the utility (e.g., Admin user not found)
+                self.status = 'failed'
+                self.failure_reason = f"Failed to create admin tasks: {e}"
+
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['scheduled_send_time']

@@ -4,10 +4,7 @@ from django.db.models import Q
 from events.models import Notification
 from events.utils.send_reminder_email import send_reminder_email
 from events.utils.send_reminder_sms import send_reminder_sms
-import logging
 from datetime import datetime
-
-logger = logging.getLogger('data_management')
 
 class Command(BaseCommand):
     help = 'Processes all pending or failed notifications that are due to be sent.'
@@ -73,9 +70,6 @@ class Command(BaseCommand):
                     raise ValueError(f"No recipient address found for channel '{n.channel}'.")
 
                 # --- Sending Logic ---
-                n.status = 'in_progress'
-                n.save(update_fields=['status'])
-
                 if n.channel in ['primary_email', 'backup_email', 'emergency_contact_email']:
                     sid_or_success = send_reminder_email(n, recipient)
                 elif n.channel in ['primary_sms', 'backup_sms']:
@@ -85,7 +79,7 @@ class Command(BaseCommand):
                 if sid_or_success:
                     n.status = 'sent'
                     n.recipient_contact_info = recipient
-                    if isinstance(sid_or_success, str): # SMS returns a SID
+                    if isinstance(sid_or_success, str): # SMS/Email returns a message ID
                         n.message_sid = sid_or_success
                     n.failure_reason = None # Clear previous failure reason
                     n.save(update_fields=['status', 'recipient_contact_info', 'message_sid', 'failure_reason'])
