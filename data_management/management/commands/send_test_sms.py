@@ -15,13 +15,12 @@ class Command(BaseCommand):
 
         # The send_reminder_sms function requires a Notification object, which in turn
         # requires a User and an Event. We can use mock objects for these to avoid
-        -        # creating database entries just for a test.
         # create mock objects to satisfy the function signature
         mock_user = MagicMock(spec=User)
         mock_user.email = 'test@example.com'
 
         mock_event = MagicMock(spec=Event)
-        mock_event.name = 'Test Event for SMS'
+        mock_event.name = 'Sample FutureReminder Event'
         mock_event.date = '2025-01-01'
 
         mock_notification = MagicMock(spec=Notification)

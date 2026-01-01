@@ -1,9 +1,9 @@
 import os
 from twilio.rest import Client
 from django.conf import settings
-from ..models import Notification
 
-def send_reminder_sms(notification: Notification, recipient_phone_number: str) -> bool:
+
+def send_reminder_sms(notification: 'Notification', recipient_phone_number: str) -> bool:
     """
     Sends a single event reminder SMS based on a Notification object using Twilio API.
 
@@ -16,20 +16,21 @@ def send_reminder_sms(notification: Notification, recipient_phone_number: str) -
     Returns:
         True if the SMS was sent successfully, False otherwise.
     """
+    from ..models import Notification
     if not notification.user or not notification.event or not recipient_phone_number:
         # Cannot send an SMS without context or a recipient.
         return False
 
     try:
-        # 1. Construct the message
-        message_body = f"Reminder: {notification.event.name} on {notification.event.date}. More info at {settings.SITE_URL}"
+        # 1. Construct the message To OPT-OUT visit {settings.SITE_URL}
+        message_body = f"Reminder from FutureReminder: {notification.event.name} on {notification.event.date}."
 
         # 2. Send the SMS using Twilio API
         client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
 
         message = client.messages.create(
             body=message_body,
-            from_=settings.TWILIO_PHONE_NUMBER,
+            messaging_service_sid=settings.TWILIO_MESSAGING_SERVICE_SID,
             to=recipient_phone_number
         )
 

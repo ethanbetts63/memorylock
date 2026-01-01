@@ -3,9 +3,9 @@ from django.template.loader import render_to_string
 from django.conf import settings
 from data_management.models import BlockedEmail
 from data_management.views.add_to_blocklist_view import signer # Import the signer
-from ..models import Notification
 
-def send_reminder_email(notification: Notification, recipient_address: str) -> bool:
+
+def send_reminder_email(notification: 'Notification', recipient_address: str) -> bool:
     """
     Sends a single event reminder email based on a Notification object using Mailgun API.
 
@@ -19,6 +19,7 @@ def send_reminder_email(notification: Notification, recipient_address: str) -> b
     Returns:
         True if the email was sent successfully, False otherwise.
     """
+    from ..models import Notification
     # --- Blocklist Check ---
     if BlockedEmail.objects.filter(email=recipient_address).exists():
         print(f"Email to {recipient_address} suppressed because it is on the blocklist.")
