@@ -53,11 +53,15 @@ export const FaqV2: React.FC<FaqV2Props> = ({ title }) => {
                         }`}
                     />
                   </div>
-                  {openIndex === index && (
-                    <div className="px-6 pb-6">
-                      <p className="text-gray-600">{faq.answer}</p>
+                  <div
+                    className={`overflow-hidden transition-all ease-in-out duration-500 ${
+                      openIndex === index ? 'max-h-96' : 'max-h-0'
+                    }`}
+                  >
+                    <div className="px-6 pb-6 pt-2">
+                      <p className="text-gray-600 text-lg">{faq.answer}</p>
                     </div>
-                  )}
+                  </div>
                 </CardContent>
               </Card>
             </div>
