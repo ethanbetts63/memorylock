@@ -21,7 +21,7 @@ def send_reminder_sms(notification: 'Notification', recipient_phone_number: str)
 
     try:
         # 1. Construct the message
-        message_body = f"Reminder from FutureReminder: {notification.event.name} on {notification.event.date}."
+        message_body = f"Reminder from FutureReminder: {notification.event.name} on {notification.event.event_date}."
         
         # 2. Construct the full webhook URL
         status_callback_url = f"{settings.SITE_URL}/api/webhooks/twilio/status/"

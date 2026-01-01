@@ -42,7 +42,7 @@ class Notification(models.Model):
     )
 
     message_sid = models.CharField(
-        max_length=40, 
+        max_length=255, 
         null=True, 
         blank=True, 
         unique=True, 

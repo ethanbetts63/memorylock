@@ -66,8 +66,9 @@ class Event(models.Model):
         if self.event_date and self.weeks_in_advance is not None:
             self.notification_start_date = self.event_date - timedelta(weeks=self.weeks_in_advance)
         
-        # Data integrity check for paid, active events
-        if self.tier:
+        # Only run this validation on updates, not on creation, to avoid a ValueError
+        # when accessing a reverse relationship before the object has a PK.
+        if not self._state.adding and self.tier:
             # A tier is considered "paid" if it has an active, one-time price > 0.
             is_paid_tier = self.tier.prices.filter(
                 is_active=True,

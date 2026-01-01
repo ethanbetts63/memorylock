@@ -1,12 +1,12 @@
-import os
 from datetime import timedelta
 from django.core.management.base import BaseCommand, CommandError
 from django.core.management import call_command
 from django.utils import timezone
 from django.conf import settings
-from users.models import User
+from users.models import User, EmergencyContact
 from payments.models import Tier
 from events.models import Event, Notification
+
 
 class Command(BaseCommand):
     help = 'Runs a full end-to-end test of the notification system, sending real emails and texts.'
@@ -34,10 +34,23 @@ class Command(BaseCommand):
         )
         user.phone = user_phone
         user.backup_phone = user_phone # Using same for simplicity
+        user.backup_email = "nahte12321@gmail.com"
         user.is_email_verified = True
         user.save()
         
         self.stdout.write(f"User '{user.email}' prepared.")
+
+        # Create an emergency contact for the user
+        EmergencyContact.objects.update_or_create(
+            user=user,
+            email="ethan.betts.dev@gmail.com",
+            defaults={
+                'first_name': 'Dev',
+                'last_name': 'Contact',
+                'phone': '+15559876543'
+            }
+        )
+        self.stdout.write(f"Emergency contact created.")
 
         try:
             tier = Tier.objects.get(name="Full Escalation")
