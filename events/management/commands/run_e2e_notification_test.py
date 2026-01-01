@@ -51,7 +51,7 @@ class Command(BaseCommand):
             user=user,
             tier=tier,
             name="E2E Test Event",
-            description="This is an automated end-to-end test event.",
+            notes="This is an automated end-to-end test event.",
             event_date=event_date,
             is_active=True
         )
@@ -91,4 +91,9 @@ class Command(BaseCommand):
             if n.status == 'failed':
                  self.stdout.write(self.style.ERROR(f"    - Reason: {n.failure_reason}"))
         
+        # 6. --- Cleanup ---
+        self.stdout.write(self.style.WARNING("\n--- Step 6: Cleanup ---"))
+        user.delete()
+        self.stdout.write(self.style.SUCCESS(f"User '{user.email}' and all associated test data have been deleted."))
+
         self.stdout.write(self.style.SUCCESS("\nEnd-to-end test command finished."))
