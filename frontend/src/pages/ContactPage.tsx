@@ -1,4 +1,5 @@
 import React from 'react';
+import heroImage from '../assets/hero.webp';
 import { Hero } from '../components/Hero';
 import ContactDetails from '../components/ContactDetails';
 import OtherSites from '../components/OtherSites';
@@ -56,7 +57,7 @@ const ContactPage: React.FC = () => {
             <Hero
                 title="Contact Us"
                 subtitle={description}
-                imageSrc="/src/assets/postnotes-1280w.webp"
+                imageSrc={heroImage}
                 imageAlt="A pin up board of postnotes with various reminder icons"
             />
             
