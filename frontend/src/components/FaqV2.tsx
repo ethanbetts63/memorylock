@@ -74,10 +74,10 @@ export const FaqV2: React.FC<FaqV2Props> = ({ title }) => {
                 <Card className="bg-white text-gray-900 rounded-lg shadow-md">
                   <CardContent className="p-0">
                     <div
-                      className="flex justify-between items-center p-6 cursor-pointer"
+                      className="flex justify-between items-center p-4 cursor-pointer"
                       onClick={() => toggleFaq(index)}
                     >
-                      <h3 className="text-2xl font-semibold text-black">{faq.question}</h3>
+                      <h3 className="text-xl font-semibold text-black">{faq.question}</h3>
                       <ChevronDown
                         className={`h-6 w-6 text-gray-500 transition-transform duration-300 ${openIndex === index ? 'transform rotate-180' : ''
                           }`}
